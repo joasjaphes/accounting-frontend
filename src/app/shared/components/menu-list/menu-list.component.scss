@@ -1,0 +1,24 @@
+@import '../../../../styles-variables.scss';
+
+.main-container {
+  display: grid;
+  grid-gap: 15px 15px;
+  /* autoprefixer: off */
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  margin: 15px;
+}
+
+.single-menu {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.single-menu:hover {
+  border-bottom: 3px solid $accounting-primary-color;
+  border-radius: 10px;
+}
+
+.single-menu-content {
+  padding: 50px;
+  text-align: center;
+}

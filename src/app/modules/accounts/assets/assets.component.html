@@ -1,0 +1,5 @@
+<accounting-page-layout [icon]="'asset.png'" [title]="'Assets'" [showAdd]="true" (add)="onAdd()" [menus]="menus">
+    <ng-container ngProjectAs="page-content">
+        <accounting-accounts-list [data]="accounts$ | async" (update)="onUpdate($event)"></accounting-accounts-list>
+    </ng-container>
+</accounting-page-layout>

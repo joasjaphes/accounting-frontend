@@ -1,0 +1,16 @@
+@import '../../styles-variables.scss';
+
+.content-container {
+    height: 100vh;
+    vertical-align: middle;
+    // background-color: $accounting-primary-color;
+}
+
+.registration-form-container {
+    // background-color: white;
+    padding: 10px;
+    // opacity: 0.9;
+    // border-radius: 20px;
+    height: fit-content;
+    width: 50%;
+}

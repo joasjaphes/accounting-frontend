@@ -1,0 +1,78 @@
+<accounting-dialog-layout [title]="'User Profile'">
+  <ng-container ngProjectAs="page-content">
+    <div style="padding: 10px;">
+      <div align="center" class="mt-2">
+        <div>
+          <img
+            class="profile-img"
+            [src]="profilePictureUrl$ | async"
+            height="100px"
+            width="100px"
+            alt=""
+            (click)="fileUploader.click()"
+            [title]="'Click to change'"
+          />
+        </div>
+        <div class="mt-2">
+          <input
+            type="file"
+            style="display: none"
+            (input)="onFile($event)"
+            #fileUploader
+          />
+        </div>
+        <div *ngIf="currentUser">
+          {{ currentUser?.firstName }} &nbsp; {{ currentUser?.surname }}
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <form [formGroup]="profileForm">
+          <div class="row" style="padding: 20px; overflow: hidden" align="center">
+            <div class="col-sm-12">
+              <mat-form-field>
+                <mat-label>First name</mat-label>
+                <input type="text" matInput formControlName="firstname" />
+              </mat-form-field>
+            </div>
+            <div class="col-sm-6">
+              <mat-form-field>
+                <mat-label>Surname</mat-label>
+                <input type="text" matInput formControlName="surname" />
+              </mat-form-field>
+            </div>
+            <div class="col-sm-6">
+              <mat-form-field>
+                <mat-label>Last name</mat-label>
+                <input type="text" matInput formControlName="lastname" />
+              </mat-form-field>
+            </div>
+            <div class="col-sm-6">
+              <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input type="text" matInput formControlName="email" />
+              </mat-form-field>
+            </div>
+            <div class="col-sm-6">
+              <mat-form-field>
+                <mat-label>Phone number</mat-label>
+                <input type="text" matInput formControlName="phoneNumber" />
+              </mat-form-field>
+            </div>
+            <ng-container *ngIf="!loading">
+              <div class="col-sm-6">
+                <button class="accounting-btn cancel-btn" type="button" (click)="onCancel()">Cancel</button>
+              </div>
+              <div class="col-sm-6">
+                <button class="accounting-btn save-btn" type="button" (click)="onUpdate()">Update</button>
+              </div>
+            </ng-container>
+            <div class="col-sm-12" *ngIf="loading">
+              <accounting-loading message="Updating profile..."></accounting-loading>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ng-container>
+</accounting-dialog-layout>

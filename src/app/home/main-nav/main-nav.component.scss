@@ -1,0 +1,71 @@
+@import '../../../styles-variables.scss';
+
+.mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+.dp {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  // margin-top: 5px;
+}
+
+.user-menus {
+  // font-weight: bold !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+.mat-sidenav {
+  //  height: 100vh;
+  margin: 16px;
+  color: white;
+  padding: 0;
+  text-align: center;
+  background-color: $accounting-primary-color;
+  border-radius: 10px;
+  width: 200px;
+}
+
+.content {
+  height: calc(100vh - 100px);
+  margin: 16px;
+  margin-left: 32px;
+  border-radius: 10px;
+  // background-color: red;
+  // overflow: auto;
+  // padding: 0 5px;
+}
+
+.menu-link {
+  color: white !important;
+  font-family: 'accounting-font';
+  cursor: pointer;
+  padding: 5px 10px !important;
+  display: flex;
+  // justify-content: center; /* align horizontal */
+  align-items: center;
+  margin: 10px 0;
+  // text-decoration: none;
+  text-align: start !important;
+}
+
+.menu-link:hover {
+  background-color: rgba(194, 194, 194, 0.24);
+  border-left: 2px solid $accounting-primary-color;
+  border-right: 2px solid $accounting-primary-color;
+}
+
+.active-route {
+  background-color: rgba(194, 194, 194, 0.24) !important;
+  // color: $accounting-primary-color !important;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 60px;
+}
+
+.mat-sidenav-content {
+  padding: 0 !important;
+}

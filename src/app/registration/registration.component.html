@@ -1,0 +1,14 @@
+<div
+  class="content-container d-flex justify-content-center align-items-center"
+  [ngClass]="routeElements"
+>
+  <div class="registration-form-container" @fadeIn>
+    <accounting-custom-form
+      (cancel)="onCancel()"
+      (save)="onSave($event)"
+      [formFields]="formFields"
+      [savingData]="loading"
+      loadingMessage="Creating user account..."
+    ></accounting-custom-form>
+  </div>
+</div>

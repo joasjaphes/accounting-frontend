@@ -1,0 +1,58 @@
+@import '../../../../styles-variables.scss';
+
+.transaction-list {
+    padding: 5px;
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .list-item {
+        padding: 10px;
+        cursor: pointer;
+        border-left: 2px solid $accounting-primary-color;
+        margin-bottom: 5px;
+        background-color: rgb(248, 248, 248);
+    }
+    .list-item:hover{
+        color: $accounting-primary-color;
+        font-weight: bold;
+    }
+}
+
+.selected-transactions {
+    margin: 10px 0;
+    .entry-content {
+        width: 100%;
+        margin: 5px;
+        border: 1px solid rgb(231, 231, 231);
+        border-radius: 5px;
+        background-color: white;
+        .header {
+            font-weight: bold;
+            padding: 5px;
+            height: 5vh;
+            border-bottom: 1px solid gray;
+            display: flex;
+            align-items: center;
+            background-color: $accounting-primary-color;
+            color: white;
+            cursor: pointer;
+        }
+        .account-details {
+            padding: 10px;
+            width: 100%;
+            overflow: auto;
+            td {
+                padding: 5px 10px;
+            }
+        }
+    }
+}
+
+.separator {
+    height: 500px;
+    margin: 5px;
+    width: 0.1%;
+    background-color: rgb(247, 244, 244);
+}

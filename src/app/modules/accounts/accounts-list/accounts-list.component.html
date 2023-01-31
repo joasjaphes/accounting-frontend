@@ -1,0 +1,11 @@
+<div [ngClass]="routeElements">
+  <accounting-data-table
+    [tableConfiguration]="tableConfigurations"
+    [actionButtons]="actionButtons"
+    [data]="data"
+    (actionButton)="onActionButton($event)"
+    (rowPreview)="onPreview($event)"
+    (rowUpdate)="onUpdate($event)"
+    (rowDelete)="onDelete($event)"
+  ></accounting-data-table>
+</div>

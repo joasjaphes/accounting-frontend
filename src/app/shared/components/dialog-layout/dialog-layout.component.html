@@ -1,0 +1,11 @@
+<div class="header">
+  <accounting-page-header
+    [title]="title"
+    [icon]="icon"
+    [hideClose]="hideClose"
+    (close)="onClose()"
+  ></accounting-page-header>
+</div>
+<div class="dialog-content">
+  <ng-content select="page-content"></ng-content>
+</div>

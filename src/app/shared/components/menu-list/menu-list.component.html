@@ -1,0 +1,12 @@
+<div class="main-container">
+    <div class="single-menu mat-elevation-z3" *ngFor="let menu of menus" [routerLink]="menu.route" [ngClass]="routeAnimationsElements">
+        <div class="single-menu-content">
+            <div>
+                <img src="../../../../assets/icons/{{menu.icon}}" alt="" height="50px" width="50px">
+            </div>
+            <div>
+                <div>{{menu.title}}</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.table {
+    width: 100%;
+    td {
+        padding: 10px;
+    }
+    th {
+        text-align: center;
+        // font-weight: bolder !important;
+    }
+    .heading {
+        border-bottom: 1px solid black
+    };
+}

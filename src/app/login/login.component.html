@@ -1,0 +1,57 @@
+<div class="content-container d-flex justify-content-center align-items-center">
+  <div class="login-form-container mat-elevation-z3" @fadeIn>
+    <form [formGroup]="loginForm">
+      <div class="row">
+        <div class="col-sm-12">
+          <mat-form-field appearance="outline">
+            <mat-label>User name</mat-label>
+            <mat-icon style="color:rgb(49, 49, 49);" matPrefix>person</mat-icon>
+            <input
+              type="text"
+              matInput
+              formControlName="username"
+              placeholder="Type your username"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-sm-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <mat-icon style="color:rgb(49, 49, 49);" matPrefix>lock</mat-icon>
+            <input
+              type="text"
+              matInput
+              formControlName="password"
+              placeholder="Type your password"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-12 mb-2" align="center" *ngIf="loginError$ | async">
+          <span style="color: red; font-weight: bold"
+            >*{{ loginError$ | async }}</span
+          >
+        </div>
+
+        <div class="col-sm-12">
+          <button
+            mat-raised-button
+            class="login-btn"
+            type="button"
+            (click)="login()"
+          >
+            Login
+          </button>
+        </div>
+        <div class="col-sm-12 mt-2" align="center" style="color: #2596be">
+          <b>OR</b>
+        </div>
+        <div class="col-sm-12" align="center" style="color: #2596be">
+          <button mat-button type="button" [routerLink]="'/registration'">
+            <mat-icon>person_add</mat-icon> Create account
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

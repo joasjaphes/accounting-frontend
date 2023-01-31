@@ -1,0 +1,79 @@
+<accounting-dialog-layout [title]="'Add new journal entry'" [hideClose]="false" (close)="onClose()">
+    <ng-container ngProjectAs="page-content">
+        <div class="d-flex" style="max-height: inherit; overflow: auto;">
+            <div style="max-height:inherit; width: 29%; overflow: auto;" class="transaction-list">
+                <ul>
+                    <ng-container *ngFor="let transaction of (transactions$ | async); let i=index">
+                        <li *ngIf="!isSelected(transaction.id)" class="list-item"
+                            (click)="onSelectTransaction(transaction)">
+                            {{transaction.date}}&nbsp;&nbsp;&nbsp;&nbsp;{{transaction.description}}
+                        </li>
+                    </ng-container>
+                </ul>
+            </div>
+            <div class="separator"></div>
+            <div style="max-height: inherit; width:69%" class="selected-transactions">
+                <ng-container *ngFor="let transaction of selectedTransactions">
+                    <div class="entry-content">
+                        <div class="header" (click)="onSelectTransaction(transaction)">{{transaction.description}}</div>
+                        <div class="account-details">
+                            <table class="table table-bordered" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>Account</th>
+                                        <th>Debit</th>
+                                        <th>Credit</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let journalAccount of journalAccounts">
+                                        <td>{{journalAccount.accountId}}</td>
+                                        <td>{{journalAccount.debit}}</td>
+                                        <td>{{journalAccount.credit}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <mat-form-field>
+                                                <mat-select matInput placeholder="Select account">
+                                                    <mat-option *ngFor="let account of accounts$ | async"
+                                                        [value]="account.id">
+                                                        {{account.name}}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </td>
+                                        <td>
+                                            <mat-form-field>
+                                                <input type="number" placeholder="Enter debit amount"
+                                                    [disabled]="currentJournalAccount.credit" matInput
+                                                    [(ngModel)]="currentJournalAccount.debit" autocomplete="off">
+                                            </mat-form-field>
+                                        </td>
+                                        <td>
+                                            <mat-form-field>
+                                                <input type="number" placeholder="Enter credit amount"
+                                                    [disabled]="currentJournalAccount.debit" matInput
+                                                    [(ngModel)]="currentJournalAccount.credit" autocomplete="off">
+                                            </mat-form-field>
+                                        </td>
+                                        <td>
+                                            <button mat-raised-button style="width: 100%; font-weight: bold;"
+                                                (click)="addJournalAccount()">
+                                                <mat-icon>add</mat-icon>
+                                                Add
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div *ngIf="selectedTransactions.length" style="padding: 0 5px;"
+            class="d-flex align-items-center justify-content-end">
+            <accounting-save></accounting-save>
+        </div>
+    </ng-container>
+</accounting-dialog-layout>

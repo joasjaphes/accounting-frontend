@@ -1,0 +1,80 @@
+<mat-toolbar color="primary">
+  <div class="d-flex" style="width: 100%; align-items: center">
+    <div>
+      <span *ngIf="isHandset$ | async">
+        <mat-icon
+          style="cursor: pointer"
+          color="white"
+          (click)="drawer.toggle()"
+          >menu</mat-icon
+        >&nbsp;&nbsp;
+      </span>
+      <span style="font-family: accounting-font"> Accounting Made Easy </span>
+    </div>
+    <div
+      class="ms-auto"
+      style="cursor: pointer; display: inline-flex; align-items: center"
+      [matMenuTriggerFor]="menu"
+    >
+      <!-- <mat-icon style="cursor: pointer" [matMenuTriggerFor]="menu"
+        >person</mat-icon
+      > -->
+      <img [src]="profilePictureUrl$ | async" alt="" class="dp" />&nbsp;&nbsp;
+      <div
+        style="height: 40px; width: 2px; background-color: rgb(247, 247, 247)"
+      ></div>
+      &nbsp;&nbsp;
+      <span>{{ currentUser?.firstName }}&nbsp;{{ currentUser.surname }}</span>
+    </div>
+    <div>
+      <mat-menu #menu>
+        <button mat-menu-item (click)="openProfile()" class="user-menus">
+          <mat-icon>account_circle</mat-icon>
+          Profile
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="onLogout()" class="user-menus">
+          <mat-icon>exit_to_app</mat-icon>Logout
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav
+    #drawer
+    [opened]="(isHandset$ | async) ? false : true"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+  >
+    <!-- <mat-nav-list> -->
+    <ng-container *ngFor="let menu of menus">
+      <div
+        [routerLink]="menu.route"
+        class="menu-link"
+        [routerLinkActive]="'active-route'"
+      >
+        <div>
+          <img
+            src="../../../assets/icons/{{ menu.icon }}"
+            height="30px"
+            width="30px"
+            alt=""
+          />
+        </div>
+        &nbsp;&nbsp;
+        <div>
+          {{ menu.title }}
+        </div>
+      </div>
+    </ng-container>
+    <!-- </mat-nav-list> -->
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div
+      class="mat-elevation-z3 content"
+      [@routeAnimations]="o.isActivated ? o.activatedRoute : ''"
+    >
+      <router-outlet #o="outlet"></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

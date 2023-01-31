@@ -1,0 +1,22 @@
+<div *ngIf="menus.length" class="menu-list">
+  <ng-container *ngFor="let menu of menus">
+    <div class="menu-list-item" [routerLink]="menu.route" [routerLinkActive]="'active'">{{menu.title}}</div>
+  </ng-container>
+</div>
+<mat-toolbar class="header-content">
+  <div [ngClass]="routeElements" style="display: inline-flex; align-items: center; width: 100%;">
+    <img *ngIf="icon" src="../../../../assets/icons/{{ icon }}" height="30px" width="30px" />&nbsp;&nbsp;
+    <div style="display: flex; align-items:center; justify-content:space-between; width: 100%;">
+      <div>
+        {{ title }}
+      </div>
+      <div *ngIf="!hideClose"
+        style="display: inline-flex; align-items:center; padding: 3px 10px; border: 1px solid rgba(219, 219, 219, 0.801); color: rgba(128, 125, 125, 0.801); border-radius: 10px; font-size: 14px; cursor: pointer;"
+        (click)="onClose()">
+        <mat-icon>close</mat-icon>
+        <span>Close</span>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+<mat-divider></mat-divider>

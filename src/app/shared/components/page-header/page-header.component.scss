@@ -1,0 +1,32 @@
+@import '../../../../styles-variables.scss';
+
+.header-content {
+  font-family: 'accounting-font';
+  position: relative;
+  z-index: 1000;
+}
+
+.menu-list {
+  display: flex;
+  overflow: auto;
+  padding: 5px;
+  .menu-list-item {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 20px;
+    border: 1px solid $accounting-primary-color;
+    color: $accounting-primary-color;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .menu-list-item:hover {
+    background-color: $accounting-primary-color;
+    color: white;
+  }
+
+  .active {
+    background-color: $accounting-primary-color;
+    color: white;
+  }
+}

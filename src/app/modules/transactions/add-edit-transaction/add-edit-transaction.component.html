@@ -1,0 +1,41 @@
+<accounting-dialog-layout [title]="'Add new transaction'">
+  <ng-container ngProjectAs="page-content">
+    <!-- <div class="row" style="padding: 10px;"> -->
+    <!-- <div class="col-sm-12"> -->
+    <form [formGroup]="transactionForm">
+      <div class="row m-2 ">
+        <div class="col-sm-6">
+          <mat-form-field>
+            <mat-label>Transaction date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="transactionDate"
+              formControlName="date"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="transactionDate"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #transactionDate></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input type="text" matInput formControlName="description" />
+          </mat-form-field>
+        </div>
+        <div class="col-sm-12">
+          <accounting-save
+            (save)="onSave()"
+            (cancel)="onClose()"
+            [confirmText]="'Are you sure you want to save this transaction?'"
+          ></accounting-save>
+        </div>
+      </div>
+    </form>
+    <!-- </div> -->
+
+    <!-- </div> -->
+  </ng-container>
+</accounting-dialog-layout>

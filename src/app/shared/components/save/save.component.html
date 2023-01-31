@@ -1,0 +1,31 @@
+<div class="save-area">
+  <ng-container *ngIf="!confirming">
+    <button
+      type="button"
+      mat-flat-button
+      class="accounting-btn cancel-btn"
+      (click)="onCancel()"
+    >
+      <mat-icon>close</mat-icon>&nbsp; Cancel</button
+    >&nbsp;&nbsp;
+    <button mat-raised-button class="accounting-btn save-btn" (click)="onSave(confirmFirst)">
+      <mat-icon>save</mat-icon>&nbsp; Save
+    </button>
+  </ng-container>
+  <ng-container *ngIf="confirming">
+    <p style="display: inline-flex; align-items: center;">
+      {{ confirmText }} &nbsp;&nbsp;
+
+      <button class="confirm-no" (click)="confirming = false" style="align-items: center; display: inline-flex; font-weight: bold;">
+        <mat-icon>close</mat-icon> No</button
+      >&nbsp;
+      <button
+        class="confirm-yes"
+        (click)="onSave()"
+        style="align-items: center; display: inline-flex; font-weight: bold;"
+      >
+        <mat-icon>done</mat-icon>Yes
+      </button>
+    </p>
+  </ng-container>
+</div>

@@ -1,0 +1,48 @@
+@import '../../../../styles-variables.scss';
+.save-area {
+  text-align: right;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  float: right;
+
+  // .save-btn {
+  //   color: white;
+  //   font-weight: bold;
+  //   background-color: $accounting-primary-color;
+  // }
+
+  // .cancel-btn {
+  //   color: red;
+  // }
+
+  .confirm-yes {
+    background-color: transparent;
+    color: green;
+    border: 1px solid green;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .confirm-yes:hover {
+      background-color: green;
+      color: white;
+  }
+
+  .confirm-no {
+    background-color: transparent;
+    color: red;
+    border: 1px solid red;
+    border-radius: 20px;
+    font-weight: bold;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .confirm-no:hover {
+      background-color: red;
+      color: white;
+  }
+}
