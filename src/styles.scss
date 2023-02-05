@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material' as mat;
-@import '../../../node_modules/bootstrap/dist/css/bootstrap-grid.min.css';
-@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-@import '../../../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '../node_modules/bootstrap/dist/css/bootstrap-grid.min.css';
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import './styles-variables.scss';
 
 @include mat.core();
@@ -16,8 +16,7 @@ $accounting-pallete: (
   500: rgb(164, 164, 255),
   600: rgb(164, 164, 255),
   700: rgb(164, 164, 255),
-  contrast: (
-    50: white,
+  contrast: (50: white,
     100: white,
     200: rgb(164, 164, 255),
     300: rgb(164, 164, 255),
@@ -34,12 +33,8 @@ $accounting-primary: mat.define-palette($accounting-pallete, 100);
 
 // $accounting-theme: ($accounting-primary);
 
-$accounting-theme: mat.define-light-theme((
- color: (
-   primary: $accounting-primary,
-   accent: $accounting-pallete
- )
-));
+$accounting-theme: mat.define-light-theme((color: (primary: $accounting-primary,
+        accent: $accounting-pallete )));
 
 @include mat.all-component-themes($accounting-theme);
 
@@ -55,6 +50,7 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: 'accounting-font' !important;
@@ -68,6 +64,7 @@ body {
 
 .mat-form-field {
   width: 100%;
+
   input {
     width: 100%;
     border: none;
@@ -80,19 +77,19 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: gray; 
+  background: gray;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: gray; 
+  background: gray;
 }
 
 .accounting-btn {
@@ -111,3 +108,15 @@ body {
 .save-btn {
   background-color: $accounting-primary-color;
 }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
