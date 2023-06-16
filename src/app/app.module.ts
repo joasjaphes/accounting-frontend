@@ -58,7 +58,8 @@ import { RegistrationComponent } from './registration/registration.component';
     MatCardModule,
     MatMenuModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [
     {
