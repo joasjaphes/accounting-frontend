@@ -32,6 +32,7 @@ export class MainNavComponent implements OnInit {
   @Input() currentUser: User;
   @Input() menus: AppMenu[];
   @Output() logout: EventEmitter<unknown> = new EventEmitter();
+  currentUser$: Observable<User>;
 
   constructor(
     private breakpointObserver: BreakpointObserver, 
@@ -41,6 +42,9 @@ export class MainNavComponent implements OnInit {
 
     ngOnInit(): void {
         this.profilePictureUrl$ = this.store.pipe(select(userSelector.selectProfilePicture))
+        this.currentUser$ = this.store.pipe(
+          select(userSelector.selectCurrentUser)
+        );
     }
 
   onLogout() {

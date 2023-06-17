@@ -24,7 +24,7 @@
         style="height: 40px; width: 2px; background-color: rgb(247, 247, 247)"
       ></div>
       &nbsp;&nbsp;
-      <span>{{ currentUser?.firstName }}&nbsp;{{ currentUser.surname }}</span>
+      <span>{{ (currentUser$ | async)?.firstName }}&nbsp;{{ (currentUser$ | async)?.surname }}</span>
     </div>
     <div>
       <mat-menu #menu>

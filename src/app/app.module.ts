@@ -59,7 +59,6 @@ import { RegistrationComponent } from './registration/registration.component';
     MatMenuModule,
     SharedModule,
     MaterialModule,
-    StoreModule.forRoot({}, {})
   ],
   providers: [
     {
@@ -71,4 +70,5 @@ import { RegistrationComponent } from './registration/registration.component';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+ }
