@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, first, firstValueFrom } from 'rxjs';
 import { Transaction } from '../../../store/models/transaction.model';
 import { AppState } from '../../../store/reducers';
 import * as transactionSelector from '../../../store/selectors/transaction.selectors';
@@ -23,12 +23,14 @@ export class AddEntryComponent implements OnInit {
     debit: number;
     credit: number;
     accountId: string;
+    accountName: string;
   }[] = [];
   currentJournalAccount = {
     id: '',
     debit: null,
     credit: null,
     accountId: '',
+    accountName: '',
   };
   constructor(
     private dialog: MatDialog,
@@ -65,9 +67,29 @@ export class AddEntryComponent implements OnInit {
     return this.selectedTransactions.map((t) => t.id).includes(transactionId);
   }
 
-  addJournalAccount() {
+  async addJournalAccount() {
     this.currentJournalAccount.id = this.commonService.makeId();
-    this.journalAccounts.push(this.currentJournalAccount);
+    const selectedAccount = await firstValueFrom(
+      this.store.pipe(
+        select(
+          accountSelector.selectAccountById(
+            this.currentJournalAccount.accountId
+          )
+        )
+      )
+    );
+    console.log('Account', selectedAccount);
+    this.journalAccounts.push({
+      ...this.currentJournalAccount,
+      accountName: selectedAccount?.name,
+    });
+    this.currentJournalAccount = {
+      id: '',
+      debit: null,
+      credit: null,
+      accountId: '',
+      accountName: '',
+    };
   }
 
   removeJournalAccount(id: string) {
@@ -76,7 +98,5 @@ export class AddEntryComponent implements OnInit {
     );
   }
 
-  save(){
-    
-  }
+  save() {}
 }

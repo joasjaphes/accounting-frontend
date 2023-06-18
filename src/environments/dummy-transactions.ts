@@ -1,0 +1,51 @@
+[
+  {
+    id: 'GsnKDHspwIH',
+    date: '2023-01-01',
+    status: 'Pending',
+    description: 'Owner invests Tsh. 400000000000',
+    user: 'gf1EqlM8Dde',
+  },
+  {
+    id: 'pbAISvN3nIu',
+    date: '2023-01-09',
+    status: 'Pending',
+    description: 'Purchased goods for cash Tsh. 100000000',
+    user: 'gf1EqlM8Dde',
+  },
+  {
+    id: 'CLM8eJj8Ybf',
+    date: '2023-01-16',
+    status: 'Pending',
+    description: 'Sold goods for cash Tsh. 10000000',
+    user: 'gf1EqlM8Dde',
+  },
+  {
+    id: 'D3c9G1n66D1',
+    date: '2023-01-20',
+    status: 'Pending',
+    description: 'Purchased goods from Harry worth Tsh. 20000000',
+    user: 'gf1EqlM8Dde',
+  },
+  {
+    id: 'N0UYbFWmep8',
+    date: '2023-01-30',
+    status: 'Pending',
+    description: 'Received Interest in cash Tsh. 10000000',
+    user: 'gf1EqlM8Dde',
+  },
+  {
+    id: 'cJZihQk8cTg',
+    date: '2023-02-06',
+    status: 'Pending',
+    description: 'Sold goods to warn for Tsh. 20000000',
+    user: 'gf1EqlM8Dde',
+  },
+  {
+    id: 'Wn7Cmh9j5CE',
+    date: '2023-02-13',
+    status: 'Pending',
+    description: 'Returned goods to Harry worth Tsh.  1000000',
+    user: 'gf1EqlM8Dde',
+  },
+];

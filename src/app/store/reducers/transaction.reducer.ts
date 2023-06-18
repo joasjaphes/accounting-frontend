@@ -3,7 +3,6 @@ import { Action, createReducer, on } from '@ngrx/store';
 import { Transaction } from '../models/transaction.model';
 import * as transactionActions from '../actions/transaction.actions';
 
-
 export const transactionFeatureKey = 'transaction';
 
 export const adapter: EntityAdapter<Transaction> = createEntityAdapter();
@@ -15,7 +14,7 @@ export interface State extends EntityState<Transaction> {
 
 export const initialState: State = adapter.getInitialState({
   loading: false,
-  loaded: false
+  loaded: false,
 });
 
 export const transactionReducer = createReducer(
@@ -24,20 +23,21 @@ export const transactionReducer = createReducer(
     return adapter.upsertOne(action.transaction, state);
   }),
   on(transactionActions.upsertTransactions, (state, action) => {
+    console.log(JSON.stringify(action.transactions));
     return adapter.upsertMany(action.transactions, state);
   }),
   on(transactionActions.loadTransactions, (state) => {
     return {
       ...state,
       loading: true,
-      loaded: false
+      loaded: false,
     };
   }),
   on(transactionActions.doneLoadingTransactions, (state) => {
     return {
       ...state,
       loading: false,
-      loaded: true
+      loaded: true,
     };
   }),
   on(transactionActions.deleteTransaction, (state, action) => {
@@ -52,7 +52,4 @@ export function reducer(state: State | undefined, action: Action) {
   return transactionReducer(state, action);
 }
 
-export const {
-  selectAll,
-  selectEntities
-} = adapter.getSelectors();
+export const { selectAll, selectEntities } = adapter.getSelectors();

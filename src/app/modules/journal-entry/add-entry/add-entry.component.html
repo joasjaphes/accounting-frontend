@@ -20,22 +20,25 @@
                             <table class="table table-bordered" style="width: 100%;">
                                 <thead>
                                     <tr>
-                                        <th>Account</th>
-                                        <th>Debit</th>
-                                        <th>Credit</th>
-                                        <th>Action</th>
+                                        <th style="text-align:center">Account</th>
+                                        <th style="text-align:center">Debit</th>
+                                        <th style="text-align:center">Credit</th>
+                                        <th style="text-align:center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let journalAccount of journalAccounts">
-                                        <td>{{journalAccount.accountId}}</td>
-                                        <td>{{journalAccount.debit}}</td>
-                                        <td>{{journalAccount.credit}}</td>
+                                        <td [ngStyle]="{'text-align': journalAccount.credit ? 'right' : 'left'}">
+                                            {{journalAccount.accountName}}</td>
+                                        <td style="text-align:right">{{journalAccount.debit}}</td>
+                                        <td style="text-align:right">{{journalAccount.credit}}</td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <mat-form-field>
-                                                <mat-select matInput placeholder="Select account">
+                                                <mat-select matInput placeholder="Select account"
+                                                    [(ngModel)]="currentJournalAccount.accountId">
                                                     <mat-option *ngFor="let account of accounts$ | async"
                                                         [value]="account.id">
                                                         {{account.name}}</mat-option>
@@ -58,7 +61,8 @@
                                         </td>
                                         <td>
                                             <button mat-raised-button style="width: 100%; font-weight: bold;"
-                                                (click)="addJournalAccount()">
+                                                (click)="addJournalAccount()"
+                                                [disabled]="!currentJournalAccount?.accountId || !(currentJournalAccount?.debit || currentJournalAccount.credit)">
                                                 <mat-icon>add</mat-icon>
                                                 Add
                                             </button>
