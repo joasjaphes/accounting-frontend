@@ -34,6 +34,8 @@ export class MainNavComponent implements OnInit {
   @Output() logout: EventEmitter<unknown> = new EventEmitter();
   currentUser$: Observable<User>;
 
+
+
   constructor(
     private breakpointObserver: BreakpointObserver, 
     private dialog:MatDialog,
