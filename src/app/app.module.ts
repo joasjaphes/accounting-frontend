@@ -33,9 +33,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { SharedModule } from './shared/shared.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { WelcomeMessageComponent } from './welcome/welcome-message/welcome-message.component';
+import { ClientDetailsComponent } from './welcome/client-details/client-details.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, MainNavComponent, DashboardComponent, UserProfileComponent, RegistrationComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, MainNavComponent, DashboardComponent, UserProfileComponent, RegistrationComponent, WelcomeComponent, WelcomeMessageComponent, ClientDetailsComponent],
   imports: [
     AppRoutingModule,
     HttpClientModule,

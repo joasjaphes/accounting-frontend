@@ -6,13 +6,13 @@
                     <ng-container *ngFor="let transaction of (transactions$ | async); let i=index">
                         <li *ngIf="!isSelected(transaction.id)" class="list-item"
                             (click)="onSelectTransaction(transaction)">
-                            {{transaction.date}}&nbsp;&nbsp;&nbsp;&nbsp;{{transaction.description}}
+                            {{transaction.date}}&nbsp;&nbsp;&nbsp;&nbsp;{{transaction.description }}
                         </li>
                     </ng-container>
                 </ul>
             </div>
             <div class="separator"></div>
-            <div style="max-height: inherit; width:69%" class="selected-transactions">
+            <div style="max-height: 500px; width:69%" class="selected-transactions">
                 <ng-container *ngFor="let transaction of selectedTransactions">
                     <div class="entry-content">
                         <div class="header" (click)="onSelectTransaction(transaction)">{{transaction.description}}</div>
@@ -27,18 +27,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let journalAccount of journalAccounts">
-                                        <td [ngStyle]="{'text-align': journalAccount.credit ? 'right' : 'left'}">
-                                            {{journalAccount.accountName}}</td>
-                                        <td style="text-align:right">{{journalAccount.debit}}</td>
-                                        <td style="text-align:right">{{journalAccount.credit}}</td>
-                                        <td></td>
-                                    </tr>
+                                    <ng-container *ngFor="let journalAccount of journalAccounts">
+                                        <tr *ngIf="journalAccount.transactionId === transaction.id">
+                                            <td>
+                                                {{journalAccount.accountName}}</td>
+                                            <td style="text-align:right">{{journalAccount.debit | number:'0.2-2'}}</td>
+                                            <td style="text-align:right">{{journalAccount.credit | number:'0.2-2'}}</td>
+                                            <td style="text-align:center"><mat-icon style="cursor:pointer; color:red"
+                                                    (click)="removeJournalAccount(journalAccount.id)">delete_forever</mat-icon>
+                                            </td>
+                                        </tr>
+                                    </ng-container>
                                     <tr>
                                         <td>
                                             <mat-form-field>
                                                 <mat-select matInput placeholder="Select account"
-                                                    [(ngModel)]="currentJournalAccount.accountId">
+                                                    [(ngModel)]="currentJournalAccount[transaction.id].accountId">
                                                     <mat-option *ngFor="let account of accounts$ | async"
                                                         [value]="account.id">
                                                         {{account.name}}</mat-option>
@@ -48,21 +52,23 @@
                                         <td>
                                             <mat-form-field>
                                                 <input type="number" placeholder="Enter debit amount"
-                                                    [disabled]="currentJournalAccount.credit" matInput
-                                                    [(ngModel)]="currentJournalAccount.debit" autocomplete="off">
+                                                    [disabled]="currentJournalAccount[transaction.id].credit > 0"
+                                                    matInput [(ngModel)]="currentJournalAccount[transaction.id].debit"
+                                                    autocomplete="off">
                                             </mat-form-field>
                                         </td>
                                         <td>
                                             <mat-form-field>
                                                 <input type="number" placeholder="Enter credit amount"
-                                                    [disabled]="currentJournalAccount.debit" matInput
-                                                    [(ngModel)]="currentJournalAccount.credit" autocomplete="off">
+                                                    [disabled]="currentJournalAccount[transaction.id].debit > 0"
+                                                    matInput [(ngModel)]="currentJournalAccount[transaction.id].credit"
+                                                    autocomplete="off">
                                             </mat-form-field>
                                         </td>
                                         <td>
                                             <button mat-raised-button style="width: 100%; font-weight: bold;"
-                                                (click)="addJournalAccount()"
-                                                [disabled]="!currentJournalAccount?.accountId || !(currentJournalAccount?.debit || currentJournalAccount.credit)">
+                                                (click)="addJournalAccount(transaction.id)"
+                                                [disabled]="!currentJournalAccount[transaction.id]?.accountId || !(currentJournalAccount[transaction.id]?.debit || currentJournalAccount[transaction.id].credit)">
                                                 <mat-icon>add</mat-icon>
                                                 Add
                                             </button>
@@ -76,7 +82,7 @@
             </div>
         </div>
         <div *ngIf="selectedTransactions.length" style="padding: 0 5px;"
-            class="d-flex align-items-center justify-content-end">
+            class="d-flex align-items-center justify-content-end mt-4">
             <accounting-save></accounting-save>
         </div>
     </ng-container>

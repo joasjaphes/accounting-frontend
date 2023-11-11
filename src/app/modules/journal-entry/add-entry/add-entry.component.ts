@@ -8,6 +8,7 @@ import * as transactionSelector from '../../../store/selectors/transaction.selec
 import * as accountSelector from '../../../store/selectors/account.selectors';
 import { Account } from '../../../store/models/account.model';
 import { CommonService } from '../../../services/common.service';
+import { NumberFormatStyle } from '@angular/common';
 
 @Component({
   selector: 'accounting-add-entry',
@@ -24,14 +25,18 @@ export class AddEntryComponent implements OnInit {
     credit: number;
     accountId: string;
     accountName: string;
+    transactionId: string;
   }[] = [];
-  currentJournalAccount = {
-    id: '',
-    debit: null,
-    credit: null,
-    accountId: '',
-    accountName: '',
-  };
+  currentJournalAccount: {
+    [key: string]: {
+      id: string;
+      debit: number;
+      credit: number;
+      accountId: string;
+      accountName: string;
+      transactionId: string;
+    };
+  } = {};
   constructor(
     private dialog: MatDialog,
     private store: Store<AppState>,
@@ -58,8 +63,19 @@ export class AddEntryComponent implements OnInit {
       this.selectedTransactions = this.selectedTransactions.filter(
         (t) => t.id !== transaction.id
       );
+      this.journalAccounts = this.journalAccounts.filter(
+        (account) => account.transactionId !== transaction.id
+      );
     } else {
       this.selectedTransactions.push(transaction);
+      this.currentJournalAccount[transaction.id] = {
+        id: '',
+        debit: null,
+        credit: null,
+        accountId: '',
+        accountName: '',
+        transactionId: transaction.id,
+      };
     }
   }
 
@@ -67,28 +83,29 @@ export class AddEntryComponent implements OnInit {
     return this.selectedTransactions.map((t) => t.id).includes(transactionId);
   }
 
-  async addJournalAccount() {
-    this.currentJournalAccount.id = this.commonService.makeId();
+  async addJournalAccount(transactionId) {
+    this.currentJournalAccount[transactionId].id = this.commonService.makeId();
     const selectedAccount = await firstValueFrom(
       this.store.pipe(
         select(
           accountSelector.selectAccountById(
-            this.currentJournalAccount.accountId
+            this.currentJournalAccount[transactionId].accountId
           )
         )
       )
     );
     console.log('Account', selectedAccount);
     this.journalAccounts.push({
-      ...this.currentJournalAccount,
+      ...this.currentJournalAccount[transactionId],
       accountName: selectedAccount?.name,
     });
-    this.currentJournalAccount = {
+    this.currentJournalAccount[transactionId] = {
       id: '',
       debit: null,
       credit: null,
       accountId: '',
       accountName: '',
+      transactionId: transactionId,
     };
   }
 

@@ -1,0 +1,34 @@
+@import '../../../styles-variables.scss';
+
+.welcome-message {
+    color: rgb(224, 224, 224);
+    line-height: 100px;
+    width: 40vw;
+
+    .headliner {
+        font-weight: bolder;
+        font-size: 100px;
+    }
+
+    .subtitle {
+        font-weight: bold;
+        font-size: 18px;
+    }
+}
+
+.get-started-button {
+    width: 20vw;
+
+    button {
+        border: none;
+        background-color: white;
+        color: $accounting-primary-color;
+        // color: white;
+        width: 100%;
+        padding: 2vh 2vw;
+        border-radius: 50px;
+        font-size: 28px;
+        font-weight: bold;
+        opacity: 0.8;
+    }
+}
