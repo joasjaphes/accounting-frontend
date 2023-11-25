@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { fadeIn } from '../../animations/router-animation';
-import { FormConfig } from './form-config';
+import { FormConfig, FormType } from './form-config';
 
 @Component({
   selector: 'accounting-custom-form',
@@ -16,6 +16,10 @@ export class CustomFormComponent implements OnInit {
   @Output() cancel = new EventEmitter();
   @Input() savingData = false;
   @Input() loadingMessage = "Saving data..."
+  @Input() showCancel = true;
+  @Input() saveButtonText = 'Submit';
+  @Input() cancelButtonText = 'Cancel'
+  formType = FormType
 
   constructor(private formBuilder: FormBuilder) { }
 

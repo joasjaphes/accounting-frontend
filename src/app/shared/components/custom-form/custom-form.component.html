@@ -1,64 +1,56 @@
 <form action="" [formGroup]="formObject">
   <div class="row">
     <ng-container *ngFor="let field of formFields">
-      <div [class]="field.fieldSize">
-        <div *ngIf="field.label">
-          <span class="text-muted">{{field.label}}</span>
-        </div>
-        <div
-          class="input-field mat-elevation-z3 d-flex"
-          [ngClass]="{ 'input-error-field': hasError(field) }"
-          @fadeIn
-        >
-          <mat-icon
-            *ngIf="field.icon"
-            style="color: gray; font-size: 14px; margin-top: 3px; height: 10px"
-            >{{ field.icon }}</mat-icon
-          >
-          <input
-            [type]="field.type"
-            [formControlName]="field.key"
-            [placeholder]="field.placeholder"
-            autocomplete="off"
-          />
-        </div>
-        <ng-container *ngFor="let error of field?.errors">
-          <div
-            style="text-align: left; color: red; padding-left: 5px"
-            *ngIf="hasSpecificError(field, error.key)"
-            @fadeIn
-          >
-            <small>{{ error.message }}</small>
+      <ng-container *ngIf="field.formType === formType.CUSTOM || !field.formType">
+        <div [class]="field.fieldSize" style="margin-bottom:10px">
+          <div *ngIf="field.label">
+            <span [ngStyle]="{'color':field.textColor}">{{field.label}}</span>
           </div>
+          <div class="input-field mat-elevation-z3 d-flex" [ngClass]="{ 'input-error-field': hasError(field) }" @fadeIn>
+            <mat-icon *ngIf="field.icon" style="color: gray; font-size: 14px; margin-top: 3px; height: 10px">{{
+              field.icon
+              }}</mat-icon>
+            <input [type]="field.type" [formControlName]="field.key" [placeholder]="field.placeholder"
+              autocomplete="off" />
+          </div>
+          <ng-container *ngFor="let error of field?.errors">
+            <div style="text-align: left; color: red; padding-left: 5px; font-weight: bolder;"
+              *ngIf="hasSpecificError(field, error.key)" @fadeIn>
+              <small>{{ error.message }}</small>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="field.formType === formType.FORMFIELD">
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label>{{field.label}}</mat-label>
+          <input [type]="field.type" matInput [formControlName]="field.key" [placeholder]="field.placeholder"
+            autocomplete="off">
+
+        </mat-form-field>
+        <ng-container *ngFor="let error of field?.errors">
+          <mat-hint style="text-align: left; color: red; padding-left: 5px; font-weight: bolder;"
+            *ngIf="hasSpecificError(field, error.key)" @fadeIn>
+            <small>{{ error.message }}</small>
+          </mat-hint>
         </ng-container>
-      </div>
+      </ng-container>
     </ng-container>
     <ng-container *ngIf="!savingData">
-      <div class="col-lg-6 col-sm-12 mt-4">
-        <button
-          mat-raised-button
-          style="
+      <div class="col-lg-6 col-sm-12 mt-4" *ngIf="showCancel">
+        <button mat-raised-button style="
             width: 100%;
-            background-color: red;
+            background-color: rgb(247, 73, 73);
             color: white;
             font-weight: bold;
-          "
-          type="button"
-          (click)="onCancel()"
-        >
-          Cancel
+          " type="button" class="accounting-button" (click)="onCancel()">
+          {{cancelButtonText}}
         </button>
       </div>
-      <div class="col-lg-6 col-sm-12 mt-4">
-        <button
-          mat-raised-button
-          color="primary"
-          style="width: 100%; font-weight: bold"
-          type="button"
-          (click)="onSave()"
-          [disabled]="formObject.invalid"
-        >
-          Submit
+      <div class="col-lg-6 col-sm-12 mt-4" [ngClass]="{'col-lg-12': !showCancel}">
+        <button mat-raised-button color="primary" style="width: 100%; font-weight: bold" type="button"
+          class="accounting-button" (click)="onSave()" [disabled]="formObject.invalid">
+          {{saveButtonText}}
         </button>
       </div>
     </ng-container>

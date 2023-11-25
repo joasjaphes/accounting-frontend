@@ -6,7 +6,7 @@
     // background-color: $accounting-primary-color;
     border-radius: 20px;
     padding: 10px;
-    margin-bottom: 10px;
+    // opacity: 0.8;
     input {
         border: none;
         width: 100%;
@@ -24,4 +24,10 @@
 
 .input-error-field {
     border: 1px solid red;
+}
+
+.accounting-button {
+    border-radius: 20px;
+    font-family: 'accounting-font';
+
 }
