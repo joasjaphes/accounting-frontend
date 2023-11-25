@@ -36,9 +36,12 @@ import { RegistrationComponent } from './registration/registration.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { WelcomeMessageComponent } from './welcome/welcome-message/welcome-message.component';
 import { ClientDetailsComponent } from './welcome/client-details/client-details.component';
+import { PersonalDetailsComponent } from './registration/personal-details/personal-details.component';
+import { BusinessDetailsComponent } from './registration/business-details/business-details.component';
+import { AuthenticationDetailsComponent } from './registration/authentication-details/authentication-details.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, MainNavComponent, DashboardComponent, UserProfileComponent, RegistrationComponent, WelcomeComponent, WelcomeMessageComponent, ClientDetailsComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, MainNavComponent, DashboardComponent, UserProfileComponent, RegistrationComponent, WelcomeComponent, WelcomeMessageComponent, ClientDetailsComponent, PersonalDetailsComponent, BusinessDetailsComponent, AuthenticationDetailsComponent],
   imports: [
     AppRoutingModule,
     HttpClientModule,
