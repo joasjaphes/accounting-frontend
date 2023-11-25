@@ -32,16 +32,28 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedModule } from './shared/shared.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { RegistrationComponent } from './welcome/registration/registration.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { WelcomeMessageComponent } from './welcome/welcome-message/welcome-message.component';
-import { ClientDetailsComponent } from './welcome/client-details/client-details.component';
-import { PersonalDetailsComponent } from './registration/personal-details/personal-details.component';
-import { BusinessDetailsComponent } from './registration/business-details/business-details.component';
-import { AuthenticationDetailsComponent } from './registration/authentication-details/authentication-details.component';
+import { ClientDetailsComponent } from './welcome/registration/client-details/client-details.component';
+import { BusinessDetailsComponent } from './welcome/registration/business-details/business-details.component';
+import { AuthenticationDetailsComponent } from './welcome/registration/authentication-details/authentication-details.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, MainNavComponent, DashboardComponent, UserProfileComponent, RegistrationComponent, WelcomeComponent, WelcomeMessageComponent, ClientDetailsComponent, PersonalDetailsComponent, BusinessDetailsComponent, AuthenticationDetailsComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    MainNavComponent,
+    DashboardComponent,
+    UserProfileComponent,
+    RegistrationComponent,
+    WelcomeComponent,
+    WelcomeMessageComponent,
+    ClientDetailsComponent,
+    BusinessDetailsComponent,
+    AuthenticationDetailsComponent,
+  ],
   imports: [
     AppRoutingModule,
     HttpClientModule,
@@ -50,7 +62,8 @@ import { AuthenticationDetailsComponent } from './registration/authentication-de
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(reducers, { metaReducers }), !environment.production ? StoreDevtoolsModule.instrument() : [],
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot({ serializer: CustomSerializer }),
     EffectsModule.forRoot(effects),
     LayoutModule,
@@ -70,11 +83,10 @@ import { AuthenticationDetailsComponent } from './registration/authentication-de
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpClientInterceptor,
-      multi: true
+      multi: true,
     },
-    CustomSerializer
+    CustomSerializer,
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {
- }
+export class AppModule {}

@@ -1,0 +1,14 @@
+<div class="content-container">
+  <div style="width: 100%; color: white; font-weight:bolder; font-size:20px;" align="center" class="mb-4">
+    <span>Registration</span>
+  </div>
+  <div class="d-flex justify-content-center align-items-center" style="height: 100%" [ngClass]="routeElements">
+
+    <div class="registration-form-container" @fadeIn align="center">
+      <app-client-details *ngIf="(currentStep$ | async) === registrationStep.CLIENT_DETAILS"></app-client-details>
+      <app-business-details *ngIf="(currentStep$ | async) === registrationStep.BUSINESS_DETAILS"></app-business-details>
+      <app-authentication-details
+        *ngIf="(currentStep$ | async) === registrationStep.AUTHENTICATION_DETAILS"></app-authentication-details>
+    </div>
+  </div>
+</div>

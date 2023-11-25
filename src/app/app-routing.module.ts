@@ -4,10 +4,10 @@ import { PreloadAllModules, Route, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { RegistrationComponent } from './welcome/registration/registration.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { WelcomeMessageComponent } from './welcome/welcome-message/welcome-message.component';
-import { ClientDetailsComponent } from './welcome/client-details/client-details.component';
+import { ClientDetailsComponent } from './welcome/registration/client-details/client-details.component';
 
 const routes: Route[] = [
   {
@@ -19,8 +19,9 @@ const routes: Route[] = [
         component: WelcomeMessageComponent,
       },
       {
-        path: 'client-details',
-        component: ClientDetailsComponent,
+        path: 'registration',
+        component: RegistrationComponent,
+        data: { state: 'registration' },
       },
     ],
   },
@@ -73,11 +74,6 @@ const routes: Route[] = [
   {
     path: 'login',
     component: LoginComponent,
-  },
-  {
-    path: 'registration',
-    component: RegistrationComponent,
-    data: { state: 'registration' },
   },
 ];
 
