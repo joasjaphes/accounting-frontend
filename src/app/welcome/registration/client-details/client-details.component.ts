@@ -5,6 +5,7 @@ import { fadeIn } from 'src/app/shared/animations/router-animation';
 import {
   FieldSize,
   FormConfig,
+  FormType,
   InputType,
 } from 'src/app/shared/components/custom-form/form-config';
 import { RegistrationActions } from 'src/app/store/actions/registration.actions';
