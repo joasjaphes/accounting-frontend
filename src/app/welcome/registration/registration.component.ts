@@ -32,6 +32,7 @@ export class RegistrationComponent implements OnInit {
   routeElements = ROUTE_ANIMATIONS_ELEMENTS;
   formFields: FormConfig[] = [];
   currentStep$: Observable<_RegistrationStep>;
+  savingData$: Observable<boolean>;
   registrationStep = RegistrationStep;
   constructor(
     private store: Store<AppState>,
@@ -42,6 +43,9 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
     this.currentStep$ = this.store.pipe(
       select(registrationSelector.getCurrentRegistrationStep)
+    );
+    this.savingData$ = this.store.pipe(
+      select(registrationSelector.getSavingData)
     );
   }
 

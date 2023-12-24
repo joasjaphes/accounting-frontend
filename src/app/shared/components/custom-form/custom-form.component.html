@@ -1,8 +1,9 @@
-<form action="" [formGroup]="formObject">
-  <div class="row">
-    <ng-container *ngFor="let field of formFields">
-      <ng-container *ngIf="field.formType === formType.CUSTOM || !field.formType">
-        <div [class]="field.fieldSize" style="margin-bottom:10px">
+<div style="width: 100%;">
+  <form action="" [formGroup]="formObject" style="width: 100%">
+    <div class="row" style="width: 100%">
+      <!-- <ng-container > -->
+      <div [class]="field.fieldSize" style="margin-bottom:10px" *ngFor="let field of formFields">
+        <ng-container *ngIf="field.formType === formType.CUSTOM || !field.formType">
           <div *ngIf="field.label">
             <span [ngStyle]="{'color':field.textColor}">{{field.label}}</span>
           </div>
@@ -10,7 +11,7 @@
             <mat-icon *ngIf="field.icon" style="color: gray; font-size: 14px; margin-top: 3px; height: 10px">{{
               field.icon
               }}</mat-icon>
-            <input [type]="field.type" [formControlName]="field.key" [placeholder]="field.placeholder"
+            <input [type]="field.type" [formControlName]="field.key" [placeholder]="field.placeholder ?? ''"
               autocomplete="off" />
           </div>
           <ng-container *ngFor="let error of field?.errors">
@@ -19,45 +20,46 @@
               <small>{{ error.message }}</small>
             </div>
           </ng-container>
+        </ng-container>
+        <ng-container *ngIf="field.formType === formType.FORMFIELD">
+          <mat-form-field appearance="outline" subscriptSizing="dynamic">
+            <mat-label>{{field.label}}</mat-label>
+            <input [type]="field.type" matInput [formControlName]="field.key" [placeholder]="field.placeholder ?? ''"
+              autocomplete="off">
+
+          </mat-form-field>
+          <ng-container *ngFor="let error of field?.errors">
+            <mat-hint style="text-align: left; color: red; padding-left: 5px; font-weight: bolder;"
+              *ngIf="hasSpecificError(field, error.key)" @fadeIn>
+              <small>{{ error.message }}</small>
+            </mat-hint>
+          </ng-container>
+        </ng-container>
+      </div>
+      <!-- </ng-container> -->
+      <ng-container *ngIf="!savingData">
+        <div class="col-lg-6 col-sm-12 mt-4" *ngIf="showCancel">
+          <button mat-raised-button style="
+              width: 100%;
+              background-color: rgb(247, 73, 73);
+              color: white;
+              font-weight: bold;
+            " type="button" class="accounting-button" (click)="onCancel()">
+            {{cancelButtonText}}
+          </button>
+        </div>
+        <div class="col-lg-6 col-sm-12 mt-4" [ngClass]="{'col-lg-12': !showCancel}">
+          <button mat-raised-button color="primary" style="width: 100%; font-weight: bold" type="button"
+            class="accounting-button" (click)="onSave()" [disabled]="formObject.invalid">
+            {{saveButtonText}}
+          </button>
         </div>
       </ng-container>
-      <ng-container *ngIf="field.formType === formType.FORMFIELD">
-        <mat-form-field appearance="outline" subscriptSizing="dynamic">
-          <mat-label>{{field.label}}</mat-label>
-          <input [type]="field.type" matInput [formControlName]="field.key" [placeholder]="field.placeholder"
-            autocomplete="off">
-
-        </mat-form-field>
-        <ng-container *ngFor="let error of field?.errors">
-          <mat-hint style="text-align: left; color: red; padding-left: 5px; font-weight: bolder;"
-            *ngIf="hasSpecificError(field, error.key)" @fadeIn>
-            <small>{{ error.message }}</small>
-          </mat-hint>
-        </ng-container>
+      <ng-container *ngIf="savingData">
+        <div class="col-sm-12" @fadeIn>
+          <accounting-loading [message]="loadingMessage"></accounting-loading>
+        </div>
       </ng-container>
-    </ng-container>
-    <ng-container *ngIf="!savingData">
-      <div class="col-lg-6 col-sm-12 mt-4" *ngIf="showCancel">
-        <button mat-raised-button style="
-            width: 100%;
-            background-color: rgb(247, 73, 73);
-            color: white;
-            font-weight: bold;
-          " type="button" class="accounting-button" (click)="onCancel()">
-          {{cancelButtonText}}
-        </button>
-      </div>
-      <div class="col-lg-6 col-sm-12 mt-4" [ngClass]="{'col-lg-12': !showCancel}">
-        <button mat-raised-button color="primary" style="width: 100%; font-weight: bold" type="button"
-          class="accounting-button" (click)="onSave()" [disabled]="formObject.invalid">
-          {{saveButtonText}}
-        </button>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="savingData">
-      <div class="col-sm-12" @fadeIn>
-        <accounting-loading [message]="loadingMessage"></accounting-loading>
-      </div>
-    </ng-container>
-  </div>
-</form>
+    </div>
+  </form>
+</div>

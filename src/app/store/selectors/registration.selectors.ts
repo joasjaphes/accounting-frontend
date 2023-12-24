@@ -33,3 +33,8 @@ export const getNextRegistrationStep = createSelector(
   registrationState,
   fromReducer.getNextRegistrationStep
 );
+
+export const getSavingData = createSelector(
+  registrationState,
+  fromReducer.getSavingData
+);

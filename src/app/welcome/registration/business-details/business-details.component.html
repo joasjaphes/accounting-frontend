@@ -1,3 +1,1 @@
-<div style="width: 50%">
-    <accounting-custom-form [formFields]="formFields"></accounting-custom-form>
-</div>
+<accounting-custom-form [formFields]="formFields" (save)="onSave($event)" [showCancel]="false"></accounting-custom-form>

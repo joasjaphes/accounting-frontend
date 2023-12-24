@@ -17,6 +17,7 @@ export interface State {
   clientPassword: string;
   currentRegistrationStep: _RegistrationStep;
   nextRegistrationStep: _RegistrationStep;
+  savingData: boolean;
 }
 
 export const initialState: State = {
@@ -26,6 +27,7 @@ export const initialState: State = {
   clientPassword: '',
   currentRegistrationStep: 'Client Details',
   nextRegistrationStep: 'Business Details',
+  savingData: false,
 };
 
 export const registrationReducer = createReducer(
@@ -47,6 +49,12 @@ export const registrationReducer = createReducer(
   }),
   on(RegistrationActions.setCurrentStep, (state, { step }) => {
     return { ...state, currentRegistrationStep: step };
+  }),
+  on(RegistrationActions.saveRegistrationDetails, (state) => {
+    return { ...state, savingData: true };
+  }),
+  on(RegistrationActions.doneSaveRegistrationDetails, (state) => {
+    return { ...state, savingData: false };
   })
 );
 
@@ -58,6 +66,7 @@ export const getClientName = (state: State) => state.clientName;
 export const getClientBusinessName = (state: State) => state.clientBusinessName;
 export const getClientEmail = (state: State) => state.clientEmail;
 export const getClientPassword = (state: State) => state.clientPassword;
+export const getSavingData = (state: State) => state.savingData;
 export const getCurrentRegistrationStep = (state: State) =>
   state.currentRegistrationStep;
 export const getNextRegistrationStep = (state: State) =>

@@ -13,5 +13,7 @@ export const RegistrationActions = createActionGroup({
     'Set Client Password': props<{ password: string }>(),
     'Set Next Step': props<{ step: _RegistrationStep }>(),
     'Set Current Step': props<{ step: _RegistrationStep }>(),
+    'Save Registration Details': emptyProps(),
+    'Done Save Registration Details': emptyProps(),
   },
 });

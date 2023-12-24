@@ -38,6 +38,7 @@ import { WelcomeMessageComponent } from './welcome/welcome-message/welcome-messa
 import { ClientDetailsComponent } from './welcome/registration/client-details/client-details.component';
 import { BusinessDetailsComponent } from './welcome/registration/business-details/business-details.component';
 import { AuthenticationDetailsComponent } from './welcome/registration/authentication-details/authentication-details.component';
+import { SavingDetailsComponent } from './welcome/registration/saving-details/saving-details.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AuthenticationDetailsComponent } from './welcome/registration/authentic
     ClientDetailsComponent,
     BusinessDetailsComponent,
     AuthenticationDetailsComponent,
+    SavingDetailsComponent,
   ],
   imports: [
     AppRoutingModule,
