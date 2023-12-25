@@ -38,3 +38,18 @@ export const getSavingData = createSelector(
   registrationState,
   fromReducer.getSavingData
 );
+
+export const getClientData = createSelector(
+  getClientName,
+  getClientEmail,
+  getClientBusinessName,
+  getClientPassword,
+  (name, email, businessName, password) => {
+    return {
+      name,
+      email,
+      businessName,
+      password,
+    };
+  }
+);

@@ -9,7 +9,7 @@
       <app-business-details *ngIf="(currentStep$ | async) === registrationStep.BUSINESS_DETAILS"></app-business-details>
       <app-authentication-details
         *ngIf="(currentStep$ | async) === registrationStep.AUTHENTICATION_DETAILS"></app-authentication-details>
-      <app-saving-details *ngIf="savingData$ | async"></app-saving-details>
+      <app-saving-details *ngIf="(currentStep$ | async) === registrationStep.SAVING_DATA"></app-saving-details>
     </div>
   </div>
 </div>

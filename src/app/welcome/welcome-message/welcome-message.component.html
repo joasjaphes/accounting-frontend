@@ -1,14 +1,31 @@
-<div style="width: 100%; height: 100%">
-    <div class="welcome-message" @fadeIn>
-        <p class="headliner">Easy <span style="color: rgb(255, 72, 0)">Accounting</span></p><br><br>
-        <p class="headline-message">Welcome to <b>Easy Accounting</b>,
-            where precision meets simplicity in the world of accounting.
-            Streamline your financial processes with our intuitive and powerful web application,
-            designed to empower businesses of all sizes. Experience seamless bookkeeping, real-time insights, and
-            effortless collaboration in one unified platform. Join us on the journey to financial efficiency and success
-            – because managing your accounts should be as easy as it is impactful.</p>
-    </div>
-    <div class="get-started-button" @fadeIn>
-        <button routerLink="registration">Get Started</button>
+<div style="width: 100%; height: 100%" class="d-flex align-items-center justify-content-center">
+    <!-- <div>
+        <img src="../../../assets/images/done_accounting.png" alt="">
+    </div> -->
+    <div style="width:20%"></div>
+    <div class="welcome-message">
+        <p class="headliner" @fadeIn>Easy <span style="color: rgb(255, 72, 0)">Accounting</span></p><br><br>
+        <!-- <div class="headline-content" align="left">
+            <span>Optimize Business Finances</span>
+        </div>
+        <div class="headline-content" align="left">
+            <span>Unified Bookkeeping Platform</span>
+        </div>
+        <div class="headline-content" align="left">
+            <span>Efficient Financial Journey</span>
+        </div> -->
+        <p class="headline-message">
+            <span @fadeIn >Welcome to <b style="color: rgb(255, 72, 0)">Easy Accounting </b>where precision meets simplicity in the world of accounting.</span><br>
+            <span @fadeIn >Streamline your financial processes with our intuitive and powerful web application,designed to empower businesses of all sizes.</span> <br>
+            <span @fadeIn >Experience seamless bookkeeping, real-time insights, and
+                effortless collaboration in one unified platform.</span> <br>
+            <span @fadeIn >Join us on the journey to financial efficiency and
+                success,
+                because managing your accounts should be as easy as it is impactful.</span>
+        </p>
+
+        <div class="get-started-button" @fadeIn>
+            <button routerLink="registration">Get Started</button>
+        </div>
     </div>
 </div>

@@ -8,7 +8,9 @@ export const registrationFeatureKey = 'registration';
 export type _RegistrationStep =
   | 'Client Details'
   | 'Business Details'
-  | 'Authentication Details';
+  | 'Authentication Details'
+  | 'Saving Data';
+
 
 export interface State {
   clientName: string;

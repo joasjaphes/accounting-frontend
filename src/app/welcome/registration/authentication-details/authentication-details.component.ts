@@ -7,6 +7,9 @@ import {
 } from 'src/app/shared/components/custom-form/form-config';
 import { RegistrationActions } from 'src/app/store/actions/registration.actions';
 import { AppState } from 'src/app/store/reducers';
+import * as registrationSelector from '../../../store/selectors/registration.selectors';
+import { firstValueFrom } from 'rxjs';
+import { RegistrationStep } from 'src/app/store/models/registration.model';
 
 @Component({
   selector: 'app-authentication-details',
@@ -24,12 +27,15 @@ export class AuthenticationDetailsComponent {
     },
   ];
 
-  onSave(formValue) {
+  async onSave(formValue) {
     try {
       const { password } = formValue;
       this.store.dispatch(RegistrationActions.setClientPassword({ password }));
-      this.store.dispatch(RegistrationActions.saveRegistrationDetails());
-      this.store.dispatch(RegistrationActions.setCurrentStep({ step: null }));
+      this.store.dispatch(
+        RegistrationActions.setCurrentStep({
+          step: RegistrationStep.SAVING_DATA,
+        })
+      );
     } catch (e) {
       console.error('Failed to set password', e);
     }

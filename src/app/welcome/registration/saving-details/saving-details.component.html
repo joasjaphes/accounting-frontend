@@ -1,5 +1,7 @@
-<div style="width: 100%" align="center">
-
-    <mat-spinner [mode]="'indeterminate'"></mat-spinner><span style="color: white; font-size: 18px;">Saving
-        details....</span>
+<div style="width: 100%; color: white; font-size: 18px;" align="center">
+    <ng-container *ngIf="savingData$ | async">
+        <mat-spinner [mode]="'indeterminate'"></mat-spinner><span>Saving
+            details....</span>
+    </ng-container>
+    <div>Thank You!</div>
 </div>
