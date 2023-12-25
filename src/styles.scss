@@ -5,6 +5,10 @@
 
 @include mat.core();
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 $accounting-pallete: (
   50: $accounting-primary-color,
   100: $accounting-primary-color,
