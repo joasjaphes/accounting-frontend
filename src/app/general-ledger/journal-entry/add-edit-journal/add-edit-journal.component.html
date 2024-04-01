@@ -1,3 +1,45 @@
 <div class="w-full">
-    
+    <div class="w-full">
+        <mat-form-field>
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="journalDate" [max]="maxDate">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="w-full mt-2" *ngIf="journalDate">
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea name="" id="" cols="30" rows="3" [(ngModel)]="journalDescription" matInput></textarea>
+        </mat-form-field>
+    </div>
+    <div class="w-full mt-2" *ngIf="journalDescription">
+        <table class="table border border-collapse w-full">
+            <thead>
+                <tr>
+                    <th class="border border-collapse">SN</th>
+                    <th class="border border-collapse">Account</th>
+                    <th class="border border-collapse">Debit</th>
+                    <th class="border border-collapse">Credit</th>
+                    <th class="border border-collapse">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="!transactions.length">
+                    <td colspan="5" class="text-center border border-collapse">Add journal transactions</td>
+                </tr>
+                <ng-container *ngIf="transactions.length">
+                    <tr *ngFor="let transaction of transactions; let i=index">
+                        <td>{{i + 1}}</td>
+                        <td>{{transaction.accountId}}</td>
+                        <td>
+                            <span *ngIf="transaction.type === 'DEBIT'">{{transaction.amount}}</span>
+                            <span *ngIf="transaction.type !== 'DEBIT'">0</span>
+                        </td>
+                        <td></td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
 </div>

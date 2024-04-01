@@ -4,10 +4,10 @@
         <p class="text-gray-400">{{description}}</p>
     </div>
     <div class="flex items-start w-full  p-4">
-        <div [@tableSize]="viewDetails ? 'eighty' : 'hundred'">
+        <div [@tableSize]="viewDetails ? 'sixty' : 'hundred'">
             <ng-content select="main"></ng-content>
         </div>
-        <div [@formSize]="viewDetails ? 'twenty' : 'zero'">
+        <div [@formSize]="viewDetails ? 'sixty' : 'zero'">
             <mat-card>
                 <div class="w-full bg-gray-200 flex justify-between items-center p-2">
                     <div>
