@@ -13,6 +13,7 @@ import { effects } from './store/effects';
 import { BrowserModule } from '@angular/platform-browser';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { provideHttpClient } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -34,6 +35,6 @@ export const appConfig: ApplicationConfig = {
     ),
     provideRouter(routes),
     provideHttpClient(),
-    provideAnimations(),
+    provideAnimations(), provideAnimationsAsync(),
   ],
 };

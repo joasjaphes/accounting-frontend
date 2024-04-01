@@ -5,11 +5,12 @@ import {
   TableConfiguration,
 } from '../../shared/components/data-table/data-table.component';
 import { AddEditJournalComponent } from './add-edit-journal/add-edit-journal.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-journal-entry',
   standalone: true,
-  imports: [PageLayoutComponent, DataTableComponent, AddEditJournalComponent],
+  imports: [PageLayoutComponent, DataTableComponent, AddEditJournalComponent,NgIf],
   templateUrl: './journal-entry.component.html',
   styleUrl: './journal-entry.component.css',
 })
