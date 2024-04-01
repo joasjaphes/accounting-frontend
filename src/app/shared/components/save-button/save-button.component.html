@@ -1,0 +1,30 @@
+<div class="w-full">
+    <ng-container *ngIf="!showConfirmation">
+        <div class="w-full flex items-center justify-end">
+            <ng-container *ngIf="showCancel">
+                <button class="bg-danger rounded-md px-4 py-2 flex items-center text-white font-bold" (click)="onCancel()">
+                    <mat-icon>close</mat-icon>&nbsp;
+                    {{cancelLabel}}
+                </button>&nbsp;
+            </ng-container>
+            <button class="bg-primary rounded-md px-4 py-2 text-white flex items-center font-bold" (click)="onSave()">
+                <mat-icon>save</mat-icon>&nbsp;
+                {{saveLabel}}
+            </button>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="showConfirmation">
+        <p class="text-center font-bold">{{confirmMessage}}</p>
+        <div class="flex items-center justify-center">
+            <button class="bg-danger rounded-md px-4 py-2 flex items-center text-white font-bold"
+                (click)="showConfirmation = false">
+                <mat-icon>close</mat-icon>&nbsp;
+                No</button>&nbsp;
+            <button class="bg-primary rounded-md px-4 py-2 text-white flex items-center font-bold" (click)="onSave(true)">
+                <mat-icon>check_circle</mat-icon>&nbsp;
+                Yes
+            </button>
+        </div>
+    </ng-container>
+</div>

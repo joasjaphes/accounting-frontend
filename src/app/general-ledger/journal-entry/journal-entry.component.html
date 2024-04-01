@@ -1,0 +1,11 @@
+<app-page-layout [title]="'Journal Entry'"
+    description="Manage your business journal entry. add, modify and remove journal entries."
+    [viewDetails]="viewDetails" [formTitle]="formTitle" [formDescription]="formDescription" (closeForm)="closeForm()">
+    <ng-container ngProjectAs="main">
+        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="journals"
+            addButtonText="New journal" (add)="onAdd()"></app-data-table>
+    </ng-container>
+    <ng-container ngProjectAs="form">
+        <app-add-edit-journal *ngIf="viewType === 'add'"></app-add-edit-journal>
+    </ng-container>
+</app-page-layout>

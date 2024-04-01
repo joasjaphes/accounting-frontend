@@ -1,0 +1,107 @@
+<div class="container mx-auto flex items-center justify-center w-full h-full">
+    <div class="w-1/2">
+        <div class="w-full mb-4" align="center">
+            <h1 class="text-primary font-bold">Create an account to get started</h1>
+        </div>
+        <form [formGroup]="registrationForm">
+            <ng-container>
+                <p>Basic details</p>
+                <div class="w-full mb-4">
+                    <mat-form-field appearance="outline">
+                        <input type="text" matInput placeholder="First name" formControlName="firstName" required>
+                    </mat-form-field>
+                    <mat-error *ngIf="touched('firstName') && hasError('firstName','required')">**This
+                        field is required</mat-error>
+                </div>
+                <div class="w-full mb-4">
+                    <mat-form-field appearance="outline">
+                        <input type="text" matInput placeholder="Surname" formControlName="surname" required>
+                    </mat-form-field>
+                    <mat-error *ngIf="touched('surname') && hasError('surname','required')">**This
+                        field is required</mat-error>
+                </div>
+                <div class="w-full mb-4">
+                    <mat-form-field appearance="outline">
+                        <input type="text" matInput placeholder="Email" formControlName="email" required>
+                    </mat-form-field>
+                    <mat-error *ngIf="touched('email') && hasError('email','required')">**This
+                        field is required</mat-error>
+                </div>
+                <div class="w-full mb-4">
+                    <mat-form-field appearance="outline">
+                        <input type="text" matInput placeholder="Phone number" formControlName="phoneNumber" required>
+                    </mat-form-field>
+                    <mat-error *ngIf="touched('phoneNumber') && hasError('phoneNumber','required')">**This
+                        field is required</mat-error>
+                </div>
+            </ng-container>
+            <ng-container>
+                <p>Company/business details</p>
+                <div class="w-full mb-4">
+                    <mat-form-field appearance="outline">
+                        <input type="text" matInput placeholder="Company name" formControlName="companyName" required>
+                    </mat-form-field>
+                    <mat-error *ngIf="touched('companyName') && hasError('companyName','required')">**This
+                        field is required</mat-error>
+                </div>
+            </ng-container>
+            <ng-container>
+                <p>Authentication details</p>
+                <div class="w-full mb-4">
+                    <mat-form-field appearance="outline">
+                        <input type="text" matInput placeholder="Password" formControlName="password" required>
+                    </mat-form-field>
+                    <mat-error *ngIf="touched('password') && hasError('password','required')">**This
+                        field is required</mat-error>
+                    <mat-error *ngIf="touched('password') && hasError('password','invalidPassword')"
+                        class="font-bold">**Password not valid (<small>Valid password should contain atleast 8
+                            characters
+                            with one Uppercase letter, one special character and one numeric value</small>)</mat-error>
+                </div>
+                <div class="w-full mb-4">
+                    <mat-form-field appearance="outline">
+                        <input type="text" matInput placeholder="Confirm Password" formControlName="confirmPassword"
+                            required>
+                    </mat-form-field>
+                    <mat-error *ngIf="touched('confirmPassword') && hasError('confirmPassword','required')">**This
+                        field is required</mat-error>
+                    <mat-error
+                        *ngIf="touched('confirmPassword') && hasError('confirmPassword','passwordsDontMatch')">**Passwords
+                        does not match</mat-error>
+                </div>
+
+            </ng-container>
+            <div class="w-full" align="center">
+                <button
+                    class="px-10 py-3 rounded-md bg-primary text-white font-bold w-full flex items-center justify-center"
+                    type="button" (click)="onSubmit()" [disabled]="savingData">
+                    <span *ngIf="!savingData">Submit</span>
+
+                    <ng-container *ngIf="savingData">
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                            </circle>
+                            <path class="opacity-75" fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                            </path>
+                        </svg>
+                        Processing...
+                    </ng-container>
+                </button>
+                <!-- <button type="button" class="bg-primary flex items-center justify-center" disabled>
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                        </circle>
+                        <path class="opacity-75" fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                        </path>
+                    </svg>
+                    Processing...
+                </button> -->
+            </div>
+        </form>
+
+    </div>
+</div>

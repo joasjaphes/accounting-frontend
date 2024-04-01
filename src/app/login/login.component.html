@@ -1,0 +1,43 @@
+<div class="container mx-auto flex items-center justify-center h-full w-full">
+    <div class="w-1/2">
+        <h1 class="font-bold text-primary text-center">Login with your registered email</h1>
+        <form [formGroup]="loginForm">
+            <div class="w-full mt-4">
+                <mat-form-field appearance="outline">
+                    <input type="text" matInput placeholder="Email" formControlName="email" required>
+                </mat-form-field>
+                <mat-error *ngIf="touched('email') && hasError('email','required')">**This
+                    field is required</mat-error>
+                <mat-error *ngIf="touched('email') && hasError('email','wrong')">**This
+                    email does not exist</mat-error>
+            </div>
+            <div class="w-full mt-2">
+                <mat-form-field appearance="outline">
+                    <input type="text" matInput placeholder="Password" formControlName="password" required>
+                </mat-form-field>
+                <mat-error *ngIf="touched('password') && hasError('password','required')">**This
+                    field is required</mat-error>
+                <mat-error *ngIf="touched('password') && hasError('password','wrong')">**Wrong password</mat-error>
+            </div>
+            <div class="w-full mt-2">
+                <button
+                    class="px-10 py-3 rounded-md bg-primary text-white font-bold w-full flex items-center justify-center"
+                    type="button" (click)="onLogin()" [disabled]="savingData">
+                    <span *ngIf="!savingData">Login</span>
+
+                    <ng-container *ngIf="savingData">
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                            </circle>
+                            <path class="opacity-75" fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                            </path>
+                        </svg>
+                        Processing...
+                    </ng-container>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

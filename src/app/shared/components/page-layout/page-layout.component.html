@@ -1,0 +1,32 @@
+<div class="h-full w-full">
+    <div class="w-full  p-4">
+        <h1 class="font-bold text-2xl">{{title}}</h1>
+        <p class="text-gray-400">{{description}}</p>
+    </div>
+    <div class="flex items-start w-full  p-4">
+        <div [@tableSize]="viewDetails ? 'eighty' : 'hundred'">
+            <ng-content select="main"></ng-content>
+        </div>
+        <div [@formSize]="viewDetails ? 'twenty' : 'zero'">
+            <mat-card>
+                <div class="w-full bg-gray-200 flex justify-between items-center p-2">
+                    <div>
+                        <h1 class="font-bold text-2xl">{{formTitle}}</h1>
+                        <p class="text-gray-400">{{formDescription}}</p>
+                    </div>
+                    <div>
+                        <button
+                            class="bg-transparent border-2 border-gray-300 px-5 py-2 rounded-md flex items-center text-gray-400"
+                            (click)="onCloseForm()">
+                            <mat-icon>close</mat-icon>
+                            Close
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full p-2">
+                    <ng-content select="form"></ng-content>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>

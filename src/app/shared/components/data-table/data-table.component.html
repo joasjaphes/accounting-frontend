@@ -1,0 +1,66 @@
+<div class="w-full">
+    <div class="w-full flex items-center justify-end">
+        <button class="add-button flex items-center" (click)="onAdd()" *ngIf="showAddButton">
+            <mat-icon>add_circle</mat-icon>
+            <span>{{addButtonText}}</span>
+        </button>
+    </div>
+    <div class="w-full mt-2">
+        <table *ngIf="tableData.length" mat-table [dataSource]="tableData" class="mat-elevation-z8"
+            style="font-family:custom-font">
+
+            <!-- Serial # Column -->
+            <ng-container matColumnDef="serial#">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element; let i=index"> {{i + 1}} </td>
+            </ng-container>
+
+            <!-- Data Columns -->
+            <ng-container *ngFor="let column of tableConfiguration.columns" [matColumnDef]="column.name">
+                <th mat-header-cell *matHeaderCellDef> {{column.label}} </th>
+                <td mat-cell *matCellDef="let element"> {{element[column.name]}} </td>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element"> </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns" style="font-family:custom-font"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" style="font-family:custom-font"></tr>
+        </table>
+        <table *ngIf="!tableData.length" mat-table [dataSource]="tableData" class="mat-elevation-z8"
+            style="font-family:custom-font">
+
+            <!-- Serial # Column -->
+            <ng-container matColumnDef="serial#">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <!-- <td mat-cell *matCellDef="let element"> {{element.position}} </td> -->
+            </ng-container>style="font-family:custom-font"
+
+            <!-- Data Columns -->
+            <ng-container *ngFor="let column of tableConfiguration.columns" [matColumnDef]="column.name">
+                <th mat-header-cell *matHeaderCellDef> {{column.label}} </th>
+                <!-- <td mat-cell *matCellDef="let element"> {{element[column.name]}} </td> -->
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <!-- <td mat-cell *matCellDef="let element"> </td> -->
+            </ng-container>
+            <ng-container matColumnDef="disclaimer">
+                <td mat-footer-cell *matFooterCellDef [attr.colspan]="displayedColumns.length">
+                    <h5 class="text-center text-muted pt-1">
+                        {{ tableConfiguration.emptyMessage || 'No data' }}
+                    </h5>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns" style="font-family:custom-font"></tr>
+            <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+            <tr mat-footer-row *matFooterRowDef="['disclaimer']" style="font-family:custom-font"></tr>
+        </table>
+    </div>
+</div>

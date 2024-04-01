@@ -1,0 +1,36 @@
+<form [formGroup]="accountForm">
+    <div class="w-full">
+        <mat-form-field appearance="outline">
+            <mat-label>Account Name</mat-label>
+            <input matInput formControlName="name" placeholder="Account Name">
+            <mat-error *ngIf="accountForm.get('name').hasError('required')">
+                Account Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="w-full mt-2">
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <input matInput formControlName="description" placeholder="Account Description">
+            <mat-error *ngIf="accountForm.get('description').hasError('required')">
+                Account Description is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="w-full mt-2">
+        <mat-form-field appearance="outline">
+            <mat-label>Account Category</mat-label>
+            <mat-select matInput formControlName="category" placeholder="Account Category">
+                <mat-option *ngFor="let category of categories" [value]="category.value">
+                    {{category.name}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="accountForm.get('category').hasError('required')">
+                Account Category is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="mt-2 w-full">
+        <app-save-button [saveLabel]="'Submit'" [confirmFirst]="true" (save)="onSave()" (cancel)="onCloseForm()"></app-save-button>
+    </div>
+</form>

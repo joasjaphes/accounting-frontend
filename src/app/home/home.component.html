@@ -1,0 +1,63 @@
+<mat-drawer-container class="h-full w-full">
+    <mat-drawer mode="side" opened class="h-screen w-1/7" #drawer>
+        <div class="h-screen w-full bg-primary  divide-y divide-gray-700 text-white">
+            <ng-container *ngFor="let menu of menus">
+                <ng-container *ngIf="!menu.children.length">
+                    <div class="font-bold w-full p-4 cursor-pointer flex items-center">
+                        <span>{{menu.name}}</span>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="menu.children.length">
+                    <mat-expansion-panel style="background-color: transparent; color:white">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title
+                                style="color:white; font-family:'custom-font'; font-weight: bold;">{{menu.name}}</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div class="w-full divide-y divide-gray-700">
+                            <div class="font-bold w-full p-4 cursor-pointer flex items-center"
+                                *ngFor="let submenu of menu.children" [routerLink]="submenu.path"
+                                routerLinkActive="active-menu">
+                                <span style="font-family:'custom-font'">{{submenu.name}}</span>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                </ng-container>
+            </ng-container>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content class="divide-y divide-gray-300">
+        <nav class="divide-gray-200 h-1/9">
+            <div class="w-full p-4 flex items-center">
+                <div class="w-1/2 flex items-center">
+                    <span class="flex items-center cursor-pointer">
+                        <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+                    </span>
+                </div>
+                <div class="w-1/2 flex justify-end items-center">
+                    <span class="font-bold items-center flex cursor-pointer">
+                        <mat-icon>person</mat-icon>&nbsp;
+                        {{userName}}&nbsp;
+                        <mat-icon [matMenuTriggerFor]="userMenu">keyboard_arrow_down</mat-icon>
+                    </span>
+                </div>
+            </div>
+            <mat-menu #userMenu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>person</mat-icon>
+                    <span>Profile</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>settings</mat-icon>
+                    <span>Settings</span>
+                </button>
+                <button mat-menu-item (click)="logout()">
+                    <mat-icon>exit_to_app</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
+        </nav>
+        <div class="content w-full h-8/9">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

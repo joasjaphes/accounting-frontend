@@ -1,0 +1,8 @@
+.mat-drawer {
+    background-color: transparent !important;
+}
+
+.active-menu {
+    /* border-right: 5px solid white; */
+    color: gray;
+}
