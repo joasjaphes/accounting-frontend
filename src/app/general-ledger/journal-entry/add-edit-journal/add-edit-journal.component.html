@@ -17,7 +17,6 @@
         <table class="table border border-collapse w-full">
             <thead>
                 <tr>
-                    <th class="border border-collapse">SN</th>
                     <th class="border border-collapse">Account</th>
                     <th class="border border-collapse">Debit</th>
                     <th class="border border-collapse">Credit</th>
@@ -26,11 +25,33 @@
             </thead>
             <tbody>
                 <tr *ngIf="!transactions.length">
-                    <td colspan="5" class="text-center border border-collapse">Add journal transactions</td>
+                    <td>
+                        <mat-form-field subscriptSizing="dynamic">
+                            <mat-select matInput>
+                                <mat-option *ngFor="let account of accounts$ | async"
+                                    [value]="account.id">{{account.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                            <input type="number" matInput>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field>
+                            <input type="number" matInput>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <button  mat-raised-button class="flex items-center w-full">
+                            <mat-icon>add_circle</mat-icon>
+                            <span>Add account</span>
+                        </button>
+                    </td>
                 </tr>
                 <ng-container *ngIf="transactions.length">
                     <tr *ngFor="let transaction of transactions; let i=index">
-                        <td>{{i + 1}}</td>
                         <td>{{transaction.accountId}}</td>
                         <td>
                             <span *ngIf="transaction.type === 'DEBIT'">{{transaction.amount}}</span>

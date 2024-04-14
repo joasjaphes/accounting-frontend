@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, CommonModule, NgFor, NgIf } from '@angular/common';
 import {
   MatFormField,
   MatLabel,
@@ -16,6 +16,8 @@ import { AppState } from '../../../store';
 import * as accountSelector from '../../../store/accounts/accounts.selectors';
 import { JournalTransaction } from '../../../store/journal-entry/journal-entry.model';
 import { CommonService } from '../../../services/common.service';
+import { MatOption, MatSelect } from '@angular/material/select';
+import { MatButton } from '@angular/material/button';
 @Component({
   selector: 'app-add-edit-journal',
   standalone: true,
@@ -24,11 +26,15 @@ import { CommonService } from '../../../services/common.service';
     MatInput,
     MatDatepickerModule,
     MatIcon,
+    MatSelect,
+    MatOption,
     FormsModule,
     MatSuffix,
     MatLabel,
+    MatButton,
     NgIf,
     NgFor,
+    AsyncPipe
   ],
   templateUrl: './add-edit-journal.component.html',
   styleUrl: './add-edit-journal.component.css',
