@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { UserService } from '../services/user.service';
 import { go } from '../store/router/router.actions';
+import { JournalEntryActions } from '../store/journal-entry/journal-entry.actions';
 
 @Component({
   selector: 'app-home',
@@ -42,6 +43,7 @@ export class HomeComponent implements OnInit {
       const user = JSON.parse(localStorage.getItem('accounting-user'));
       this.userName = `${user.firstName} ${user.surname}`;
       this.store.dispatch(loadAccounts());
+      this.store.dispatch(JournalEntryActions.loadJournalEntries());
     }
   }
 

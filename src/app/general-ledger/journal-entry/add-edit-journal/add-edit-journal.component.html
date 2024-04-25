@@ -25,42 +25,53 @@
             </thead>
             <tbody>
                 <tr *ngIf="!transactions.length">
-                    <td>
+                    <td colspan="4">
+                        <p class="text-xl font-bold text-center">Add transactions</p>
+                    </td>
+                </tr>
+                <ng-container *ngIf="transactions.length">
+                    <tr *ngFor="let transaction of transactions; let i=index">
+                        <td class="border border-collapse">{{transaction.accountName}}</td>
+                        <td class="border border-collapse" style="text-align:right">
+                            {{transaction.debitAmount}}
+                        </td>
+                        <td class="border border-collapse" style="text-align:right">{{transaction.creditAmount}}</td>
+                        <td class="border border-collapse"></td>
+                    </tr>
+                </ng-container>
+                <tr>
+                    <td class="border border-collapse form-cell">
                         <mat-form-field subscriptSizing="dynamic">
-                            <mat-select matInput>
+                            <mat-select matInput [(ngModel)]="newTransaction.accountId">
                                 <mat-option *ngFor="let account of accounts$ | async"
                                     [value]="account.id">{{account.name}}</mat-option>
                             </mat-select>
                         </mat-form-field>
                     </td>
-                    <td>
+                    <td class="border border-collapse form-cell">
                         <mat-form-field>
-                            <input type="number" matInput>
+                            <input type="number" matInput [(ngModel)]="newTransaction.debitAmount"
+                                [disabled]="newTransaction?.creditAmount > 0">
                         </mat-form-field>
                     </td>
-                    <td>
+                    <td class="border border-collapse form-cell">
                         <mat-form-field>
-                            <input type="number" matInput>
+                            <input type="number" matInput [(ngModel)]="newTransaction.creditAmount"
+                                [disabled]="newTransaction.debitAmount >0">
                         </mat-form-field>
                     </td>
-                    <td>
-                        <button  mat-raised-button class="flex items-center w-full">
+                    <td class="border border-collapse form-cell">
+                        <button mat-raised-button class="flex items-center w-full" (click)="addTransaction()"
+                            [disabled]="!this.newTransaction.accountId || !(this.newTransaction.debitAmount || this.newTransaction.creditAmount)">
                             <mat-icon>add_circle</mat-icon>
                             <span>Add account</span>
                         </button>
                     </td>
                 </tr>
-                <ng-container *ngIf="transactions.length">
-                    <tr *ngFor="let transaction of transactions; let i=index">
-                        <td>{{transaction.accountId}}</td>
-                        <td>
-                            <span *ngIf="transaction.type === 'DEBIT'">{{transaction.amount}}</span>
-                            <span *ngIf="transaction.type !== 'DEBIT'">0</span>
-                        </td>
-                        <td></td>
-                    </tr>
-                </ng-container>
             </tbody>
         </table>
+    </div>
+    <div class="mt-2 w-full" align="right" *ngIf="transactions.length">
+        <app-save-button [confirmFirst]="true" (save)="onSave()" [saving]="saving" (cancel)="onClose()"></app-save-button>
     </div>
 </div>
