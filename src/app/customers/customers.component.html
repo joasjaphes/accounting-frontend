@@ -1,1 +1,5 @@
-<p>customers works!</p>
+<app-page-layout title="Customers" description="Manage your customers. Add, update or remove customers">
+    <ng-container ngProjectAs="main">
+        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="customers$ | async" addButtonText="New customer"></app-data-table>
+    </ng-container>
+</app-page-layout>

@@ -6,6 +6,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { AccountsComponent } from './general-ledger/accounts/accounts.component';
 import { TransactionComponent } from './general-ledger/transaction/transaction.component';
 import { JournalEntryComponent } from './general-ledger/journal-entry/journal-entry.component';
+import { CustomersComponent } from './customers/customers.component';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,10 @@ export const routes: Routes = [
       {
         path: 'general-ledger/journal-entry',
         component: JournalEntryComponent,
+      },
+      {
+        path: 'customers',
+        component: CustomersComponent,
       },
     ],
   },

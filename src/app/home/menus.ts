@@ -53,6 +53,7 @@ export const menus: Menu[] = [
     name: 'Customers',
     id:'customers',
     icon: 'home',
+    path:'customers'
   },
   {
     name: 'Products & Services',

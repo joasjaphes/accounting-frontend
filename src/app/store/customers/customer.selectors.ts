@@ -10,6 +10,10 @@ export const selectEntities = createSelector(
   customerState,
   fromReducer.selectEntities
 );
+export const selectLoading = createSelector(
+  customerState,
+  fromReducer.getLoading
+);
 
 export const selectById = (id: string) =>
   createSelector(selectAll, (customers) => customers.find((c) => c.id === id));
