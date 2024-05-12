@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
   ) {}
   userName = '';
   menus = menus;
+  openedMenu = '';
   ngOnInit(): void {
     const token = localStorage.getItem('accounting-token');
     if (!token) {
@@ -50,5 +51,13 @@ export class HomeComponent implements OnInit {
   logout() {
     this.userService.logout();
     this.store.dispatch(go({ path: ['', 'login'] }));
+  }
+
+  openCloseMenu(id) {
+    if (this.openedMenu === id) {
+      this.openedMenu = '';
+    } else {
+      this.openedMenu = id;
+    }
   }
 }

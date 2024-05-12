@@ -2,13 +2,27 @@
     <mat-drawer mode="side" opened class="h-screen w-1/7" #drawer>
         <div class="h-screen w-full bg-primary  divide-y divide-gray-700 text-white">
             <ng-container *ngFor="let menu of menus">
-                <ng-container *ngIf="!menu.children.length">
+                <ng-container *ngIf="!menu.children?.length">
                     <div class="font-bold w-full p-4 cursor-pointer flex items-center">
                         <span>{{menu.name}}</span>
                     </div>
                 </ng-container>
-                <ng-container *ngIf="menu.children.length">
-                    <mat-expansion-panel style="background-color: transparent; color:white">
+                <ng-container *ngIf="menu?.children?.length">
+                    <div class="font-bold w-full p-4 cursor-pointer flex items-center justify-between"
+                        (click)="openCloseMenu(menu.id)">
+                        <span>{{menu.name}}</span>
+                        <span class="material-icons" *ngIf="openedMenu !== menu.id">keyboard_arrow_right</span>
+                        <span class="material-icons" *ngIf="openedMenu === menu.id">keyboard_arrow_down</span>
+                    </div>
+                    <div class="divide-y divide-gray-700" *ngIf="openedMenu == menu.id">
+                        <ng-container *ngFor="let child of menu.children">
+                            <div class="font-bold w-full pl-8  pb-4 pt-4 cursor-pointer flex items-center"
+                                [routerLink]="child.path" routerLinkActive="active-menu">
+                                <span class="text-sm">{{child.name}}</span>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <!-- <mat-expansion-panel style="background-color: transparent; color:white">
                         <mat-expansion-panel-header>
                             <mat-panel-title
                                 style="color:white; font-family:'custom-font'; font-weight: bold;">{{menu.name}}</mat-panel-title>
@@ -20,7 +34,7 @@
                                 <span style="font-family:'custom-font'">{{submenu.name}}</span>
                             </div>
                         </div>
-                    </mat-expansion-panel>
+                    </mat-expansion-panel> -->
                 </ng-container>
             </ng-container>
         </div>
