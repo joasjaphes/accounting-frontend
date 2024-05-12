@@ -9,12 +9,19 @@ import {
   DataTableComponent,
   TableConfiguration,
 } from '../shared/components/data-table/data-table.component';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
+import { AddEditCustomerComponent } from './add-edit-customer/add-edit-customer.component';
 
 @Component({
   selector: 'app-customers',
   standalone: true,
-  imports: [PageLayoutComponent, DataTableComponent, AsyncPipe],
+  imports: [
+    PageLayoutComponent,
+    DataTableComponent,
+    AddEditCustomerComponent,
+    AsyncPipe,
+    NgIf,
+  ],
   templateUrl: './customers.component.html',
   styleUrl: './customers.component.scss',
 })
@@ -45,9 +52,24 @@ export class CustomersComponent implements OnInit {
       },
     ],
   };
+  viewDetails = false;
+  viewType;
+  formTitle = '';
   constructor(private store: Store<AppState>) {}
   ngOnInit(): void {
     this.customers$ = this.store.pipe(select(customersSelector.selectAll));
     this.loading$ = this.store.pipe(select(customersSelector.selectLoading));
+  }
+
+  addCustomer() {
+    this.viewType = 'add';
+    this.formTitle = 'Add new customer';
+    this.viewDetails = true;
+  }
+
+  closeForm() {
+    this.viewDetails = false;
+    this.formTitle = '';
+    this.viewType = '';
   }
 }

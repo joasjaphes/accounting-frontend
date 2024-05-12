@@ -104,7 +104,7 @@ export const formSize = trigger('formSize', [
   transition(
     'twenty => zero',
     group([
-      animate('300ms ease-in', style({ opacity: 0})),
+      animate('300ms ease-in', style({ opacity: 0 })),
       animate('300ms ease-in', style({ width: '0px' })),
       animate('300ms ease-in', style({ transform: 'scale(0, 0)' })),
     ])
@@ -165,4 +165,41 @@ export const formSize = trigger('formSize', [
       animate('300ms', style({ transform: 'scale(1, 1)' })),
     ])
   ),
+]);
+
+export const fadeIn = trigger('fadeIn', [
+  transition(':enter', [
+    style({ opacity: 0 }),
+    animate('0.5s ease-out', style({ opacity: 1 })),
+  ]),
+]);
+
+export const fadeInOut = trigger('fadeInOut', [
+  transition(':enter', [
+    style({ opacity: 0 }),
+    animate('0.5s ease-out', style({ opacity: 1 })),
+  ]),
+  transition(':leave', [
+    style({ opacity: 1 }),
+    animate('0.5s ease-out', style({ opacity: 0 })),
+  ]),
+]);
+
+export const routeAnimation = trigger('routeAnimation', [
+  transition(':enter', [
+    style({ opacity: 0, transform: 'translateY(100%)' }),
+    animate(
+      '0.4s ease-out',
+      style({ opacity: 1, width: '100%', transform: 'translateY(0)' })
+    ),
+  ]),
+  transition(':leave', [animate('0.5s ease-out', style({ opacity: 0 }))]),
+]);
+
+export const leftRight = trigger('leftRight', [
+  transition(':enter', [
+    style({ opacity: 1, transform: 'translateX(-100%)' }),
+    animate('0.5s ease-out', style({ opacity: 1, transform: 'translateX(0)' })),
+  ]),
+  transition(':leave', [animate('0.4s ease-out', style({ opacity: 0 }))]),
 ]);

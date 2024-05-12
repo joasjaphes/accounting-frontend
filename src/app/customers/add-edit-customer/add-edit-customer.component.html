@@ -1,0 +1,31 @@
+<div class="w-full p-2">
+    <form [formGroup]="customerForm">
+        <div class="w-full">
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Customer name</mat-label>
+                <input type="text" matInput formControlName="name">
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-2" *ngIf="customerForm.get('name').value" @fadeIn>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Customer phone</mat-label>
+                <input type="text" matInput formControlName="phoneNumber">
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-2" *ngIf="customerForm.get('name').value" @fadeIn>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Customer email</mat-label>
+                <input type="text" matInput formControlName="email">
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-2" *ngIf="customerForm.get('name').value" @fadeIn>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Customer address</mat-label>
+                <input type="text" matInput formControlName="address">
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-4" *ngIf="customerForm.get('name').value" @fadeIn>
+            <app-save-button (cancel)="onClose()" (save)="onSave()" [confirmFirst]="true"></app-save-button>
+        </div>
+    </form>
+</div>
