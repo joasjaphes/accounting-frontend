@@ -7,6 +7,8 @@ import { AccountsComponent } from './general-ledger/accounts/accounts.component'
 import { TransactionComponent } from './general-ledger/transaction/transaction.component';
 import { JournalEntryComponent } from './general-ledger/journal-entry/journal-entry.component';
 import { CustomersComponent } from './customers/customers.component';
+import { ProductsComponent } from './products-and-services/products/products.component';
+import { ServicesComponent } from './products-and-services/services/services.component';
 
 export const routes: Routes = [
   {
@@ -36,6 +38,14 @@ export const routes: Routes = [
       {
         path: 'customers',
         component: CustomersComponent,
+      },
+      {
+        path: 'products',
+        component: ProductsComponent,
+      },
+      {
+        path: 'services',
+        component: ServicesComponent,
       },
     ],
   },

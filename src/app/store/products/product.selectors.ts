@@ -24,3 +24,7 @@ export const selectPhysicalProducts = createSelector(selectAll, (products) =>
 export const selectServices = createSelector(selectAll, (products) =>
   products.filter((product) => product.type === 'Service')
 );
+
+export const selectDetailed = createSelector(selectAll, (products) => {
+  return products;
+})

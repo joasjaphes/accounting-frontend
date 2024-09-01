@@ -1,1 +1,10 @@
-<p>products works!</p>
+<app-page-layout title="Products" description="Manage your products. Add, update or remove products"
+    [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
+    <ng-container ngProjectAs="main">
+        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="products$ | async"
+            addButtonText="New product" (add)="addProduct()"></app-data-table>
+    </ng-container>
+    <ng-container ngProjectAs="form">
+        <app-add-edit-product (close)="closeForm()"></app-add-edit-product>
+    </ng-container>
+</app-page-layout>

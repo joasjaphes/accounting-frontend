@@ -25,6 +25,7 @@ export const productReducer = createReducer(
     return { ...state, loading: false };
   }),
   on(ProductActions.upsertProduct, (state, { product }) => {
+    console.log('product', product);
     return adapter.upsertOne(product, state);
   }),
   on(ProductActions.upsertProducts, (state, { products }) => {
