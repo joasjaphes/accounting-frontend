@@ -42,6 +42,11 @@ export class ProductsComponent implements OnInit {
         label: 'Product description',
         type: 'text',
       },
+      {
+        name: 'price',
+        label: 'Unit Price',
+        type: 'number',
+      },
     ],
   };
 

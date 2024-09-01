@@ -14,6 +14,7 @@ import { Product } from '../../store/products/product.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store';
 import { ProductActions } from '../../store/products/product.actions';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-add-edit-product',
@@ -35,13 +36,15 @@ export class AddEditProductComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private commonService: CommonService,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private productService: ProductService
   ) {}
   ngOnInit() {
     this.productForm = this.formBuilder.group({
       name: '',
       description: '',
       type: 'Physical',
+      price: '',
     });
   }
 
@@ -54,7 +57,9 @@ export class AddEditProductComponent implements OnInit {
         name: formData.name,
         description: formData.description,
         type: formData.type,
+        price: formData.price,
       };
+      await this.productService.saveProduct(payload);
       this.store.dispatch(ProductActions.upsertProduct({ product: payload }));
       this.onClose();
     } catch (e) {

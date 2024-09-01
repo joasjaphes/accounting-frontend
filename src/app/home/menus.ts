@@ -1,6 +1,6 @@
 export interface Menu {
   name: string;
-  id:string;
+  id: string;
   path?: string;
   icon: string;
   children?: Menu[];
@@ -9,18 +9,18 @@ export interface Menu {
 export const menus: Menu[] = [
   {
     name: 'General Ledger',
-    id:'generalLedger',
+    id: 'generalLedger',
     icon: 'home',
     children: [
       {
         name: 'Accounts',
-        id:'accounts',
+        id: 'accounts',
         icon: 'account_balance',
         path: 'general-ledger/accounts',
       },
       {
         name: 'Journal Entry',
-        id:'journalEntry',
+        id: 'journalEntry',
         icon: 'book',
         path: 'general-ledger/journal-entry',
       },
@@ -33,12 +33,12 @@ export const menus: Menu[] = [
   },
   {
     name: 'Receivables',
-    id:'receivable',
+    id: 'receivable',
     icon: 'home',
     children: [
       {
         name: 'Invoicing',
-        id:'invoicing',
+        id: 'invoicing',
         icon: 'account_balance',
         path: 'general-ledger/accounts',
       },
@@ -51,27 +51,14 @@ export const menus: Menu[] = [
   },
   {
     name: 'Customers',
-    id:'customers',
+    id: 'customers',
     icon: 'home',
-    path:'customers'
+    path: 'customers',
   },
   {
-    name: 'Products & Services',
-    id:'productsServices',
-    icon: 'home',
-    children: [
-      {
-        name: 'Products',
-        id:'products',
-        icon: 'account_balance',
-        path: 'products',
-      },
-      {
-        name: 'Services',
-        id:'services',
-        icon: 'account_balance',
-        path: 'services',
-      },
-    ],
+    name: 'Products',
+    id: 'products',
+    icon: 'account_balance',
+    path: 'products',
   },
 ];

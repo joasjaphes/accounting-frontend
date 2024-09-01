@@ -1,5 +1,6 @@
-import { NgFor, NgIf } from '@angular/common';
+import { DecimalPipe, NgFor, NgIf } from '@angular/common';
 import {
+  AfterViewInit,
   Component,
   EventEmitter,
   Input,
@@ -7,10 +8,12 @@ import {
   OnInit,
   Output,
   SimpleChanges,
+  ViewChild,
 } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatTableModule } from '@angular/material/table';
-import {MatIconModule} from '@angular/material/icon'
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatPaginator } from '@angular/material/paginator';
 
 export interface TableConfiguration {
   columns: Column[];
@@ -32,9 +35,17 @@ export type ColumType = 'text' | 'number' | 'date' | 'currency';
   templateUrl: './data-table.component.html',
   styleUrl: './data-table.component.css',
   standalone: true,
-  imports: [NgIf,NgFor,ReactiveFormsModule,MatTableModule, MatIconModule],
+  imports: [
+    NgIf,
+    NgFor,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatIconModule,
+    DecimalPipe,
+    MatPaginator,
+  ],
 })
-export class DataTableComponent implements OnInit, OnChanges {
+export class DataTableComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() tableData = [];
   @Input() addButtonText = 'Add';
   @Input() showAddButton = true;
@@ -43,7 +54,9 @@ export class DataTableComponent implements OnInit, OnChanges {
     actions: {},
   };
   @Output() add = new EventEmitter();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = [];
+  dataSource: MatTableDataSource<[]> = new MatTableDataSource([]);
 
   constructor() {}
 
@@ -57,12 +70,16 @@ export class DataTableComponent implements OnInit, OnChanges {
     this.init();
   }
 
+  ngAfterViewInit() {}
+
   init() {
+    this.dataSource = new MatTableDataSource(this.tableData);
     this.displayedColumns = this.tableConfiguration.columns.map(
       (column) => column.name
     );
     this.displayedColumns.unshift('serial#');
     this.displayedColumns.push('actions');
+    this.dataSource.paginator = this.paginator;
   }
 
   onAdd() {

@@ -19,7 +19,7 @@ export class ProductService {
   }
   async getProducts() {
     try {
-      await firstValueFrom(this.http.get('product'));
+      return await firstValueFrom(this.http.get('product'));
     } catch (e) {
       console.error('Failed to get products', e);
       throw e;
