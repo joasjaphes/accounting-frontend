@@ -5,6 +5,7 @@ import { routerReducer } from '@ngrx/router-store';
 import * as fromJournalEntry from './journal-entry/journal-entry.reducer';
 import * as fromCustomer from './customers/customer.reducer';
 import * as fromProduct from './products/product.reducer';
+import * as fromInvoice from './invoicing/invoice.reducer';
 
 export interface AppState {
   router: fromRouter.RouterReducerState<any>;
@@ -12,6 +13,7 @@ export interface AppState {
   [fromJournalEntry.journalEntryFeatureKey]: fromJournalEntry.State;
   [fromCustomer.customerFeatureKey]: fromCustomer.State;
   [fromProduct.productFeatureKey]: fromProduct.State;
+  [fromInvoice.invoiceFeatureKey]: fromInvoice.State;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
@@ -20,4 +22,5 @@ export const reducers: ActionReducerMap<AppState> = {
   [fromJournalEntry.journalEntryFeatureKey]: fromJournalEntry.reducer,
   [fromCustomer.customerFeatureKey]: fromCustomer.reducer,
   [fromProduct.productFeatureKey]: fromProduct.reducer,
+  [fromInvoice.invoiceFeatureKey]: fromInvoice.reducer,
 };

@@ -9,6 +9,7 @@ import { JournalEntryComponent } from './general-ledger/journal-entry/journal-en
 import { CustomersComponent } from './customers/customers.component';
 import { ProductsComponent } from './products-and-services/products/products.component';
 import { ServicesComponent } from './products-and-services/services/services.component';
+import { InvoicingComponent } from './receivables/invoicing/invoicing.component';
 
 export const routes: Routes = [
   {
@@ -34,6 +35,10 @@ export const routes: Routes = [
       {
         path: 'general-ledger/journal-entry',
         component: JournalEntryComponent,
+      },
+      {
+        path: 'receivables/invoicing',
+        component: InvoicingComponent,
       },
       {
         path: 'customers',

@@ -1,1 +1,13 @@
-<p>invoicing works!</p>
+<app-page-layout [title]="'Invoices'"
+    description="Manage your customer invoices. Create, modify and process invoices."
+    [viewDetails]="viewDetails" [formTitle]="formTitle" [formDescription]="formDescription" (closeForm)="closeForm()">
+    <ng-container ngProjectAs="main">
+        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="invoices$ | async" [showAddButton]="!viewDetails"
+            addButtonText="New invoice" (add)="onAddInvoice()"></app-data-table>
+    </ng-container>
+    <ng-container ngProjectAs="form">
+        @if (viewType == 'add') {
+            <app-add-edit-invoice></app-add-edit-invoice>
+        }
+    </ng-container>
+</app-page-layout>
