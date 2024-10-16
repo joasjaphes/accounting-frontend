@@ -40,7 +40,7 @@ export const menus: Menu[] = [
         name: 'Invoicing',
         id: 'invoicing',
         icon: 'account_balance',
-        path: 'general-ledger/accounts',
+        path: 'receivables/invoicing',
       },
       // {
       //   name: 'Transactions',
