@@ -27,4 +27,11 @@ export const selectServices = createSelector(selectAll, (products) =>
 
 export const selectDetailed = createSelector(selectAll, (products) => {
   return products;
-})
+});
+
+export const selectByIds = (ids: string[]) =>
+  createSelector(selectDetailed, (products) =>
+    products.filter(
+      (product) => ids.includes('ALL') || ids.includes(product.id)
+    )
+  );

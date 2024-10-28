@@ -6,11 +6,95 @@
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 </div>
-<div class="w-full mt-2">
+@if (invoiceDate) {
+<div class="w-full mt-2" @fadeIn>
+    <div class="w-full flex">
+        <div style="width: 80%;">
+            <mat-form-field>
+                <mat-label>Customer</mat-label>
+                <mat-select matInput [(ngModel)]="customerId" (selectionChange)="onCustomerSelected()">
+                    <app-search-area [(searchValue)]="customerSearchString"></app-search-area>
+                    @for (customer of customers$ | async; track $index) {
+                    <mat-option [value]="customer.id">{{customer.name}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div style="width: 20%; height: inherit">
+            <button mat-raised-button style="font-weight: bold; width:100%; height:100%" (click)="onNewCustomer()">
+                <mat-icon>add_circle</mat-icon>
+                New customer
+            </button>
+        </div>
+    </div>
+</div>
+}
+@if (customerId) {
+<div class="w-full mt-2" @fadeIn>
     <mat-form-field>
-        <mat-label>Customer</mat-label>
-        <mat-select matInput>
-            <mat-option></mat-option>
+        <mat-label>Invoice Items</mat-label>
+        <mat-select matInput multiple [(ngModel)]="selectedProductIds" (selectionChange)="onProductSelected()">
+            <app-search-area [(searchValue)]="productSearchString"></app-search-area>
+            @for (product of products$ | async; track $index) {
+            <mat-option [value]="product.id">{{product.name}}</mat-option>
+            }
         </mat-select>
     </mat-form-field>
 </div>
+}
+@if (selectedProductIds.length) {
+<div class="w-full mt-4" @fadeIn>
+    <table class="table border border-collapse w-full">
+        <thead>
+            <tr>
+                <th class="border border-collapse">Item name</th>
+                <th class="border border-collapse">Quantity</th>
+                <th class="border border-collapse">Unit price</th>
+                <th class="border border-collapse">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of selectedProducts; track $index) {
+            <tr>
+                <td class="border border-collapse pl-4">{{item.name}}</td>
+                <td class="border border-collapse form-cell" style="text-align:center">
+                    <mat-form-field>
+                        <input type="number" matInput [(ngModel)]="productQuantity[item.id]"
+                            (input)="calculateSubtotal(item.id)">
+                    </mat-form-field>
+                </td>
+                <td class="border border-collapse form-cell" style="text-align:center">
+                    <mat-form-field>
+                        <input type="number" [(ngModel)]="productPrice[item.id]" matInput
+                            (input)="calculateSubtotal(item.id)">
+                    </mat-form-field>
+                </td>
+                <td class="border border-collapse" style="text-align:right">
+                    {{productSubtotal[item.id] | number:'0.2-2'}}
+                </td>
+            </tr>
+            }
+            <tr>
+                <th class="border border-collapse p-6" style="text-align: left;" colspan="3">Total</th>
+                <th class="border border-collapse" style="text-align:right">{{getInvoiceTotal() | number:'0.2-2'}}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+}
+
+@if(getInvoiceTotal()){
+<div class="w-full mt-4" @fadeIn>
+    <mat-form-field>
+        <mat-label>Invoice description</mat-label>
+        <textarea name="invoiceDescription" id="" cols="2" rows="2" [(ngModel)]="invoiceDescription"
+            matInput></textarea>
+    </mat-form-field>
+</div>
+}
+
+@if (invoiceDescription) {
+<div class="w-full mt-4">
+    <app-save-button saveLabel="Save invoice" (save)="onSave()" (cancel)="onClose()" [confirmFirst]="true"></app-save-button>
+</div>
+}

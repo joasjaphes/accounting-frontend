@@ -16,6 +16,7 @@ import { SaveButtonComponent } from '../../shared/components/save-button/save-bu
 import { CommonService } from '../../services/common.service';
 import { Customer } from '../../store/customers/customer.model';
 import { CustomerActions } from '../../store/customers/customer.actions';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-add-edit-customer',
@@ -42,7 +43,8 @@ export class AddEditCustomerComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<AppState>,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private customerService: CustomerService
   ) {}
   ngOnInit(): void {
     this.customerForm = this.formBuilder.group({
@@ -75,17 +77,18 @@ export class AddEditCustomerComponent implements OnInit {
         ...formValue,
         id: customerId,
       };
+      await this.customerService.saveCustomer(customerPayload);
       this.store.dispatch(
         CustomerActions.upsertCustomer({ customer: customerPayload })
       );
-      this.onClose();
+      this.onClose(customerPayload);
     } catch (e) {
       console.error('Failed to save customer', e);
     }
     this.saving = false;
   }
 
-  onClose() {
-    this.close.emit();
+  onClose(customer?:Customer) {
+    this.close.emit(customer);
   }
 }

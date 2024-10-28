@@ -12,7 +12,7 @@ export interface Invoice {
   discount: number;
   paymentStatus: paymentStatus;
   items: InvoiceItem[];
-  itemList:string;
+  itemList?:string;
 }
 
 export interface InvoiceItem {

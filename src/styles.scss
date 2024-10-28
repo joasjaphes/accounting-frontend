@@ -35,6 +35,18 @@ html {
     border-right: none;
 }
 
-.mat-mdc-floating-label, .mdc-floating-label {
+.mat-mdc-floating-label,
+.mdc-floating-label {
     font-family: 'custom-font' !important;
+}
+
+.table {
+    td,
+    th {
+        padding: 10px;
+    }
+
+    .form-cell {
+        padding: 0
+    }
 }

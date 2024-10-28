@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/enviroment.config';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class HttpClientService {
@@ -18,7 +19,7 @@ export class HttpClientService {
     };
   }
 
-  get(url: string) {
+  get(url: string): Observable<any> {
     return this.http.get(`${this.rootUrl}${url}`, {
       headers: this.authHeaders,
     });

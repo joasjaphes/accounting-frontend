@@ -12,7 +12,7 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 export class NewCustomerComponent {
   constructor(private dialogRef: MatDialogRef<NewCustomerComponent>) {}
 
-  close() {
-    this.dialogRef.close();
+  close(event) {
+    this.dialogRef.close(event);
   }
 }
