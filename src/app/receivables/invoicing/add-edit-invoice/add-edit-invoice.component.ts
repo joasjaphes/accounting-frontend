@@ -29,6 +29,8 @@ import { SaveButtonComponent } from '../../../shared/components/save-button/save
 import { Invoice, InvoiceItem } from '../../../store/invoicing/invoice.model';
 import { CommonService } from '../../../services/common.service';
 import moment from 'moment';
+import { InvoiceService } from '../../../services/invoice.service';
+import { InvoiceActions } from '../../../store/invoicing/invoice.actions';
 
 @Component({
   selector: 'app-add-edit-invoice',
@@ -70,11 +72,13 @@ export class AddEditInvoiceComponent implements OnInit {
   productSubtotal: { [id: string]: number } = {};
   selectedProductIds = [];
   invoiceDescription: string;
+  saving = false;
 
   constructor(
     private store: Store<AppState>,
     private dialog: MatDialog,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private invoiceService: InvoiceService
   ) {}
 
   ngOnInit() {
@@ -141,6 +145,7 @@ export class AddEditInvoiceComponent implements OnInit {
   }
 
   async onSave() {
+    this.saving = true;
     try {
       const id = this.commonService.makeId();
       let items: InvoiceItem[] = [];
@@ -170,8 +175,12 @@ export class AddEditInvoiceComponent implements OnInit {
         paymentStatus: 'UNPAID',
         items,
       };
+      await this.invoiceService.saveInvoice(invoice);
+      this.store.dispatch(InvoiceActions.loadInvoices());
+      this.onClose();
     } catch (e) {
       console.error('Failed to save invoice', e);
     }
+    this.saving = false;
   }
 }
