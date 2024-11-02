@@ -68,7 +68,7 @@ export class InvoicingComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
-    this.invoices$ = this.store.pipe(select(invoiceSelector.selectAll));
+    this.invoices$ = this.store.pipe(select(invoiceSelector.selectDetailed));
   }
 
   closeForm() {

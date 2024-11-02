@@ -1,6 +1,9 @@
+import { Customer } from '../customers/customer.model';
+import { Product } from '../products/product.model';
+
 export interface Invoice {
   id: string;
-  invoiceNumber:string;
+  invoiceNumber: string;
   description: string;
   date: string;
   customerId: string;
@@ -12,7 +15,8 @@ export interface Invoice {
   discount: number;
   paymentStatus: paymentStatus;
   items: InvoiceItem[];
-  itemList?:string;
+  itemList?: string;
+  customer?: Customer;
 }
 
 export interface InvoiceItem {
@@ -22,6 +26,7 @@ export interface InvoiceItem {
   discount: number;
   VATAmount: number;
   subtotal: number;
+  product?: Product;
 }
 
 export type paymentStatus = 'UNPAID' | 'PAID' | 'PARTIALLY_PAID';

@@ -164,7 +164,7 @@ export class AddEditInvoiceComponent implements OnInit {
         id,
         invoiceNumber: null,
         description: this.invoiceDescription,
-        date: moment(new Date()).format('YYYY-MM_DD'),
+        date: moment(new Date()).format('YYYY-MM-DD'),
         customerId: this.customerId,
         customerName: this.customer.name,
         subtotal: this.getInvoiceTotal(),

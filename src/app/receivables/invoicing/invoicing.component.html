@@ -7,7 +7,7 @@
     </ng-container>
     <ng-container ngProjectAs="form">
         @if (viewType == 'add') {
-            <app-add-edit-invoice></app-add-edit-invoice>
+            <app-add-edit-invoice (close)="closeForm()"></app-add-edit-invoice>
         }
     </ng-container>
 </app-page-layout>
