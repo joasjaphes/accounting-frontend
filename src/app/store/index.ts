@@ -7,6 +7,7 @@ import * as fromCustomer from './customers/customer.reducer';
 import * as fromProduct from './products/product.reducer';
 import * as fromInvoice from './invoicing/invoice.reducer';
 import * as fromStoreSetup from './store-setup/store-setup.reducer';
+import * as fromCurrency from './currency/currency.reducer';
 
 export interface AppState {
   router: fromRouter.RouterReducerState<any>;
@@ -16,6 +17,7 @@ export interface AppState {
   [fromProduct.productFeatureKey]: fromProduct.State;
   [fromInvoice.invoiceFeatureKey]: fromInvoice.State;
   [fromStoreSetup.storeSetupFeatureKey]: fromStoreSetup.State;
+  [fromCurrency.currencyFeatureKey]: fromCurrency.State;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
@@ -26,4 +28,5 @@ export const reducers: ActionReducerMap<AppState> = {
   [fromProduct.productFeatureKey]: fromProduct.reducer,
   [fromInvoice.invoiceFeatureKey]: fromInvoice.reducer,
   [fromStoreSetup.storeSetupFeatureKey]: fromStoreSetup.reducer,
+  [fromCurrency.currencyFeatureKey]: fromCurrency.reducer,
 };
