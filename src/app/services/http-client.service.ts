@@ -30,4 +30,10 @@ export class HttpClientService {
       headers: this.authHeaders,
     });
   }
+
+  put(url: string, data) {
+    return this.http.put(`${this.rootUrl}${url}`, data, {
+      headers: this.authHeaders,
+    });
+  }
 }

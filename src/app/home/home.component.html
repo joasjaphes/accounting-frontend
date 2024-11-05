@@ -1,6 +1,6 @@
 <mat-drawer-container class="h-full w-full">
     <mat-drawer mode="side" opened class="h-screen w-1/7" #drawer>
-        <div class="h-screen w-full bg-primary  divide-y divide-gray-700 text-white">
+        <div class="h-screen w-full bg-primaryColor  divide-y divide-gray-700 text-white">
             <ng-container *ngFor="let menu of menus">
                 <ng-container *ngIf="!menu.children?.length">
                     <div class="font-bold w-full p-4 cursor-pointer flex items-center" [routerLink]="menu.path"

@@ -1,0 +1,64 @@
+<app-page-layout title="Company Setup" description="Fill in your company setup for easy usability of the system."
+    [viewDetails]="viewDetails">
+    <ng-container ngProjectAs="main">
+        <div class="row">
+            <div class="col-sm-12 mb-2">
+                <mat-form-field>
+                    <mat-label>Company name</mat-label>
+                    <input type="text" matInput [(ngModel)]="name">
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 mb-2">
+                <mat-form-field>
+                    <mat-label>Company description</mat-label>
+                    <textarea name="" id="" matInput [(ngModel)]="description"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 mb-2">
+                <mat-form-field>
+                    <mat-label>Company address</mat-label>
+                    <textarea name="" id="" matInput [(ngModel)]="address"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 mb-2">
+                <mat-form-field>
+                    <mat-label>Phone number</mat-label>
+                    <input type="text" matInput [(ngModel)]="phoneNumber">
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 mb-2">
+                <mat-form-field>
+                    <mat-label>email</mat-label>
+                    <input type="text" matInput [(ngModel)]="email">
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 mb-2 ">
+                <mat-form-field>
+                    <mat-label>TIN</mat-label>
+                    <input type="text" matInput [(ngModel)]="TIN">
+                </mat-form-field>
+            </div>
+            <div class="col-sm-6 mb-2">
+                <mat-form-field>
+                    <mat-label>VRN</mat-label>
+                    <input type="text" matInput [(ngModel)]="VRN">
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12 mb-2">
+                <mat-form-field>
+                    <mat-label>Cost update method</mat-label>
+                    <mat-select matInput [(ngModel)]="costUpdateMethod">
+                        <mat-option value="OLD_COST">Keep the old cost</mat-option>
+                        <mat-option value="NEW_COST">Update with the new cost</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12 mb-2">
+                <mat-checkbox [(ngModel)]="forceAccounting">Force accounting to all transactions</mat-checkbox>
+            </div>
+            <div class="col-sm-12 mt-2" *ngIf="showSaveButton">
+                <app-save-button [showCancel]="false" [saving]="savingCompany" (save)="saveCompany()"></app-save-button>
+            </div>
+        </div>
+    </ng-container>
+</app-page-layout>

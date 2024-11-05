@@ -10,6 +10,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { ProductsComponent } from './products-and-services/products/products.component';
 import { ServicesComponent } from './products-and-services/services/services.component';
 import { InvoicingComponent } from './receivables/invoicing/invoicing.component';
+import { CompanySetupComponent } from './configuration/company-setup/company-setup.component';
 
 export const routes: Routes = [
   {
@@ -39,6 +40,10 @@ export const routes: Routes = [
       {
         path: 'receivables/invoicing',
         component: InvoicingComponent,
+      },
+      {
+        path: 'configuration/company-setup',
+        component: CompanySetupComponent,
       },
       {
         path: 'customers',

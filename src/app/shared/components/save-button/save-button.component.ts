@@ -16,7 +16,7 @@ export class SaveButtonComponent {
   @Input() saveLabel = 'Save';
   @Input() cancelLabel = 'Cancel';
   @Input() showCancel = true;
-  @Input() confirmFirst = false;
+  @Input() confirmFirst = true;
   @Input() confirmMessage = 'Are you sure you want to save?';
   @Input() saving = false;
   @Output() save = new EventEmitter();
