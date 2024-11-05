@@ -68,15 +68,22 @@ export const menus: Menu[] = [
     children: [
       {
         name: 'Company Setup',
-        id: 'invoicing',
+        id: 'companySetup',
         icon: 'account_balance',
         path: 'configuration/company-setup',
       },
-      // {
-      //   name: 'Transactions',
-      //   icon: 'account_balance',
-      //   path: 'general-ledger/transactions',
-      // },
+      {
+        name: 'Currency Setup',
+        id: 'currencySetup',
+        icon: 'account_balance',
+        path: 'configuration/currency-setup',
+      },
+      {
+        name: 'Stores Setup',
+        id: 'storeSetup',
+        icon: 'account_balance',
+        path: 'configuration/store-setup',
+      },
     ],
   },
 ];

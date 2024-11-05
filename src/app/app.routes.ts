@@ -11,6 +11,8 @@ import { ProductsComponent } from './products-and-services/products/products.com
 import { ServicesComponent } from './products-and-services/services/services.component';
 import { InvoicingComponent } from './receivables/invoicing/invoicing.component';
 import { CompanySetupComponent } from './configuration/company-setup/company-setup.component';
+import { CurrencySetupComponent } from './configuration/currency-setup/currency-setup.component';
+import { StoreSetupComponent } from './configuration/store-setup/store-setup.component';
 
 export const routes: Routes = [
   {
@@ -44,6 +46,14 @@ export const routes: Routes = [
       {
         path: 'configuration/company-setup',
         component: CompanySetupComponent,
+      },
+      {
+        path: 'configuration/currency-setup',
+        component: CurrencySetupComponent,
+      },
+      {
+        path: 'configuration/store-setup',
+        component: StoreSetupComponent,
       },
       {
         path: 'customers',
