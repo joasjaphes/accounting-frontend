@@ -55,6 +55,7 @@ export class CurrencySetupComponent implements OnInit {
   viewDetails = false;
   viewType;
   formTitle = '';
+  currentCurrency: Currency;
   constructor(private store: Store<AppState>) {}
   ngOnInit(): void {
     this.currencies$ = this.store.pipe(select(currencySelector.selectAll));
@@ -64,6 +65,13 @@ export class CurrencySetupComponent implements OnInit {
   addCurrency() {
     this.viewType = 'add';
     this.formTitle = 'Add new currency';
+    this.viewDetails = true;
+  }
+
+  updateCurrency(event) {
+    this.currentCurrency = event;
+    this.viewType = 'update';
+    this.formTitle = 'Update currency';
     this.viewDetails = true;
   }
 

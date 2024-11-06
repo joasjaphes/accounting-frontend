@@ -2,9 +2,11 @@
     [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
     <ng-container ngProjectAs="main">
         <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="currencies$ | async"
-            addButtonText="New currency" (add)="addCurrency()"></app-data-table>
+            addButtonText="New currency" (add)="addCurrency()" (update)="updateCurrency($event)"></app-data-table>
     </ng-container>
     <ng-container ngProjectAs="form">
         <app-add-edit-currency *ngIf="viewType === 'add'" (close)="closeForm()"></app-add-edit-currency>
+        <app-add-edit-currency *ngIf="viewType === 'update'" (close)="closeForm()"
+            [currency]="currentCurrency"></app-add-edit-currency>
     </ng-container>
 </app-page-layout>

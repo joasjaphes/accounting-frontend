@@ -58,6 +58,7 @@ export class AddEditCurrencyComponent implements OnInit {
     });
     const user = JSON.parse(localStorage.getItem('accounting-user'));
     this.companyId = user.companyId;
+    this.initCurrency()
   }
 
   initCurrency() {

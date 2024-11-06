@@ -1,6 +1,9 @@
 import { AsyncPipe, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { DataTableComponent, TableConfiguration } from '../../shared/components/data-table/data-table.component';
+import {
+  DataTableComponent,
+  TableConfiguration,
+} from '../../shared/components/data-table/data-table.component';
 import { PageLayoutComponent } from '../../shared/components/page-layout/page-layout.component';
 import { AddEditCurrencyComponent } from '../currency-setup/add-edit-currency/add-edit-currency.component';
 import { StoreSetup } from '../../store/store-setup/store-setup.model';
@@ -39,10 +42,14 @@ export class StoreSetupComponent implements OnInit {
         type: 'text',
       },
     ],
+    actions: {
+      edit: true,
+    },
   };
   viewDetails = false;
   viewType;
   formTitle = '';
+  currentStore: StoreSetup;
   constructor(private store: Store<AppState>) {}
   ngOnInit(): void {
     this.stores$ = this.store.pipe(select(storeSelector.selectAll));
@@ -52,6 +59,13 @@ export class StoreSetupComponent implements OnInit {
   addStore() {
     this.viewType = 'add';
     this.formTitle = 'Add new store';
+    this.viewDetails = true;
+  }
+
+  updateStore(event) {
+    this.currentStore = event;
+    this.viewType = 'update';
+    this.formTitle = 'Update store';
     this.viewDetails = true;
   }
 

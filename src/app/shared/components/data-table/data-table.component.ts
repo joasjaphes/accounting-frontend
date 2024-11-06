@@ -95,27 +95,15 @@ export class DataTableComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   onUpdate(item: any) {
-    if (this.tableConfiguration.useFullObject) {
-      this.update.emit(item);
-    } else {
-      this.update.emit(item.id);
-    }
+    this.update.emit(item);
   }
 
   onDelete(item: any) {
-    if (this.tableConfiguration.useFullObject) {
-      this.delete.emit(item);
-    } else {
-      this.delete.emit(item.id);
-    }
+    this.delete.emit(item);
   }
 
   onView(item: any) {
-    if (this.tableConfiguration.useFullObject) {
-      this.view.emit(item);
-    } else {
-      this.view.emit(item.id);
-    }
+    this.view.emit(item);
   }
 
   onAdd() {

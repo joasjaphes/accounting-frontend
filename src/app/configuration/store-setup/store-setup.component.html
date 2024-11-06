@@ -2,9 +2,10 @@
     [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
     <ng-container ngProjectAs="main">
         <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="stores$ | async"
-            addButtonText="New store" (add)="addStore()"></app-data-table>
+            addButtonText="New store" (add)="addStore()" (update)="updateStore($event)"></app-data-table>
     </ng-container>
     <ng-container ngProjectAs="form">
         <app-add-edit-store *ngIf="viewType === 'add'" (close)="closeForm()"></app-add-edit-store>
+        <app-add-edit-store *ngIf="viewType === 'update'" (close)="closeForm()" [storeSetup]="currentStore"></app-add-edit-store>
     </ng-container>
 </app-page-layout>

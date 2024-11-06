@@ -64,6 +64,7 @@ export class AddEditStoreComponent implements OnInit {
     });
     const user = JSON.parse(localStorage.getItem('accounting-user'));
     this.companyId = user.companyId;
+    this.initStore();
   }
 
   initStore() {
