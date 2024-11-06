@@ -15,6 +15,8 @@ import { JournalEntryActions } from '../store/journal-entry/journal-entry.action
 import { ProductActions } from '../store/products/product.actions';
 import { CustomerActions } from '../store/customers/customer.actions';
 import { InvoiceActions } from '../store/invoicing/invoice.actions';
+import { StoreSetupActions } from '../store/store-setup/store-setup.actions';
+import { CurrencyActions } from '../store/currency/currency.actions';
 
 @Component({
   selector: 'app-home',
@@ -51,6 +53,8 @@ export class HomeComponent implements OnInit {
       this.store.dispatch(ProductActions.loadProducts());
       this.store.dispatch(CustomerActions.loadCustomers());
       this.store.dispatch(InvoiceActions.loadInvoices());
+      this.store.dispatch(StoreSetupActions.loadStores());
+      this.store.dispatch(CurrencyActions.loadCurrencies());
     }
   }
 

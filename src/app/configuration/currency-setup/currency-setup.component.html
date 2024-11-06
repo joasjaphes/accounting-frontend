@@ -1,1 +1,10 @@
-<p>currency-setup works!</p>
+<app-page-layout title="Currencies" description="Manage your currencies. Add, update or remove currency"
+    [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
+    <ng-container ngProjectAs="main">
+        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="currencies$ | async"
+            addButtonText="New currency" (add)="addCurrency()"></app-data-table>
+    </ng-container>
+    <ng-container ngProjectAs="form">
+        <app-add-edit-currency *ngIf="viewType === 'add'" (close)="closeForm()"></app-add-edit-currency>
+    </ng-container>
+</app-page-layout>

@@ -1,1 +1,25 @@
-<p>add-edit-store works!</p>
+<div class="w-full p-2">
+    <form [formGroup]="storeForm">
+        <div class="w-full">
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Store name</mat-label>
+                <input type="text" matInput formControlName="name">
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-2" *ngIf="storeForm.get('name').value" @fadeIn>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Store description</mat-label>
+                <input type="text" matInput formControlName="description">
+            </mat-form-field>
+        </div>
+        <div class="w-full" *ngIf="storeForm.get('name').value" @fadeIn >
+            <mat-checkbox formControlName="canRequestFromOtherStores">Allow to request from other stores</mat-checkbox><br>
+            <mat-checkbox formControlName="allowSales">Allow sales</mat-checkbox><br>
+            <mat-checkbox formControlName="canIssueToOtherStores">Allow issuing to other stores</mat-checkbox><br>
+            <mat-checkbox formControlName="canReceivePurchaseOrder">Allow receiving purchase orders</mat-checkbox>
+        </div>
+        <div class="w-full mt-4" *ngIf="storeForm.get('name').value" @fadeIn>
+            <app-save-button (cancel)="onClose()" (save)="onSave()" [confirmFirst]="true"></app-save-button>
+        </div>
+    </form>
+</div>

@@ -8,7 +8,7 @@ import { StoreSetup } from './store-setup.model';
 import { StoreSetupService } from '../../services/store-setup.service';
 
 @Injectable()
-export class ProductEffect {
+export class StoreSetupEffect {
   constructor(
     private actions$: Actions,
     private storeSetupService: StoreSetupService,

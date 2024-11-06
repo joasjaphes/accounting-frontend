@@ -8,7 +8,7 @@ import { CurrencyActions } from './currency.actions';
 import { Currency } from './currency.model';
 
 @Injectable()
-export class ProductEffect {
+export class CurrencyEffect {
   constructor(
     private actions$: Actions,
     private currencyService: CurrencyService,

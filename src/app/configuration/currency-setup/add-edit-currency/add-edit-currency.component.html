@@ -1,1 +1,25 @@
-<p>add-edit-currency works!</p>
+<div class="w-full p-2">
+    <form [formGroup]="currencyForm">
+        <div class="w-full">
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Currency name</mat-label>
+                <input type="text" matInput formControlName="name">
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-2" *ngIf="currencyForm.get('name').value" @fadeIn>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Currency description</mat-label>
+                <input type="text" matInput formControlName="description">
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-2" *ngIf="currencyForm.get('name').value" @fadeIn>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Currency symbol</mat-label>
+                <input type="text" matInput formControlName="symbol">
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-4" *ngIf="currencyForm.get('name').value" @fadeIn>
+            <app-save-button (cancel)="onClose()" (save)="onSave()" [confirmFirst]="true"></app-save-button>
+        </div>
+    </form>
+</div>

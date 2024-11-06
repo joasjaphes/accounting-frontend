@@ -5,4 +5,5 @@ export interface Currency {
   symbol: string;
   exchangeRate?: string;
   isDefaultLocalCurrency?: boolean;
+  companyId?: string;
 }

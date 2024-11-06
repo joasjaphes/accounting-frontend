@@ -17,8 +17,13 @@ import { MatPaginator } from '@angular/material/paginator';
 
 export interface TableConfiguration {
   columns: Column[];
-  actions?: { [key: string]: boolean };
+  actions?: {
+    edit?: boolean;
+    delete?: boolean;
+    view?: boolean;
+  };
   emptyMessage?: string;
+  useFullObject?: boolean;
 }
 
 export interface Column {
@@ -51,9 +56,16 @@ export class DataTableComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() showAddButton = true;
   @Input() tableConfiguration: TableConfiguration = {
     columns: [],
-    actions: {},
+    actions: {
+      edit: false,
+      view: false,
+      delete: false,
+    },
   };
   @Output() add = new EventEmitter();
+  @Output() update = new EventEmitter();
+  @Output() delete = new EventEmitter();
+  @Output() view = new EventEmitter();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns: string[] = [];
   dataSource: MatTableDataSource<[]> = new MatTableDataSource([]);
@@ -80,6 +92,30 @@ export class DataTableComponent implements OnInit, OnChanges, AfterViewInit {
     this.displayedColumns.unshift('serial#');
     this.displayedColumns.push('actions');
     this.dataSource.paginator = this.paginator;
+  }
+
+  onUpdate(item: any) {
+    if (this.tableConfiguration.useFullObject) {
+      this.update.emit(item);
+    } else {
+      this.update.emit(item.id);
+    }
+  }
+
+  onDelete(item: any) {
+    if (this.tableConfiguration.useFullObject) {
+      this.delete.emit(item);
+    } else {
+      this.delete.emit(item.id);
+    }
+  }
+
+  onView(item: any) {
+    if (this.tableConfiguration.useFullObject) {
+      this.view.emit(item);
+    } else {
+      this.view.emit(item.id);
+    }
   }
 
   onAdd() {
