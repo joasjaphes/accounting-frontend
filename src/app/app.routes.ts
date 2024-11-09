@@ -3,16 +3,16 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { AccountsComponent } from './general-ledger/accounts/accounts.component';
-import { TransactionComponent } from './general-ledger/transaction/transaction.component';
-import { JournalEntryComponent } from './general-ledger/journal-entry/journal-entry.component';
-import { CustomersComponent } from './customers/customers.component';
-import { ProductsComponent } from './products-and-services/products/products.component';
-import { ServicesComponent } from './products-and-services/services/services.component';
-import { InvoicingComponent } from './receivables/invoicing/invoicing.component';
-import { CompanySetupComponent } from './configuration/company-setup/company-setup.component';
-import { CurrencySetupComponent } from './configuration/currency-setup/currency-setup.component';
-import { StoreSetupComponent } from './configuration/store-setup/store-setup.component';
+import { AccountsComponent } from './modules/general-ledger/accounts/accounts.component';
+import { TransactionComponent } from './modules/general-ledger/transaction/transaction.component';
+import { JournalEntryComponent } from './modules/general-ledger/journal-entry/journal-entry.component';
+import { CustomersComponent } from './modules/customers/customers.component';
+import { ProductsComponent } from './modules/products-and-services/products/products.component';
+import { ServicesComponent } from './modules/products-and-services/services/services.component';
+import { InvoicingComponent } from './modules/receivables/invoicing/invoicing.component';
+import { CompanySetupComponent } from './modules/configuration/company-setup/company-setup.component';
+import { CurrencySetupComponent } from './modules/configuration/currency-setup/currency-setup.component';
+import { StoreSetupComponent } from './modules/configuration/store-setup/store-setup.component';
 
 export const routes: Routes = [
   {
