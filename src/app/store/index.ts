@@ -8,6 +8,9 @@ import * as fromProduct from './products/product.reducer';
 import * as fromInvoice from './invoicing/invoice.reducer';
 import * as fromStoreSetup from './store-setup/store-setup.reducer';
 import * as fromCurrency from './currency/currency.reducer';
+import * as fromFinancialPeriod from './financial-period/financial-period.reducer';
+import * as fromTaxCode from './tax-code/tax-code.reducer';
+import * as fromPaymentType from './payment-type/payment-type.reducer';
 
 export interface AppState {
   router: fromRouter.RouterReducerState<any>;
@@ -18,6 +21,9 @@ export interface AppState {
   [fromInvoice.invoiceFeatureKey]: fromInvoice.State;
   [fromStoreSetup.storeSetupFeatureKey]: fromStoreSetup.State;
   [fromCurrency.currencyFeatureKey]: fromCurrency.State;
+  [fromFinancialPeriod.financialPeriodFeatureKey]: fromFinancialPeriod.State;
+  [fromTaxCode.taxCodeFeatureKey]: fromTaxCode.State;
+  [fromPaymentType.paymentTypeFeatureKey]: fromPaymentType.State;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
@@ -29,4 +35,7 @@ export const reducers: ActionReducerMap<AppState> = {
   [fromInvoice.invoiceFeatureKey]: fromInvoice.reducer,
   [fromStoreSetup.storeSetupFeatureKey]: fromStoreSetup.reducer,
   [fromCurrency.currencyFeatureKey]: fromCurrency.reducer,
+  [fromFinancialPeriod.financialPeriodFeatureKey]: fromFinancialPeriod.reducer,
+  [fromTaxCode.taxCodeFeatureKey]: fromTaxCode.reducer,
+  [fromPaymentType.paymentTypeFeatureKey]: fromPaymentType.reducer,
 };
