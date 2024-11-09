@@ -3,7 +3,7 @@ import { FinancialPeriod } from '../store/financial-period/financial-period.mode
 import { HttpClientService } from './http-client.service';
 import { firstValueFrom } from 'rxjs';
 
-@Injectable()
+@Injectable({providedIn:'root'})
 export class FinancialPeriodService {
   constructor(private http: HttpClientService) {}
 

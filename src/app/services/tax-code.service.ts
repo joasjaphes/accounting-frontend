@@ -3,7 +3,7 @@ import { HttpClientService } from './http-client.service';
 import { TaxCode } from '../store/tax-code/tax-code.model';
 import { firstValueFrom } from 'rxjs';
 
-@Injectable()
+@Injectable({providedIn:'root'})
 export class TaxCodeService {
   constructor(private http: HttpClientService) {}
 
