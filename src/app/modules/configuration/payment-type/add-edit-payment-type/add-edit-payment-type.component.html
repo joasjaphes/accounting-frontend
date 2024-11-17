@@ -1,1 +1,28 @@
-<p>add-edit-payment-type works!</p>
+<div class="w-full p-2">
+    <form [formGroup]="paymentTypeForm">
+        <div class="w-full">
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Payment type name</mat-label>
+                <input type="text" matInput formControlName="name">
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-2" *ngIf="paymentTypeForm.get('name').value" @fadeIn>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Payment type description</mat-label>
+                <input type="text" matInput formControlName="description">
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-2" *ngIf="paymentTypeForm.get('name').value" @fadeIn>
+            <mat-checkbox formControlName="displayInSales">Show in sales</mat-checkbox><br>
+            <mat-checkbox formControlName="displayInDebtorsPayments">Display while doing debtors payment</mat-checkbox><br>
+            <mat-checkbox formControlName="displayInCreditPayments">Display while doing credit payments</mat-checkbox><br>
+            <mat-checkbox formControlName="displayInCustomerDeposits">Display while doing customer deposits</mat-checkbox><br>
+            <mat-checkbox formControlName="displayInRefunds">Display while doing refunds</mat-checkbox><br>
+            <mat-checkbox formControlName="displayInCashierReports">Display in cashier report</mat-checkbox><br>
+            <mat-checkbox formControlName="displayInBankingReceivingMoney">Display while doing Banking Receiving Money</mat-checkbox>
+        </div>
+        <div class="w-full mt-4" *ngIf="paymentTypeForm.get('name').value" @fadeIn>
+            <app-save-button (cancel)="onClose()" (save)="onSave()" [confirmFirst]="true"></app-save-button>
+        </div>
+    </form>
+</div>

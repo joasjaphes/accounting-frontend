@@ -1,1 +1,11 @@
-<p>payment-type works!</p>
+<app-page-layout title="Payment Types" description="Manage your payment types. Add, update or remove payment types"
+    [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
+    <ng-container ngProjectAs="main">
+        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="paymentTypes$ | async"
+            addButtonText="New payment type" (add)="addNewPaymentType()" (update)="updatePaymentType($event)"></app-data-table>
+    </ng-container>
+    <ng-container ngProjectAs="form">
+        <app-add-edit-payment-type *ngIf="viewType == 'add'" [paymentType]="currentPaymentType" (close)="closeForm()"></app-add-edit-payment-type>
+        <app-add-edit-payment-type *ngIf="viewType == 'update'" [paymentType]="currentPaymentType" (close)="closeForm()"></app-add-edit-payment-type>
+    </ng-container>
+</app-page-layout>

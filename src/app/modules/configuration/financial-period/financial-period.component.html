@@ -1,1 +1,13 @@
-<p>financial-period works!</p>
+<app-page-layout title="Financial Periods" description="Manage your financial periods. Add, update or remove periods"
+    [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
+    <ng-container ngProjectAs="main">
+        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="financialPeriods$ | async"
+            addButtonText="New financial period" (add)="addNewFinancialPeriod()"
+            (update)="updateFinancialPeriod($event)"></app-data-table>
+    </ng-container>
+    <ng-container ngProjectAs="form">
+        <app-add-edit-financial-period *ngIf="viewType=='add'" (close)="closeForm()"></app-add-edit-financial-period>
+        <app-add-edit-financial-period *ngIf="viewType=='update'" [financialPeriod]="currentFinancialPeriod"
+            (close)="closeForm()"></app-add-edit-financial-period>
+    </ng-container>
+</app-page-layout>

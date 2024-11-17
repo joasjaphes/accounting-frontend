@@ -13,6 +13,9 @@ import { InvoicingComponent } from './modules/receivables/invoicing/invoicing.co
 import { CompanySetupComponent } from './modules/configuration/company-setup/company-setup.component';
 import { CurrencySetupComponent } from './modules/configuration/currency-setup/currency-setup.component';
 import { StoreSetupComponent } from './modules/configuration/store-setup/store-setup.component';
+import { TaxCodeComponent } from './modules/configuration/tax-code/tax-code.component';
+import { PaymentTypeComponent } from './modules/configuration/payment-type/payment-type.component';
+import { FinancialPeriodComponent } from './modules/configuration/financial-period/financial-period.component';
 
 export const routes: Routes = [
   {
@@ -54,6 +57,18 @@ export const routes: Routes = [
       {
         path: 'configuration/store-setup',
         component: StoreSetupComponent,
+      },
+      {
+        path: 'configuration/tax-code',
+        component: TaxCodeComponent,
+      },
+      {
+        path: 'configuration/payment-type',
+        component: PaymentTypeComponent,
+      },
+      {
+        path: 'configuration/financial-period',
+        component: FinancialPeriodComponent,
       },
       {
         path: 'customers',

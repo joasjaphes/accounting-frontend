@@ -17,6 +17,9 @@ import { CustomerActions } from '../store/customers/customer.actions';
 import { InvoiceActions } from '../store/invoicing/invoice.actions';
 import { StoreSetupActions } from '../store/store-setup/store-setup.actions';
 import { CurrencyActions } from '../store/currency/currency.actions';
+import { TaxCodeActions } from '../store/tax-code/tax-code.actions';
+import { PaymentTypeActions } from '../store/payment-type/payment-type.actions';
+import { FinancialPeriodActions } from '../store/financial-period/financial-period.actions';
 
 @Component({
   selector: 'app-home',
@@ -55,6 +58,9 @@ export class HomeComponent implements OnInit {
       this.store.dispatch(InvoiceActions.loadInvoices());
       this.store.dispatch(StoreSetupActions.loadStores());
       this.store.dispatch(CurrencyActions.loadCurrencies());
+      this.store.dispatch(TaxCodeActions.loadTaxCodes());
+      this.store.dispatch(PaymentTypeActions.loadPaymentTypes());
+      this.store.dispatch(FinancialPeriodActions.loadFinancialPeriods());
     }
   }
 

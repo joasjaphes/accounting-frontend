@@ -1,1 +1,57 @@
-<p>add-edit-financial-period works!</p>
+<div class="w-full p-2">
+    <form [formGroup]="financialPeriodForm">
+        <div class="w-full">
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Financial period name</mat-label>
+                <input type="text" matInput formControlName="name">
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-2" *ngIf="financialPeriodForm.get('name').value" @fadeIn>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Financial period description</mat-label>
+                <input type="text" matInput formControlName="description">
+            </mat-form-field>
+        </div>
+        <div class="w-full grid grid-cols-2 gap-2 mt-2" *ngIf="financialPeriodForm.get('name').value">
+            <div @fadeIn>
+                <mat-form-field>
+                    <mat-label>Start date</mat-label>
+                    <input matInput [matDatepicker]="startDate" formControlName="startDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="startDate"></mat-datepicker-toggle>
+                    <mat-datepicker #startDate></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div *ngIf="financialPeriodForm.get('startDate').value" @fadeIn>
+                <mat-form-field>
+                    <mat-label>End date</mat-label>
+                    <input matInput [matDatepicker]="endDate" formControlName="endDate"
+                        [min]="financialPeriodForm.get('startDate').value">
+                    <mat-datepicker-toggle matIconSuffix [for]="endDate"></mat-datepicker-toggle>
+                    <mat-datepicker #endDate></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="w-full mt-2" *ngIf="financialPeriodForm.get('endDate').value" @fadeIn>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Costing method</mat-label>
+                <mat-select matInput formControlName="costingMethod">
+                    <mat-option value="WEIGHTED_AVERAGE">Weighted average</mat-option>
+                    <mat-option value="LIFO">LIFO (Last In First Out)</mat-option>
+                    <mat-option value="FIFO">FIFO (First In Fist Out)</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-2" *ngIf="financialPeriodForm.get('endDate').value" @fadeIn>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Status</mat-label>
+                <mat-select matInput formControlName="status">
+                    <mat-option value="OPEN">Open</mat-option>
+                    <mat-option value="CLOSED">Closed</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-4" *ngIf="financialPeriodForm.get('endDate').value" @fadeIn>
+            <app-save-button (cancel)="onClose()" (save)="onSave()" [confirmFirst]="true"></app-save-button>
+        </div>
+    </form>
+</div>

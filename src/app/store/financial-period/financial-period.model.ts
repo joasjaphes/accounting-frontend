@@ -5,6 +5,6 @@ export interface FinancialPeriod {
   startDate:string;
   endDate:string;
   costingMethod:string;
-  status: 'OPEN' | 'CLOSE';
+  status: 'OPEN' | 'CLOSED';
   companyId?: string;
 }

@@ -75,12 +75,12 @@ export class AddEditCurrencyComponent implements OnInit {
     this.saving = true;
     try {
       const formValue = this.currencyForm.value;
-      const customerId = this.currency
+      const currencyId = this.currency
         ? this.currency.id
         : this.commonService.makeId();
       const currencyPayload: Currency = {
         ...formValue,
-        id: customerId,
+        id: currencyId,
         companyId: this.companyId,
       };
       await this.currencyService.saveCurrency(currencyPayload);
@@ -94,7 +94,7 @@ export class AddEditCurrencyComponent implements OnInit {
     this.saving = false;
   }
 
-  onClose(customer?: Customer) {
-    this.close.emit(customer);
+  onClose(currency?: Currency) {
+    this.close.emit(currency);
   }
 }

@@ -1,1 +1,41 @@
-<p>add-edit-tax-code works!</p>
+<div class="w-full p-2">
+    <form [formGroup]="taxCodeForm">
+        <div class="w-full">
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Tax code name</mat-label>
+                <input type="text" matInput formControlName="name">
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-2" *ngIf="taxCodeForm.get('name').value" @fadeIn>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Tax code description</mat-label>
+                <input type="text" matInput formControlName="description">
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-2" *ngIf="taxCodeForm.get('name').value" @fadeIn>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Tax code rate</mat-label>
+                <input type="number" matInput formControlName="rate">
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-2" *ngIf="taxCodeForm.get('name').value" @fadeIn>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Sales account</mat-label>
+                <mat-select matInput formControlName="salesAccount">
+                    <mat-option *ngFor="let account of accounts" [value]="account.id">{{account.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-2" *ngIf="taxCodeForm.get('name').value" @fadeIn>
+            <mat-form-field appearance="outline" subscriptSizing="dynamic">
+                <mat-label>Purchases account</mat-label>
+                <mat-select matInput formControlName="purchasesAccount">
+                    <mat-option *ngFor="let account of accounts" [value]="account.id">{{account.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="w-full mt-4" *ngIf="taxCodeForm.get('name').value" @fadeIn>
+            <app-save-button (cancel)="onClose()" (save)="onSave()" [confirmFirst]="true"></app-save-button>
+        </div>
+    </form>
+</div>

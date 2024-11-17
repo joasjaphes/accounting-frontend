@@ -1,0 +1,13 @@
+<app-page-layout title="Tax Codes" description="Manage your tax codes. Add, update or remove tax codes"
+    [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
+    <ng-container ngProjectAs="main">
+        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="taxCodes$ | async"
+            addButtonText="New tax code" (add)="addNewTaxCode()" (update)="updateTaxCode($event)"></app-data-table>
+    </ng-container>
+    <ng-container ngProjectAs="form">
+        <app-add-edit-tax-code *ngIf="viewType == 'add'" [accounts]="accounts$ | async" [taxCode]="currentTaxCode"
+            (close)="closeForm()"></app-add-edit-tax-code>
+        <app-add-edit-tax-code *ngIf="viewType == 'update'" [accounts]="accounts$ | async" [taxCode]="currentTaxCode"
+            (close)="closeForm()"></app-add-edit-tax-code>
+    </ng-container>
+</app-page-layout>

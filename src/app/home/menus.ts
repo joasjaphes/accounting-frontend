@@ -84,6 +84,24 @@ export const menus: Menu[] = [
         icon: 'account_balance',
         path: 'configuration/store-setup',
       },
+      {
+        name: 'Tax Code',
+        id: 'taxCode',
+        icon: 'account_balance',
+        path: 'configuration/tax-code',
+      },
+      {
+        name: 'Financial Period',
+        id: 'financialPeriod',
+        icon: 'account_balance',
+        path: 'configuration/financial-period',
+      },
+      {
+        name: 'Payment Type',
+        id: 'paymentType',
+        icon: 'account_balance',
+        path: 'configuration/payment-type',
+      },
     ],
   },
 ];
