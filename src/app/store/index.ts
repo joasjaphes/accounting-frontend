@@ -13,6 +13,7 @@ import * as fromTaxCode from './tax-code/tax-code.reducer';
 import * as fromPaymentType from './payment-type/payment-type.reducer';
 import * as fromProductCategory from './product-categories/product-category.reducer';
 import * as fromPackaging from './packaging/packaging.reducer';
+import * as fromBinLocation from './bin-location/bin-location.reducer';
 
 export interface AppState {
   router: fromRouter.RouterReducerState<any>;
@@ -28,6 +29,7 @@ export interface AppState {
   [fromPaymentType.paymentTypeFeatureKey]: fromPaymentType.State;
   [fromProductCategory.productCategoryFeatureKey]: fromProductCategory.State;
   [fromPackaging.packagingFeatureKey]: fromPackaging.State;
+  [fromBinLocation.binLocationFeatureKey]: fromBinLocation.State;
 
 }
 
@@ -45,4 +47,5 @@ export const reducers: ActionReducerMap<AppState> = {
   [fromPaymentType.paymentTypeFeatureKey]: fromPaymentType.reducer,
   [fromProductCategory.productCategoryFeatureKey]: fromProductCategory.reducer,
   [fromPackaging.packagingFeatureKey]: fromPackaging.reducer,
+  [fromBinLocation.binLocationFeatureKey]: fromBinLocation.reducer,
 };
