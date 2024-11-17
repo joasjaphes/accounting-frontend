@@ -10,6 +10,7 @@ import { RouterEffects } from './router/router.effects';
 import { StoreSetupEffect } from './store-setup/store-setup.effect';
 import { TaxCodeEffect } from './tax-code/tax-code.effect';
 import { ProductCategoryEffect } from './product-categories/product-category.effect';
+import { PackagingEffect } from './packaging/packaging.effect';
 
 export const effects = [
   AccountEffect,
@@ -24,4 +25,5 @@ export const effects = [
   TaxCodeEffect,
   PaymentTypeEffect,
   ProductCategoryEffect,
+  PackagingEffect
 ];
