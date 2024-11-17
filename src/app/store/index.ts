@@ -11,6 +11,7 @@ import * as fromCurrency from './currency/currency.reducer';
 import * as fromFinancialPeriod from './financial-period/financial-period.reducer';
 import * as fromTaxCode from './tax-code/tax-code.reducer';
 import * as fromPaymentType from './payment-type/payment-type.reducer';
+import * as fromProductCategory from './product-categories/product-category.reducer';
 
 export interface AppState {
   router: fromRouter.RouterReducerState<any>;
@@ -24,6 +25,7 @@ export interface AppState {
   [fromFinancialPeriod.financialPeriodFeatureKey]: fromFinancialPeriod.State;
   [fromTaxCode.taxCodeFeatureKey]: fromTaxCode.State;
   [fromPaymentType.paymentTypeFeatureKey]: fromPaymentType.State;
+  [fromProductCategory.productCategoryFeatureKey]: fromProductCategory.State;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
@@ -38,4 +40,5 @@ export const reducers: ActionReducerMap<AppState> = {
   [fromFinancialPeriod.financialPeriodFeatureKey]: fromFinancialPeriod.reducer,
   [fromTaxCode.taxCodeFeatureKey]: fromTaxCode.reducer,
   [fromPaymentType.paymentTypeFeatureKey]: fromPaymentType.reducer,
+  [fromProductCategory.productCategoryFeatureKey]: fromProductCategory.reducer,
 };
