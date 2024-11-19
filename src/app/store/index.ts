@@ -14,6 +14,7 @@ import * as fromPaymentType from './payment-type/payment-type.reducer';
 import * as fromProductCategory from './product-categories/product-category.reducer';
 import * as fromPackaging from './packaging/packaging.reducer';
 import * as fromBinLocation from './bin-location/bin-location.reducer';
+import * as fromPriceCategory from './price-category/price-category.reducer';
 
 export interface AppState {
   router: fromRouter.RouterReducerState<any>;
@@ -30,7 +31,7 @@ export interface AppState {
   [fromProductCategory.productCategoryFeatureKey]: fromProductCategory.State;
   [fromPackaging.packagingFeatureKey]: fromPackaging.State;
   [fromBinLocation.binLocationFeatureKey]: fromBinLocation.State;
-
+  [fromPriceCategory.priceCategoryFeatureKey]: fromPriceCategory.State;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
@@ -48,4 +49,5 @@ export const reducers: ActionReducerMap<AppState> = {
   [fromProductCategory.productCategoryFeatureKey]: fromProductCategory.reducer,
   [fromPackaging.packagingFeatureKey]: fromPackaging.reducer,
   [fromBinLocation.binLocationFeatureKey]: fromBinLocation.reducer,
+  [fromPriceCategory.priceCategoryFeatureKey]: fromPriceCategory.reducer,
 };
