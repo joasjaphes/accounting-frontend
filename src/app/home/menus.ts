@@ -102,6 +102,12 @@ export const menus: Menu[] = [
         icon: 'account_balance',
         path: 'configuration/payment-type',
       },
+      {
+        name: 'Product Category',
+        id: 'productCategory',
+        icon:'',
+        path:'configuration/product-category'
+      }
     ],
   },
 ];

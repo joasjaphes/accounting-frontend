@@ -1,1 +1,13 @@
-<p>product-categories works!</p>
+<app-page-layout title="Product Categories"
+    description="Manage your product categories. Add, update or remove product categories" [viewDetails]="viewDetails"
+    [formTitle]="formTitle" (closeForm)="closeForm()">
+    <ng-container ngProjectAs="main">
+        <app-data-table [tableConfiguration]="tableConfigurations" [tableData]="productCategories$ | async"
+            [addButtonText]="'New product category'" (update)="onUpdateProductCategory($event)" (add)="onAddProductCategory()"></app-data-table>
+    </ng-container>
+    <ng-container ngProjectAs="form">
+        @if (viewType == 'add') {
+            <app-add-edit-product-category [accounts]="accounts$ | async" [taxes]="taxes$ | async" [productCategory]="currentProductCategory" (close)="closeForm()"></app-add-edit-product-category>
+        }
+    </ng-container>
+</app-page-layout>
