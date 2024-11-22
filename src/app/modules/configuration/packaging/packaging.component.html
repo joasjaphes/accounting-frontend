@@ -1,1 +1,15 @@
-<p>packaging works!</p>
+<app-page-layout title="Packaging" description="Manage your Packaging. Add, update or remove packaging"
+    [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
+    <ng-container ngProjectAs="main">
+        <app-data-table [tableConfiguration]="tableConfigurations" [tableData]="packaging$ | async"
+            [addButtonText]="'New packaging'" (update)="updatePackaging($event)" (add)="onAdd()"></app-data-table>
+    </ng-container>
+    <ng-container ngProjectAs="form">
+        @if (viewType == 'add') {
+        <app-add-edit-packaging (close)="closeForm()"></app-add-edit-packaging>
+        }
+        @if (viewType == 'edit') {
+        <app-add-edit-packaging (close)="closeForm()" [packaging]="currentPackaging"></app-add-edit-packaging>
+        }
+    </ng-container>
+</app-page-layout>

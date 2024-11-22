@@ -72,7 +72,7 @@ export class ProductCategoriesComponent implements OnInit {
   onUpdateProductCategory(event) {
     this.currentProductCategory = event;
     this.viewDetails = true;
-    this.viewType = 'edit';
+    this.viewType = 'add';
     this.formTitle = 'Edit Product Category';
   }
 

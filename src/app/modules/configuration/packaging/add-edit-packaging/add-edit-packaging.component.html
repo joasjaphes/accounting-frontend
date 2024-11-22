@@ -1,1 +1,30 @@
-<p>add-edit-packaging works!</p>
+<form [formGroup]="packagingForm">
+    <div class="w-full">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input type="text" matInput formControlName="name">
+        </mat-form-field>
+    </div>
+    @if (packagingForm.get('name').value) {
+    <div class="w-full mt-2" @fadeIn>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input type="text" matInput formControlName="description">
+        </mat-form-field>
+    </div>
+    }
+    @if (packagingForm.get('name').value) {
+    <div class="w-full mt-2" @fadeIn>
+        <mat-form-field>
+            <mat-label>Pieces</mat-label>
+            <input type="number" matInput formControlName="pieces">
+        </mat-form-field>
+    </div>
+    }
+    @if (packagingForm.get('pieces').value) {
+    <div class="w-full mt-2" @fadeIn>
+        <app-save-button (save)="savePackaging()" (cancel)="onClose()"></app-save-button>
+    </div>
+    }
+
+</form>

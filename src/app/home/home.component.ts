@@ -21,6 +21,7 @@ import { TaxCodeActions } from '../store/tax-code/tax-code.actions';
 import { PaymentTypeActions } from '../store/payment-type/payment-type.actions';
 import { FinancialPeriodActions } from '../store/financial-period/financial-period.actions';
 import { ProductCategoryActions } from '../store/product-categories/product-category.action';
+import { PackagingActions } from '../store/packaging/packaging.action';
 
 @Component({
   selector: 'app-home',
@@ -63,6 +64,7 @@ export class HomeComponent implements OnInit {
       this.store.dispatch(PaymentTypeActions.loadPaymentTypes());
       this.store.dispatch(FinancialPeriodActions.loadFinancialPeriods());
       this.store.dispatch(ProductCategoryActions.loadProductCategories());
+      this.store.dispatch(PackagingActions.loadPackaging());
     }
   }
 

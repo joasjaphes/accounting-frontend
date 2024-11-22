@@ -17,6 +17,7 @@ import { TaxCodeComponent } from './modules/configuration/tax-code/tax-code.comp
 import { PaymentTypeComponent } from './modules/configuration/payment-type/payment-type.component';
 import { FinancialPeriodComponent } from './modules/configuration/financial-period/financial-period.component';
 import { ProductCategoriesComponent } from './modules/configuration/product-categories/product-categories.component';
+import { PackagingComponent } from './modules/configuration/packaging/packaging.component';
 
 export const routes: Routes = [
   {
@@ -74,6 +75,10 @@ export const routes: Routes = [
       {
         path: 'configuration/product-category',
         component: ProductCategoriesComponent,
+      },
+      {
+        path: 'configuration/packaging',
+        component: PackagingComponent,
       },
       {
         path: 'customers',

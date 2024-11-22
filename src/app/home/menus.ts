@@ -107,6 +107,12 @@ export const menus: Menu[] = [
         id: 'productCategory',
         icon:'',
         path:'configuration/product-category'
+      },
+      {
+        name: 'Packaging',
+        id: 'packaging',
+        icon:'',
+        path:'configuration/packaging'
       }
     ],
   },
