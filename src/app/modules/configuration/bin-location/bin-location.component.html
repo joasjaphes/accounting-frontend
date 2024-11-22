@@ -1,0 +1,15 @@
+<app-page-layout title="Bin Location" description="Manage your Bin Locations. Add, update or remove Bin locations"
+    [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
+    <ng-container ngProjectAs="main">
+        <app-data-table [tableConfiguration]="tableConfigurations" [tableData]="binLocations$ | async"
+            [addButtonText]="'New bin location'" (update)="updateBinLocation($event)" (add)="onAdd()"></app-data-table>
+    </ng-container>
+    <ng-container ngProjectAs="form">
+        @if (viewType == 'add') {
+        <app-add-edit-bin-location (close)="closeForm()"></app-add-edit-bin-location>
+        }
+        @if (viewType == 'edit') {
+        <app-add-edit-bin-location (close)="closeForm()" [binLocation]="currentBinLocation"></app-add-edit-bin-location>
+        }
+    </ng-container>
+</app-page-layout>

@@ -41,6 +41,7 @@ export class AddEditProductCategoryComponent implements OnInit {
   @Output() close = new EventEmitter();
   productCategoryForm: FormGroup;
   saving = false;
+  companyId: any;
 
   constructor(
     private store: Store<AppState>,
@@ -59,6 +60,8 @@ export class AddEditProductCategoryComponent implements OnInit {
       inventoryAccount: this.productCategory?.inventoryAccount || '',
       salesAccount: this.productCategory?.salesAccount || '',
     });
+    const user = JSON.parse(localStorage.getItem('accounting-user'));
+    this.companyId = user.companyId;
   }
 
   async onSave() {
@@ -67,6 +70,7 @@ export class AddEditProductCategoryComponent implements OnInit {
       const payload: ProductCategory = {
         id: this.productCategory?.id || this.commonService.makeId(),
         ...this.productCategoryForm.value,
+        companyId: this.companyId,
       };
       await this.productCategoryService.saveProductCategory(payload);
       this.store.dispatch(

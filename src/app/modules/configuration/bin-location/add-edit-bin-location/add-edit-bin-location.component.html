@@ -1,0 +1,21 @@
+<form [formGroup]="binLocationForm">
+    <div class="w-full">
+        <mat-form-field>
+            <mat-label>Bin Location Name</mat-label>
+            <input type="text" formControlName="name" matInput>
+        </mat-form-field>
+    </div>
+    @if (binLocationForm.get('name').value) {
+    <div class="w-full mt-2" @fadeIn>
+        <mat-form-field>
+            <mat-label>Bin Location Description</mat-label>
+            <textarea formControlName="description" matInput></textarea>
+        </mat-form-field>
+    </div>
+    }
+    @if (binLocationForm.get('description').value) {
+    <div class="w-full mt-2" @fadeIn>
+        <app-save-button (save)="saveBinLocation()" (cancel)="onClose()"></app-save-button>
+    </div>
+    }
+</form>

@@ -18,6 +18,7 @@ import { PaymentTypeComponent } from './modules/configuration/payment-type/payme
 import { FinancialPeriodComponent } from './modules/configuration/financial-period/financial-period.component';
 import { ProductCategoriesComponent } from './modules/configuration/product-categories/product-categories.component';
 import { PackagingComponent } from './modules/configuration/packaging/packaging.component';
+import { BinLocationComponent } from './modules/configuration/bin-location/bin-location.component';
 
 export const routes: Routes = [
   {
@@ -79,6 +80,10 @@ export const routes: Routes = [
       {
         path: 'configuration/packaging',
         component: PackagingComponent,
+      },
+      {
+        path: 'configuration/bin-location',
+        component: BinLocationComponent,
       },
       {
         path: 'customers',

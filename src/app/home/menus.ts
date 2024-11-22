@@ -113,6 +113,12 @@ export const menus: Menu[] = [
         id: 'packaging',
         icon:'',
         path:'configuration/packaging'
+      },
+      {
+        name: 'Bin Location',
+        id: 'binLocation',
+        icon:'',
+        path:'configuration/bin-location'
       }
     ],
   },

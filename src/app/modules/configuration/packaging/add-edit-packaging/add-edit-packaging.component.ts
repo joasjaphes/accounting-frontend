@@ -35,6 +35,7 @@ export class AddEditPackagingComponent implements OnInit {
   @Output() close = new EventEmitter();
   packagingForm: FormGroup;
   saving = false;
+  companyId: any;
   constructor(
     private formBuilder: FormBuilder,
     private packagingService: PackagingService,
@@ -47,6 +48,8 @@ export class AddEditPackagingComponent implements OnInit {
       description: [this.packaging?.description],
       pieces: [this.packaging?.pieces],
     });
+    const user = JSON.parse(localStorage.getItem('accounting-user'));
+    this.companyId = user.companyId;
   }
 
   async savePackaging() {
@@ -57,6 +60,7 @@ export class AddEditPackagingComponent implements OnInit {
       const payload: Packaging = {
         ...packaging,
         id,
+        companyId: this.companyId,
       };
       await this.packagingService.savePackaging(payload);
       this.store.dispatch(
