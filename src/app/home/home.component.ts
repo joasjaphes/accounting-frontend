@@ -23,6 +23,7 @@ import { FinancialPeriodActions } from '../store/financial-period/financial-peri
 import { ProductCategoryActions } from '../store/product-categories/product-category.action';
 import { PackagingActions } from '../store/packaging/packaging.action';
 import { BinLocationActions } from '../store/bin-location/bin-location.action';
+import { PriceCategoryActions } from '../store/price-category/price-category.action';
 
 @Component({
   selector: 'app-home',
@@ -67,6 +68,7 @@ export class HomeComponent implements OnInit {
       this.store.dispatch(ProductCategoryActions.loadProductCategories());
       this.store.dispatch(PackagingActions.loadPackaging());
       this.store.dispatch(BinLocationActions.loadBinLocations());
+      this.store.dispatch(PriceCategoryActions.loadPriceCategories());
     }
   }
 

@@ -12,6 +12,7 @@ import { TaxCodeEffect } from './tax-code/tax-code.effect';
 import { ProductCategoryEffect } from './product-categories/product-category.effect';
 import { PackagingEffect } from './packaging/packaging.effect';
 import { BinLocationEffect } from './bin-location/bin-location.effect';
+import { PriceCategoryEffect } from './price-category/price-category.effect';
 
 export const effects = [
   AccountEffect,
@@ -27,5 +28,6 @@ export const effects = [
   PaymentTypeEffect,
   ProductCategoryEffect,
   PackagingEffect,
-  BinLocationEffect
+  BinLocationEffect,
+  PriceCategoryEffect
 ];

@@ -1,0 +1,46 @@
+<form [formGroup]="priceCategoryForm">
+    <div class="w-full">
+        <mat-form-field>
+            <mat-label>Price category name</mat-label>
+            <input matInput formControlName="name" />
+        </mat-form-field>
+    </div>
+    @if (priceCategoryForm.get('name').value) {
+    <div class="w-full mt-2">
+        <mat-form-field>
+            <mat-label>Price category description</mat-label>
+            <input matInput formControlName="description" />
+        </mat-form-field>
+    </div>
+    }
+    @if (priceCategoryForm.get('name').value) {
+    <div class="w-full mt-2">
+        <mat-form-field>
+            <mat-label>Profit margin(%)</mat-label>
+            <input matInput formControlName="profitMargin" type="number" />
+        </mat-form-field>
+    </div>
+    }
+    @if (priceCategoryForm.get('profitMargin').value) {
+    <div class="w-full mt-2">
+        <mat-form-field>
+            <mat-label>Price category status</mat-label>
+            <mat-select matInput formControlName="status">
+                <mat-option value="Active">Active</mat-option>
+                <mat-option value="Inactive">Inactive</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    }
+    @if (priceCategoryForm.get('profitMargin').value) {
+    <div class="w-full mt-2">
+        <mat-checkbox formControlName="isDefault">Is default category</mat-checkbox>
+    </div>
+    }
+
+    @if (priceCategoryForm.get('profitMargin').value) {
+    <div class="w-full mt-4">
+        <app-save-button (save)="onSave()" (cancel)="onClose()" [saving]="saving"></app-save-button>
+    </div>
+    }
+</form>

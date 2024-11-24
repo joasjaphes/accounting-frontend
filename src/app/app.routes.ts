@@ -19,6 +19,7 @@ import { FinancialPeriodComponent } from './modules/configuration/financial-peri
 import { ProductCategoriesComponent } from './modules/configuration/product-categories/product-categories.component';
 import { PackagingComponent } from './modules/configuration/packaging/packaging.component';
 import { BinLocationComponent } from './modules/configuration/bin-location/bin-location.component';
+import { PriceCategoriesComponent } from './modules/configuration/price-categories/price-categories.component';
 
 export const routes: Routes = [
   {
@@ -76,6 +77,10 @@ export const routes: Routes = [
       {
         path: 'configuration/product-category',
         component: ProductCategoriesComponent,
+      },
+      {
+        path: 'configuration/price-category',
+        component: PriceCategoriesComponent,
       },
       {
         path: 'configuration/packaging',

@@ -1,0 +1,13 @@
+<app-page-layout [title]="'Price Category'"
+    [description]="'Manage your price categories. Add, update or remove price categories'" [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
+    <ng-container ngProjectAs="main">
+        <app-data-table [tableConfiguration]="tableConfigurations" [tableData]="priceCategories$ | async"
+            [addButtonText]="'New price category'" (add)="onAdd()" (update)="onEdit($event)"></app-data-table>
+    </ng-container>
+    <ng-container ngProjectAs="form">
+        @if (viewType === 'add' || viewType === 'edit') {
+        <app-add-edit-price-categories (close)="closeForm()"
+            [priceCategory]="currentPriceCategory"></app-add-edit-price-categories>
+        }
+    </ng-container>
+</app-page-layout>
