@@ -1,7 +1,7 @@
 <div class="container mx-auto flex items-center justify-center w-full h-full">
     <div class="w-1/2">
         <div class="w-full mb-4" align="center">
-            <h1 class="text-primary font-bold">Create an account to get started</h1>
+            <h1 class="text-primaryColor font-bold">Create an account to get started</h1>
         </div>
         <form [formGroup]="registrationForm">
             <ng-container>
@@ -73,7 +73,7 @@
             </ng-container>
             <div class="w-full" align="center">
                 <button
-                    class="px-10 py-3 rounded-md bg-primary text-white font-bold w-full flex items-center justify-center"
+                    class="px-10 py-3 rounded-md bg-primaryColor text-white font-bold w-full flex items-center justify-center"
                     type="button" (click)="onSubmit()" [disabled]="savingData">
                     <span *ngIf="!savingData">Submit</span>
 

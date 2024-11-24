@@ -1,6 +1,6 @@
 <div class="container mx-auto flex items-center justify-center h-full w-full">
     <div class="w-1/2">
-        <h1 class="font-bold text-primary text-center">Login with your registered email</h1>
+        <h1 class="font-bold text-primaryColor text-center">Login with your registered email</h1>
         <form [formGroup]="loginForm">
             <div class="w-full mt-4">
                 <mat-form-field appearance="outline">
@@ -21,7 +21,7 @@
             </div>
             <div class="w-full mt-2">
                 <button
-                    class="px-10 py-3 rounded-md bg-primary text-white font-bold w-full flex items-center justify-center"
+                    class="px-10 py-3 rounded-md bg-primaryColor text-white font-bold w-full flex items-center justify-center"
                     type="button" (click)="onLogin()" [disabled]="savingData">
                     <span *ngIf="!savingData">Login</span>
 
