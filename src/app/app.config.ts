@@ -12,15 +12,16 @@ import { reducers } from './store';
 import { effects } from './store/effects';
 import { BrowserModule } from '@angular/platform-browser';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { addCompanyHeaderInterceptor } from '../interceptors/http-request.inteceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
-      useValue: { subscriptSizing: 'dynamic', appearance:'outline' },
+      useValue: { subscriptSizing: 'dynamic', appearance: 'outline' },
     },
     importProvidersFrom(
       BrowserAnimationsModule,
@@ -35,7 +36,7 @@ export const appConfig: ApplicationConfig = {
       EffectsModule.forRoot(effects)
     ),
     provideRouter(routes, withHashLocation()),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([addCompanyHeaderInterceptor])),
     provideAnimations(),
     provideNativeDateAdapter(),
     provideAnimationsAsync(),
