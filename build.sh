@@ -27,8 +27,8 @@ NEW_VERSION="$MAJOR.$MINOR.$NEW_PATCH"
 
 npm run build
 
-docker build -t joasjaphes/accounting-app:$NEW_VERSION .
+docker build -t joasjaphes/accounting-app:$NEW_VERSION -t joasjaphes/accounting-app:latest .
 
-docker push joasjaphes/accounting-app:$NEW_VERSION
+docker push -a joasjaphes/accounting-app
 
 echo "$NEW_VERSION" > "$VERSION_FILE"
