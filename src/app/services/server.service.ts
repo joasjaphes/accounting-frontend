@@ -14,6 +14,7 @@ export class ServerService {
       : this.http.get('config.json').pipe(
           map((res) => res['server']['url']),
           tap((url) => {
+            console.log('Server URL loaded', url);
             this.serverUrl = url;
             this.configLoaded = true;
           }),
