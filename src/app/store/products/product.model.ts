@@ -4,6 +4,7 @@ export interface Product {
   description?: string;
   type: string;
   price: number;
+  imageUrl?: string;
 }
 
 export type ProductType = 'Physical' | 'Service';

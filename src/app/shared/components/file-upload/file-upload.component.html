@@ -1,0 +1,15 @@
+<div style="width:100%">
+    <!-- <form enctype="multipart/form-data" id="fileInput"> -->
+    <input type="file" (change)="onFileChange($event)" #fileInput id="fileInput" style="display:none" />
+    @if(!uploadedImage && !uploading){
+    <button mat-raised-button color="primary" (click)="fileInput.click()">Upload</button>
+    }
+    @if(uploadedImage && !uploading){
+    <img [src]="uploadedImage" style="width:30%; cursor:pointer;" (click)="fileInput.click()"
+        title="Click to change the image" />
+    }
+    @if (uploading) {
+    <app-loader></app-loader>
+    }
+    <!-- </form> -->
+</div>

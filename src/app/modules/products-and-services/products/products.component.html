@@ -2,9 +2,11 @@
     [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
     <ng-container ngProjectAs="main">
         <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="products$ | async"
-            addButtonText="New product" (add)="addProduct()"></app-data-table>
+            addButtonText="New product" (add)="addProduct()" (update)="onEditProduct($event)"></app-data-table>
     </ng-container>
     <ng-container ngProjectAs="form">
-        <app-add-edit-product (close)="closeForm()"></app-add-edit-product>
+        @if (viewType == 'add') {
+        <app-add-edit-product (close)="closeForm()" [product]="currentProduct"></app-add-edit-product>
+        }
     </ng-container>
 </app-page-layout>

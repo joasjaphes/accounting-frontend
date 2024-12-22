@@ -15,6 +15,13 @@ export class HttpClientService {
     return this.serverService.rootUrl();
   }
 
+  getImageUrl(url: string) {
+    return this.rootUrl.pipe(
+      map((root) => root.replace('/api', '')),
+      map((root) => `${root}/${url}`)
+    );
+  }
+
   get authHeaders() {
     const token = localStorage.getItem('accounting-token');
     return {
@@ -34,6 +41,19 @@ export class HttpClientService {
     return this.rootUrl.pipe(
       mergeMap((root) =>
         this.http.post(`${root}/${url}`, data, { headers: this.authHeaders })
+      )
+    );
+  }
+
+  upload(url: string, data) {
+    return this.rootUrl.pipe(
+      mergeMap((root) =>
+        this.http.post(`${root}/${url}`, data, {
+          headers: {
+            ...this.authHeaders,
+            'Content-Type': 'multipart/form-data',
+          },
+        })
       )
     );
   }

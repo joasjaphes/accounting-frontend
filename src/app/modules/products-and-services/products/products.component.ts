@@ -48,18 +48,26 @@ export class ProductsComponent implements OnInit {
         type: 'number',
       },
     ],
+    actions: {
+      edit: true,
+    },
   };
-
+  currentProduct: Product;
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.products$ = this.store.pipe(
-      select(productSelector.selectDetailed)
-    );
+    this.products$ = this.store.pipe(select(productSelector.selectDetailed));
   }
   addProduct() {
     this.viewType = 'add';
     this.formTitle = 'Add new product';
+    this.viewDetails = true;
+  }
+  
+  onEditProduct(event) {
+    this.currentProduct = event;
+    this.viewType = 'add';
+    this.formTitle = 'Update product';
     this.viewDetails = true;
   }
 
@@ -67,5 +75,6 @@ export class ProductsComponent implements OnInit {
     this.viewDetails = false;
     this.formTitle = '';
     this.viewType = '';
+    this.currentProduct = null;
   }
 }

@@ -27,6 +27,10 @@
                 <input type="number" formControlName="price" matInput>
             </mat-form-field>
         </div>
+        <div class="w-full mt-2">
+            <p>Product image</p>
+            <app-file-upload (doneUploading)="imageUploaded($event)" [uploadedImage]= "imageUrl | async" ></app-file-upload>
+        </div>
         <div class="w-full mt-4">
             <app-save-button title="Save" (save)="onSave()" (cancel)="onClose()"
                 [confirmFirst]="true"></app-save-button>
