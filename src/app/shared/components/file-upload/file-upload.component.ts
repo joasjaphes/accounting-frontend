@@ -5,11 +5,10 @@ import { firstValueFrom } from 'rxjs';
 import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
-  selector: 'app-file-upload',
-  standalone: true,
-  imports: [MatButton, LoaderComponent],
-  templateUrl: './file-upload.component.html',
-  styleUrl: './file-upload.component.scss',
+    selector: 'app-file-upload',
+    imports: [MatButton, LoaderComponent],
+    templateUrl: './file-upload.component.html',
+    styleUrl: './file-upload.component.scss'
 })
 export class FileUploadComponent {
   fileName: string;

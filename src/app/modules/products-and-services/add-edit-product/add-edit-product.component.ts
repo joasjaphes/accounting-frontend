@@ -22,20 +22,19 @@ import { AsyncPipe } from '@angular/common';
 import { of } from 'rxjs';
 
 @Component({
-  selector: 'app-add-edit-product',
-  standalone: true,
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInput,
-    MatSelectModule,
-    SaveButtonComponent,
-    FileUploadComponent,
-    AsyncPipe,
-  ],
-  templateUrl: './add-edit-product.component.html',
-  styleUrl: './add-edit-product.component.scss',
+    selector: 'app-add-edit-product',
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInput,
+        MatSelectModule,
+        SaveButtonComponent,
+        FileUploadComponent,
+        AsyncPipe,
+    ],
+    templateUrl: './add-edit-product.component.html',
+    styleUrl: './add-edit-product.component.scss'
 })
 export class AddEditProductComponent implements OnInit {
   productForm: FormGroup;

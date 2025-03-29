@@ -13,16 +13,15 @@ import { AppState } from '../../../store';
 import * as productSelector from '../../../store/products/product.selectors';
 
 @Component({
-  selector: 'app-products',
-  standalone: true,
-  imports: [
-    PageLayoutComponent,
-    DataTableComponent,
-    AddEditProductComponent,
-    AsyncPipe,
-  ],
-  templateUrl: './products.component.html',
-  styleUrl: './products.component.scss',
+    selector: 'app-products',
+    imports: [
+        PageLayoutComponent,
+        DataTableComponent,
+        AddEditProductComponent,
+        AsyncPipe,
+    ],
+    templateUrl: './products.component.html',
+    styleUrl: './products.component.scss'
 })
 export class ProductsComponent implements OnInit {
   viewDetails = false;

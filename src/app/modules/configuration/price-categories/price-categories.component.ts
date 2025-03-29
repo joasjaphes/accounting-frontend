@@ -13,11 +13,10 @@ import {
 import { AddEditPriceCategoriesComponent } from './add-edit-price-categories/add-edit-price-categories.component';
 
 @Component({
-  selector: 'app-price-categories',
-  standalone: true,
-  imports: [PageLayoutComponent, AsyncPipe, DataTableComponent,AddEditPriceCategoriesComponent],
-  templateUrl: './price-categories.component.html',
-  styleUrl: './price-categories.component.scss',
+    selector: 'app-price-categories',
+    imports: [PageLayoutComponent, AsyncPipe, DataTableComponent, AddEditPriceCategoriesComponent],
+    templateUrl: './price-categories.component.html',
+    styleUrl: './price-categories.component.scss'
 })
 export class PriceCategoriesComponent implements OnInit {
   priceCategories$: Observable<PriceCategory[]>;

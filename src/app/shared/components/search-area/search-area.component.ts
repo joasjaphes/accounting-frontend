@@ -7,11 +7,10 @@ import {
 import { MatInput } from '@angular/material/input';
 
 @Component({
-  selector: 'app-search-area',
-  standalone: true,
-  imports: [MatFormField, MatInput, FormsModule],
-  templateUrl: './search-area.component.html',
-  styleUrl: './search-area.component.scss',
+    selector: 'app-search-area',
+    imports: [MatFormField, MatInput, FormsModule],
+    templateUrl: './search-area.component.html',
+    styleUrl: './search-area.component.scss'
 })
 export class SearchAreaComponent {
   @Input() searchValue = '';

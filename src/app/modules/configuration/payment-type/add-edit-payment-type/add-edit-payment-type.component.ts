@@ -24,23 +24,22 @@ import { PaymentTypeActions } from '../../../../store/payment-type/payment-type.
 import { MatCheckbox } from '@angular/material/checkbox';
 
 @Component({
-  selector: 'app-add-edit-payment-type',
-  standalone: true,
-  imports: [
-    MatFormField,
-    MatLabel,
-    MatInput,
-    NgIf,
-    FormsModule,
-    ReactiveFormsModule,
-    SaveButtonComponent,
-    MatSelectModule,
-    MatInput,
-    MatCheckbox
-  ],
-  templateUrl: './add-edit-payment-type.component.html',
-  styleUrl: './add-edit-payment-type.component.scss',
-  animations: [fadeIn],
+    selector: 'app-add-edit-payment-type',
+    imports: [
+        MatFormField,
+        MatLabel,
+        MatInput,
+        NgIf,
+        FormsModule,
+        ReactiveFormsModule,
+        SaveButtonComponent,
+        MatSelectModule,
+        MatInput,
+        MatCheckbox
+    ],
+    templateUrl: './add-edit-payment-type.component.html',
+    styleUrl: './add-edit-payment-type.component.scss',
+    animations: [fadeIn]
 })
 export class AddEditPaymentTypeComponent implements OnInit {
   @Input() paymentType: PaymentType;

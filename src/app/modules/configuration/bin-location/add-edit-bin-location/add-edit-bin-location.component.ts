@@ -17,12 +17,11 @@ import { SaveButtonComponent } from '../../../../shared/components/save-button/s
 import { fadeIn } from '../../../../shared/animations';
 
 @Component({
-  selector: 'app-add-edit-bin-location',
-  standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, MatInput, MatFormFieldModule, SaveButtonComponent],
-  templateUrl: './add-edit-bin-location.component.html',
-  styleUrl: './add-edit-bin-location.component.scss',
-  animations:[fadeIn]
+    selector: 'app-add-edit-bin-location',
+    imports: [ReactiveFormsModule, FormsModule, MatInput, MatFormFieldModule, SaveButtonComponent],
+    templateUrl: './add-edit-bin-location.component.html',
+    styleUrl: './add-edit-bin-location.component.scss',
+    animations: [fadeIn]
 })
 export class AddEditBinLocationComponent implements OnInit {
   @Input() binLocation: BinLocation;

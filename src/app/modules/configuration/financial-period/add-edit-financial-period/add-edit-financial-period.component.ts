@@ -21,23 +21,22 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { fadeIn } from '../../../../shared/animations';
 
 @Component({
-  selector: 'app-add-edit-financial-period',
-  standalone: true,
-  imports: [
-    MatFormField,
-    MatLabel,
-    MatInput,
-    NgIf,
-    FormsModule,
-    ReactiveFormsModule,
-    SaveButtonComponent,
-    MatSelectModule,
-    MatInput,
-    MatDatepickerModule
-  ],
-  templateUrl: './add-edit-financial-period.component.html',
-  styleUrl: './add-edit-financial-period.component.scss',
-  animations:[fadeIn]
+    selector: 'app-add-edit-financial-period',
+    imports: [
+        MatFormField,
+        MatLabel,
+        MatInput,
+        NgIf,
+        FormsModule,
+        ReactiveFormsModule,
+        SaveButtonComponent,
+        MatSelectModule,
+        MatInput,
+        MatDatepickerModule
+    ],
+    templateUrl: './add-edit-financial-period.component.html',
+    styleUrl: './add-edit-financial-period.component.scss',
+    animations: [fadeIn]
 })
 export class AddEditFinancialPeriodComponent implements OnInit {
   @Input() financialPeriod: FinancialPeriod;

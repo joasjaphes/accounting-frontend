@@ -13,16 +13,15 @@ import { AsyncPipe } from '@angular/common';
 import { AddEditPackagingComponent } from './add-edit-packaging/add-edit-packaging.component';
 
 @Component({
-  selector: 'app-packaging',
-  standalone: true,
-  imports: [
-    PageLayoutComponent,
-    DataTableComponent,
-    AsyncPipe,
-    AddEditPackagingComponent,
-  ],
-  templateUrl: './packaging.component.html',
-  styleUrl: './packaging.component.scss',
+    selector: 'app-packaging',
+    imports: [
+        PageLayoutComponent,
+        DataTableComponent,
+        AsyncPipe,
+        AddEditPackagingComponent,
+    ],
+    templateUrl: './packaging.component.html',
+    styleUrl: './packaging.component.scss'
 })
 export class PackagingComponent implements OnInit {
   packaging$: Observable<Packaging[]>;

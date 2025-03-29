@@ -12,23 +12,21 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SaveButtonComponent } from '../../../shared/components/save-button/save-button.component';
 
 @Component({
-  selector: 'app-company-setup',
-  standalone: true,
-  imports: [
-    CommonModule,
-    PageLayoutComponent,
-    MatFormField,
-    MatInput,
-    ReactiveFormsModule,
-    FormsModule,
-    MatLabel,
-    MatSelectModule,
-    MatCheckboxModule,
-    SaveButtonComponent,
-  
-  ],
-  templateUrl: './company-setup.component.html',
-  styleUrl: './company-setup.component.scss',
+    selector: 'app-company-setup',
+    imports: [
+        CommonModule,
+        PageLayoutComponent,
+        MatFormField,
+        MatInput,
+        ReactiveFormsModule,
+        FormsModule,
+        MatLabel,
+        MatSelectModule,
+        MatCheckboxModule,
+        SaveButtonComponent,
+    ],
+    templateUrl: './company-setup.component.html',
+    styleUrl: './company-setup.component.scss'
 })
 export class CompanySetupComponent implements OnInit {
   viewDetails = false;

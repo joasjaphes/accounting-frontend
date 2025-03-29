@@ -13,17 +13,16 @@ import { JournalEntry } from '../../../store/journal-entry/journal-entry.model';
 import * as journalSelector from '../../../store/journal-entry/journal-entry.selectors';
 
 @Component({
-  selector: 'app-journal-entry',
-  standalone: true,
-  imports: [
-    PageLayoutComponent,
-    DataTableComponent,
-    AddEditJournalComponent,
-    NgIf,
-    AsyncPipe,
-  ],
-  templateUrl: './journal-entry.component.html',
-  styleUrl: './journal-entry.component.css',
+    selector: 'app-journal-entry',
+    imports: [
+        PageLayoutComponent,
+        DataTableComponent,
+        AddEditJournalComponent,
+        NgIf,
+        AsyncPipe,
+    ],
+    templateUrl: './journal-entry.component.html',
+    styleUrl: './journal-entry.component.css'
 })
 export class JournalEntryComponent implements OnInit {
   viewDetails = false;

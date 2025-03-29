@@ -16,16 +16,15 @@ import { TaxCode } from '../../../store/tax-code/tax-code.model';
 import * as accountSelector from '../../../store/accounts/accounts.selectors';
 import * as taxSelector from '../../../store/tax-code/tax-code.selectors';
 @Component({
-  selector: 'app-product-categories',
-  standalone: true,
-  imports: [
-    PageLayoutComponent,
-    DataTableComponent,
-    AsyncPipe,
-    AddEditProductCategoryComponent,
-  ],
-  templateUrl: './product-categories.component.html',
-  styleUrl: './product-categories.component.scss',
+    selector: 'app-product-categories',
+    imports: [
+        PageLayoutComponent,
+        DataTableComponent,
+        AsyncPipe,
+        AddEditProductCategoryComponent,
+    ],
+    templateUrl: './product-categories.component.html',
+    styleUrl: './product-categories.component.scss'
 })
 export class ProductCategoriesComponent implements OnInit {
   productCategories$: Observable<ProductCategory[]>;

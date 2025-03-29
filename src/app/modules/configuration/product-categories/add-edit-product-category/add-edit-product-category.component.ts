@@ -20,19 +20,18 @@ import { MatInput } from '@angular/material/input';
 import { ProductCategoryActions } from '../../../../store/product-categories/product-category.action';
 
 @Component({
-  selector: 'app-add-edit-product-category',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInput,
-    SaveButtonComponent,
-  ],
-  templateUrl: './add-edit-product-category.component.html',
-  styleUrl: './add-edit-product-category.component.scss',
-  animations: [fadeIn],
+    selector: 'app-add-edit-product-category',
+    imports: [
+        ReactiveFormsModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatInput,
+        SaveButtonComponent,
+    ],
+    templateUrl: './add-edit-product-category.component.html',
+    styleUrl: './add-edit-product-category.component.scss',
+    animations: [fadeIn]
 })
 export class AddEditProductCategoryComponent implements OnInit {
   @Input() productCategory: ProductCategory;

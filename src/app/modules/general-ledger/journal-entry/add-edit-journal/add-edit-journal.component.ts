@@ -27,28 +27,27 @@ import { JournalEntryService } from '../../../../services/journal-entry.service'
 import moment from 'moment';
 import { JournalEntryActions } from '../../../../store/journal-entry/journal-entry.actions';
 @Component({
-  selector: 'app-add-edit-journal',
-  standalone: true,
-  imports: [
-    MatFormField,
-    MatInput,
-    MatDatepickerModule,
-    MatIcon,
-    MatSelect,
-    MatOption,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSuffix,
-    MatLabel,
-    MatButton,
-    NgIf,
-    NgFor,
-    AsyncPipe,
-    SaveButtonComponent,
-  ],
-  templateUrl: './add-edit-journal.component.html',
-  styleUrl: './add-edit-journal.component.scss',
-  animations: [],
+    selector: 'app-add-edit-journal',
+    imports: [
+        MatFormField,
+        MatInput,
+        MatDatepickerModule,
+        MatIcon,
+        MatSelect,
+        MatOption,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSuffix,
+        MatLabel,
+        MatButton,
+        NgIf,
+        NgFor,
+        AsyncPipe,
+        SaveButtonComponent,
+    ],
+    templateUrl: './add-edit-journal.component.html',
+    styleUrl: './add-edit-journal.component.scss',
+    animations: []
 })
 export class AddEditJournalComponent implements OnInit {
   @Output() close = new EventEmitter();

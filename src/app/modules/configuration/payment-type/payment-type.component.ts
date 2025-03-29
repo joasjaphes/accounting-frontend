@@ -13,17 +13,16 @@ import { TaxCode } from '../../../store/tax-code/tax-code.model';
 import { PaymentType } from '../../../store/payment-type/payment-type.model';
 
 @Component({
-  selector: 'app-payment-type',
-  standalone: true,
-  imports: [
-    PageLayoutComponent,
-    DataTableComponent,
-    AsyncPipe,
-    NgIf,
-    AddEditPaymentTypeComponent,
-  ],
-  templateUrl: './payment-type.component.html',
-  styleUrl: './payment-type.component.scss'
+    selector: 'app-payment-type',
+    imports: [
+        PageLayoutComponent,
+        DataTableComponent,
+        AsyncPipe,
+        NgIf,
+        AddEditPaymentTypeComponent,
+    ],
+    templateUrl: './payment-type.component.html',
+    styleUrl: './payment-type.component.scss'
 })
 export class PaymentTypeComponent implements OnInit {
   paymentTypes$: Observable<PaymentType[]>;

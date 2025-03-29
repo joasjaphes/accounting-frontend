@@ -19,21 +19,20 @@ import { CustomerActions } from '../../../store/customers/customer.actions';
 import { CustomerService } from '../../../services/customer.service';
 
 @Component({
-  selector: 'app-add-edit-customer',
-  standalone: true,
-  imports: [
-    MatFormField,
-    MatLabel,
-    MatInput,
-    NgIf,
-    NgFor,
-    FormsModule,
-    ReactiveFormsModule,
-    SaveButtonComponent,
-  ],
-  templateUrl: './add-edit-customer.component.html',
-  styleUrl: './add-edit-customer.component.scss',
-  animations: [fadeIn],
+    selector: 'app-add-edit-customer',
+    imports: [
+        MatFormField,
+        MatLabel,
+        MatInput,
+        NgIf,
+        NgFor,
+        FormsModule,
+        ReactiveFormsModule,
+        SaveButtonComponent,
+    ],
+    templateUrl: './add-edit-customer.component.html',
+    styleUrl: './add-edit-customer.component.scss',
+    animations: [fadeIn]
 })
 export class AddEditCustomerComponent implements OnInit {
   @Input() customer: Customer;

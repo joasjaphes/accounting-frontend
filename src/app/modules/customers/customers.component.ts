@@ -13,17 +13,16 @@ import { AsyncPipe, NgIf } from '@angular/common';
 import { AddEditCustomerComponent } from './add-edit-customer/add-edit-customer.component';
 
 @Component({
-  selector: 'app-customers',
-  standalone: true,
-  imports: [
-    PageLayoutComponent,
-    DataTableComponent,
-    AddEditCustomerComponent,
-    AsyncPipe,
-    NgIf,
-  ],
-  templateUrl: './customers.component.html',
-  styleUrl: './customers.component.scss',
+    selector: 'app-customers',
+    imports: [
+        PageLayoutComponent,
+        DataTableComponent,
+        AddEditCustomerComponent,
+        AsyncPipe,
+        NgIf,
+    ],
+    templateUrl: './customers.component.html',
+    styleUrl: './customers.component.scss'
 })
 export class CustomersComponent implements OnInit {
   customers$: Observable<Customer[]>;

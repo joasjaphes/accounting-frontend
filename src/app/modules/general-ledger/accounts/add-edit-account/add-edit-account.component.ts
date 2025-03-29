@@ -13,11 +13,10 @@ import { MatInputModule } from '@angular/material/input';
 import { NgFor, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-add-edit-account',
-  standalone:true,
-  imports:[MatFormFieldModule,MatSelectModule,SaveButtonComponent, ReactiveFormsModule, MatInputModule,NgIf,NgFor],
-  templateUrl: './add-edit-account.component.html',
-  styleUrl: './add-edit-account.component.css',
+    selector: 'app-add-edit-account',
+    imports: [MatFormFieldModule, MatSelectModule, SaveButtonComponent, ReactiveFormsModule, MatInputModule, NgIf, NgFor],
+    templateUrl: './add-edit-account.component.html',
+    styleUrl: './add-edit-account.component.css'
 })
 export class AddEditAccountComponent implements OnInit {
   accountForm: FormGroup;

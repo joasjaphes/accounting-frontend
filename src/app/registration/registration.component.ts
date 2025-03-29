@@ -14,11 +14,10 @@ import { NgIf } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'app-registration',
-  standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule,MatInputModule, NgIf],
-  templateUrl: './registration.component.html',
-  styleUrl: './registration.component.scss',
+    selector: 'app-registration',
+    imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, NgIf],
+    templateUrl: './registration.component.html',
+    styleUrl: './registration.component.scss'
 })
 export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup;

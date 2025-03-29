@@ -24,22 +24,21 @@ import { StoreSetupActions } from '../../../../store/store-setup/store-setup.act
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
-  selector: 'app-add-edit-store',
-  standalone: true,
-  imports: [
-    MatFormField,
-    MatLabel,
-    MatInput,
-    NgIf,
-    NgFor,
-    FormsModule,
-    ReactiveFormsModule,
-    SaveButtonComponent,
-    MatCheckboxModule,
-  ],
-  templateUrl: './add-edit-store.component.html',
-  styleUrl: './add-edit-store.component.scss',
-  animations: [fadeIn],
+    selector: 'app-add-edit-store',
+    imports: [
+        MatFormField,
+        MatLabel,
+        MatInput,
+        NgIf,
+        NgFor,
+        FormsModule,
+        ReactiveFormsModule,
+        SaveButtonComponent,
+        MatCheckboxModule,
+    ],
+    templateUrl: './add-edit-store.component.html',
+    styleUrl: './add-edit-store.component.scss',
+    animations: [fadeIn]
 })
 export class AddEditStoreComponent implements OnInit {
   @Input() storeSetup: StoreSetup;

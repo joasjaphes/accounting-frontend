@@ -13,16 +13,15 @@ import { AsyncPipe } from '@angular/common';
 import { AddEditInvoiceComponent } from './add-edit-invoice/add-edit-invoice.component';
 
 @Component({
-  selector: 'app-invoicing',
-  standalone: true,
-  imports: [
-    PageLayoutComponent,
-    DataTableComponent,
-    AsyncPipe,
-    AddEditInvoiceComponent,
-  ],
-  templateUrl: './invoicing.component.html',
-  styleUrl: './invoicing.component.scss',
+    selector: 'app-invoicing',
+    imports: [
+        PageLayoutComponent,
+        DataTableComponent,
+        AsyncPipe,
+        AddEditInvoiceComponent,
+    ],
+    templateUrl: './invoicing.component.html',
+    styleUrl: './invoicing.component.scss'
 })
 export class InvoicingComponent implements OnInit {
   viewDetails = false;

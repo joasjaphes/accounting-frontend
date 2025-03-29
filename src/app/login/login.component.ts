@@ -14,11 +14,10 @@ import { AppState } from '../store';
 import { go } from '../store/router/router.actions';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, NgIf],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+    selector: 'app-login',
+    imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, NgIf],
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;

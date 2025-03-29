@@ -21,23 +21,22 @@ import { MatSelect, MatSelectModule } from '@angular/material/select';
 import { fadeIn } from '../../../../shared/animations';
 
 @Component({
-  selector: 'app-add-edit-tax-code',
-  standalone: true,
-  imports: [
-    MatFormField,
-    MatLabel,
-    MatInput,
-    NgIf,
-    NgFor,
-    FormsModule,
-    ReactiveFormsModule,
-    SaveButtonComponent,
-    MatSelectModule,
-    MatInput,
-  ],
-  templateUrl: './add-edit-tax-code.component.html',
-  styleUrl: './add-edit-tax-code.component.scss',
-  animations:[fadeIn]
+    selector: 'app-add-edit-tax-code',
+    imports: [
+        MatFormField,
+        MatLabel,
+        MatInput,
+        NgIf,
+        NgFor,
+        FormsModule,
+        ReactiveFormsModule,
+        SaveButtonComponent,
+        MatSelectModule,
+        MatInput,
+    ],
+    templateUrl: './add-edit-tax-code.component.html',
+    styleUrl: './add-edit-tax-code.component.scss',
+    animations: [fadeIn]
 })
 export class AddEditTaxCodeComponent implements OnInit {
   @Input() taxCode: TaxCode;

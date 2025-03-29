@@ -22,21 +22,20 @@ import { CurrencyActions } from '../../../../store/currency/currency.actions';
 import { fadeIn } from '../../../../shared/animations';
 
 @Component({
-  selector: 'app-add-edit-currency',
-  standalone: true,
-  imports: [
-    MatFormField,
-    MatLabel,
-    MatInput,
-    NgIf,
-    NgFor,
-    FormsModule,
-    ReactiveFormsModule,
-    SaveButtonComponent,
-  ],
-  templateUrl: './add-edit-currency.component.html',
-  styleUrl: './add-edit-currency.component.scss',
-  animations: [fadeIn],
+    selector: 'app-add-edit-currency',
+    imports: [
+        MatFormField,
+        MatLabel,
+        MatInput,
+        NgIf,
+        NgFor,
+        FormsModule,
+        ReactiveFormsModule,
+        SaveButtonComponent,
+    ],
+    templateUrl: './add-edit-currency.component.html',
+    styleUrl: './add-edit-currency.component.scss',
+    animations: [fadeIn]
 })
 export class AddEditCurrencyComponent implements OnInit {
   @Input() currency: Currency;

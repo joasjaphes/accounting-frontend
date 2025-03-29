@@ -11,17 +11,16 @@ import * as financialPeriodSelector from '../../../store/financial-period/financ
 import { AddEditFinancialPeriodComponent } from './add-edit-financial-period/add-edit-financial-period.component';
 
 @Component({
-  selector: 'app-financial-period',
-  standalone: true,
-  imports: [
-    PageLayoutComponent,
-    DataTableComponent,
-    AsyncPipe,
-    NgIf,
-    AddEditFinancialPeriodComponent
- ],
-  templateUrl: './financial-period.component.html',
-  styleUrl: './financial-period.component.scss',
+    selector: 'app-financial-period',
+    imports: [
+        PageLayoutComponent,
+        DataTableComponent,
+        AsyncPipe,
+        NgIf,
+        AddEditFinancialPeriodComponent
+    ],
+    templateUrl: './financial-period.component.html',
+    styleUrl: './financial-period.component.scss'
 })
 export class FinancialPeriodComponent implements OnInit {
   financialPeriods$: Observable<FinancialPeriod[]>;

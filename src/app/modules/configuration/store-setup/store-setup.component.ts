@@ -14,17 +14,16 @@ import * as storeSelector from '../../../store/store-setup/store-setup.selectors
 import { AddEditStoreComponent } from './add-edit-store/add-edit-store.component';
 
 @Component({
-  selector: 'app-store-setup',
-  standalone: true,
-  imports: [
-    PageLayoutComponent,
-    DataTableComponent,
-    AddEditStoreComponent,
-    AsyncPipe,
-    NgIf,
-  ],
-  templateUrl: './store-setup.component.html',
-  styleUrl: './store-setup.component.scss',
+    selector: 'app-store-setup',
+    imports: [
+        PageLayoutComponent,
+        DataTableComponent,
+        AddEditStoreComponent,
+        AsyncPipe,
+        NgIf,
+    ],
+    templateUrl: './store-setup.component.html',
+    styleUrl: './store-setup.component.scss'
 })
 export class StoreSetupComponent implements OnInit {
   stores$: Observable<StoreSetup[]>;

@@ -10,11 +10,10 @@ import { AsyncPipe } from '@angular/common';
 import { AddEditBinLocationComponent } from './add-edit-bin-location/add-edit-bin-location.component';
 
 @Component({
-  selector: 'app-bin-location',
-  standalone: true,
-  imports: [PageLayoutComponent,DataTableComponent,AsyncPipe,AddEditBinLocationComponent],
-  templateUrl: './bin-location.component.html',
-  styleUrl: './bin-location.component.scss',
+    selector: 'app-bin-location',
+    imports: [PageLayoutComponent, DataTableComponent, AsyncPipe, AddEditBinLocationComponent],
+    templateUrl: './bin-location.component.html',
+    styleUrl: './bin-location.component.scss'
 })
 export class BinLocationComponent implements OnInit {
   binLocations$: Observable<BinLocation[]>;

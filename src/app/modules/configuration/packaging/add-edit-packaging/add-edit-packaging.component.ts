@@ -17,18 +17,17 @@ import { SaveButtonComponent } from '../../../../shared/components/save-button/s
 import { fadeIn } from '../../../../shared/animations';
 
 @Component({
-  selector: 'app-add-edit-packaging',
-  standalone: true,
-  imports: [
-    MatFormFieldModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatInput,
-    SaveButtonComponent,
-  ],
-  templateUrl: './add-edit-packaging.component.html',
-  styleUrl: './add-edit-packaging.component.scss',
-  animations: [fadeIn],
+    selector: 'app-add-edit-packaging',
+    imports: [
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatInput,
+        SaveButtonComponent,
+    ],
+    templateUrl: './add-edit-packaging.component.html',
+    styleUrl: './add-edit-packaging.component.scss',
+    animations: [fadeIn]
 })
 export class AddEditPackagingComponent implements OnInit {
   @Input() packaging: Packaging;

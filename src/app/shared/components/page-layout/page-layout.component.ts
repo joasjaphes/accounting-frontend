@@ -5,12 +5,11 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 
 @Component({
-  selector: 'app-page-layout',
-  templateUrl: './page-layout.component.html',
-  styleUrl: './page-layout.component.css',
-  animations: [tableSize, formSize],
-  standalone:true,
-  imports:[CommonModule, MatCardModule,MatIconModule]
+    selector: 'app-page-layout',
+    templateUrl: './page-layout.component.html',
+    styleUrl: './page-layout.component.css',
+    animations: [tableSize, formSize],
+    imports: [CommonModule, MatCardModule, MatIconModule]
 })
 export class PageLayoutComponent implements OnInit {
   @Input() title = '';

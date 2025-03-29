@@ -18,19 +18,18 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInput } from '@angular/material/input';
 
 @Component({
-  selector: 'app-add-edit-price-categories',
-  standalone: true,
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInput,
-    MatSelectModule,
-    MatCheckboxModule,
-    SaveButtonComponent,
-  ],
-  templateUrl: './add-edit-price-categories.component.html',
-  styleUrl: './add-edit-price-categories.component.scss',
+    selector: 'app-add-edit-price-categories',
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInput,
+        MatSelectModule,
+        MatCheckboxModule,
+        SaveButtonComponent,
+    ],
+    templateUrl: './add-edit-price-categories.component.html',
+    styleUrl: './add-edit-price-categories.component.scss'
 })
 export class AddEditPriceCategoriesComponent implements OnInit {
   @Input() priceCategory: PriceCategory;

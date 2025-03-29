@@ -13,16 +13,15 @@ import { AddEditAccountComponent } from './add-edit-account/add-edit-account.com
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-accounts',
-  standalone: true,
-  imports: [
-    PageLayoutComponent,
-    DataTableComponent,
-    AddEditAccountComponent,
-    AsyncPipe,
-  ],
-  templateUrl: './accounts.component.html',
-  styleUrl: './accounts.component.css',
+    selector: 'app-accounts',
+    imports: [
+        PageLayoutComponent,
+        DataTableComponent,
+        AddEditAccountComponent,
+        AsyncPipe,
+    ],
+    templateUrl: './accounts.component.html',
+    styleUrl: './accounts.component.css'
 })
 export class AccountsComponent implements OnInit {
   tableConfiguration: TableConfiguration = {

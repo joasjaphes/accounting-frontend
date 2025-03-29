@@ -15,17 +15,16 @@ import * as currencySelector from '../../../store/currency/currency.selectors';
 import { AddEditCurrencyComponent } from './add-edit-currency/add-edit-currency.component';
 
 @Component({
-  selector: 'app-currency-setup',
-  standalone: true,
-  imports: [
-    PageLayoutComponent,
-    DataTableComponent,
-    AddEditCurrencyComponent,
-    AsyncPipe,
-    NgIf,
-  ],
-  templateUrl: './currency-setup.component.html',
-  styleUrl: './currency-setup.component.scss',
+    selector: 'app-currency-setup',
+    imports: [
+        PageLayoutComponent,
+        DataTableComponent,
+        AddEditCurrencyComponent,
+        AsyncPipe,
+        NgIf,
+    ],
+    templateUrl: './currency-setup.component.html',
+    styleUrl: './currency-setup.component.scss'
 })
 export class CurrencySetupComponent implements OnInit {
   currencies$: Observable<Currency[]>;

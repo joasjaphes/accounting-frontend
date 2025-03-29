@@ -33,28 +33,27 @@ import { InvoiceService } from '../../../../services/invoice.service';
 import { InvoiceActions } from '../../../../store/invoicing/invoice.actions';
 
 @Component({
-  selector: 'app-add-edit-invoice',
-  standalone: true,
-  imports: [
-    MatFormField,
-    ReactiveFormsModule,
-    MatLabel,
-    MatDatepicker,
-    MatDatepickerModule,
-    FormsModule,
-    MatInput,
-    MatSuffix,
-    MatSelectModule,
-    SearchAreaComponent,
-    AsyncPipe,
-    MatButton,
-    MatIcon,
-    DecimalPipe,
-    SaveButtonComponent,
-  ],
-  templateUrl: './add-edit-invoice.component.html',
-  styleUrl: './add-edit-invoice.component.scss',
-  animations: [fadeIn],
+    selector: 'app-add-edit-invoice',
+    imports: [
+        MatFormField,
+        ReactiveFormsModule,
+        MatLabel,
+        MatDatepicker,
+        MatDatepickerModule,
+        FormsModule,
+        MatInput,
+        MatSuffix,
+        MatSelectModule,
+        SearchAreaComponent,
+        AsyncPipe,
+        MatButton,
+        MatIcon,
+        DecimalPipe,
+        SaveButtonComponent,
+    ],
+    templateUrl: './add-edit-invoice.component.html',
+    styleUrl: './add-edit-invoice.component.scss',
+    animations: [fadeIn]
 })
 export class AddEditInvoiceComponent implements OnInit {
   @Output() close = new EventEmitter();

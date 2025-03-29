@@ -26,19 +26,18 @@ import { BinLocationActions } from '../store/bin-location/bin-location.action';
 import { PriceCategoryActions } from '../store/price-category/price-category.action';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    MatExpansionModule,
-    MatSidenavModule,
-    RouterModule,
-    NgIf,
-    NgFor,
-    MatIconModule,
-    MatMenuModule,
-  ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+    selector: 'app-home',
+    imports: [
+        MatExpansionModule,
+        MatSidenavModule,
+        RouterModule,
+        NgIf,
+        NgFor,
+        MatIconModule,
+        MatMenuModule,
+    ],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
   constructor(

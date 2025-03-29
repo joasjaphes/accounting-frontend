@@ -36,19 +36,18 @@ export interface Column {
 export type ColumType = 'text' | 'number' | 'date' | 'currency';
 
 @Component({
-  selector: 'app-data-table',
-  templateUrl: './data-table.component.html',
-  styleUrl: './data-table.component.css',
-  standalone: true,
-  imports: [
-    NgIf,
-    NgFor,
-    ReactiveFormsModule,
-    MatTableModule,
-    MatIconModule,
-    DecimalPipe,
-    MatPaginator,
-  ],
+    selector: 'app-data-table',
+    templateUrl: './data-table.component.html',
+    styleUrl: './data-table.component.css',
+    imports: [
+        NgIf,
+        NgFor,
+        ReactiveFormsModule,
+        MatTableModule,
+        MatIconModule,
+        DecimalPipe,
+        MatPaginator,
+    ]
 })
 export class DataTableComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() tableData = [];

@@ -16,18 +16,17 @@ import * as accountSelector from '../../../store/accounts/accounts.selectors';
 import { Account } from '../../../store/accounts/account.model';
 
 @Component({
-  selector: 'app-tax-code',
-  standalone: true,
-  imports: [
-    PageLayoutComponent,
-    DataTableComponent,
-    AddEditCurrencyComponent,
-    AsyncPipe,
-    NgIf,
-    AddEditTaxCodeComponent,
-  ],
-  templateUrl: './tax-code.component.html',
-  styleUrl: './tax-code.component.scss',
+    selector: 'app-tax-code',
+    imports: [
+        PageLayoutComponent,
+        DataTableComponent,
+        AddEditCurrencyComponent,
+        AsyncPipe,
+        NgIf,
+        AddEditTaxCodeComponent,
+    ],
+    templateUrl: './tax-code.component.html',
+    styleUrl: './tax-code.component.scss'
 })
 export class TaxCodeComponent implements OnInit {
   taxCodes$: Observable<TaxCode[]>;
