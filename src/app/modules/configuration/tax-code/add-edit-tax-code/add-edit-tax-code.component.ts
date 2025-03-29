@@ -35,6 +35,7 @@ import { fadeIn } from '../../../../shared/animations';
         MatInput,
     ],
     templateUrl: './add-edit-tax-code.component.html',
+    standalone: true,
     styleUrl: './add-edit-tax-code.component.scss',
     animations: [fadeIn]
 })

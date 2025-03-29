@@ -15,6 +15,7 @@ import { NgFor, NgIf } from '@angular/common';
 @Component({
     selector: 'app-add-edit-account',
     imports: [MatFormFieldModule, MatSelectModule, SaveButtonComponent, ReactiveFormsModule, MatInputModule, NgIf, NgFor],
+    standalone: true,
     templateUrl: './add-edit-account.component.html',
     styleUrl: './add-edit-account.component.css'
 })

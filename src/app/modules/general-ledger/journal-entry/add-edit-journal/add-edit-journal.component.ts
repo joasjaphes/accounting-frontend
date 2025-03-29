@@ -47,6 +47,7 @@ import { JournalEntryActions } from '../../../../store/journal-entry/journal-ent
     ],
     templateUrl: './add-edit-journal.component.html',
     styleUrl: './add-edit-journal.component.scss',
+    standalone: true,
     animations: []
 })
 export class AddEditJournalComponent implements OnInit {

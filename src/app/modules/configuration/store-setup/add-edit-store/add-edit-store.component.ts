@@ -38,6 +38,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     ],
     templateUrl: './add-edit-store.component.html',
     styleUrl: './add-edit-store.component.scss',
+    standalone:true,
     animations: [fadeIn]
 })
 export class AddEditStoreComponent implements OnInit {

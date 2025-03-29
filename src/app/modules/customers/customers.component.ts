@@ -22,6 +22,7 @@ import { AddEditCustomerComponent } from './add-edit-customer/add-edit-customer.
         NgIf,
     ],
     templateUrl: './customers.component.html',
+    standalone: true,
     styleUrl: './customers.component.scss'
 })
 export class CustomersComponent implements OnInit {

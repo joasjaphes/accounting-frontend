@@ -47,7 +47,8 @@ export type ColumType = 'text' | 'number' | 'date' | 'currency';
         MatIconModule,
         DecimalPipe,
         MatPaginator,
-    ]
+    ],
+    standalone: true
 })
 export class DataTableComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() tableData = [];

@@ -17,7 +17,8 @@ import { go } from '../store/router/router.actions';
     selector: 'app-login',
     imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, NgIf],
     templateUrl: './login.component.html',
-    styleUrl: './login.component.scss'
+    styleUrl: './login.component.scss',
+    standalone: true
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
