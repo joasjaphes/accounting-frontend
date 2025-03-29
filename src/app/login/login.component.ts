@@ -8,14 +8,14 @@ import {
 import { UserService } from '../services/user.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { NgIf } from '@angular/common';
+
 import { Store } from '@ngrx/store';
 import { AppState } from '../store';
 import { go } from '../store/router/router.actions';
 
 @Component({
     selector: 'app-login',
-    imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, NgIf],
+    imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule],
     templateUrl: './login.component.html',
     styleUrl: './login.component.scss',
     standalone: true

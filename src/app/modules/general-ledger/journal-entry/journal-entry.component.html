@@ -1,11 +1,13 @@
 <app-page-layout [title]="'Journal Entry'"
-    description="Manage your business journal entry. add, modify and remove journal entries."
-    [viewDetails]="viewDetails" [formTitle]="formTitle" [formDescription]="formDescription" (closeForm)="closeForm()">
-    <ng-container ngProjectAs="main">
-        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="journalEntries$ | async"
-            addButtonText="New journal" (add)="onAdd()"></app-data-table>
-    </ng-container>
-    <ng-container ngProjectAs="form">
-        <app-add-edit-journal *ngIf="viewType === 'add'" (close)="closeForm()"></app-add-edit-journal>
-    </ng-container>
+  description="Manage your business journal entry. add, modify and remove journal entries."
+  [viewDetails]="viewDetails" [formTitle]="formTitle" [formDescription]="formDescription" (closeForm)="closeForm()">
+  <ng-container ngProjectAs="main">
+    <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="journalEntries$ | async"
+    addButtonText="New journal" (add)="onAdd()"></app-data-table>
+  </ng-container>
+  <ng-container ngProjectAs="form">
+    @if (viewType === 'add') {
+      <app-add-edit-journal (close)="closeForm()"></app-add-edit-journal>
+    }
+  </ng-container>
 </app-page-layout>

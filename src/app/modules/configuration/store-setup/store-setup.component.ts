@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
   DataTableComponent,
@@ -16,12 +16,11 @@ import { AddEditStoreComponent } from './add-edit-store/add-edit-store.component
 @Component({
     selector: 'app-store-setup',
     imports: [
-        PageLayoutComponent,
-        DataTableComponent,
-        AddEditStoreComponent,
-        AsyncPipe,
-        NgIf,
-    ],
+    PageLayoutComponent,
+    DataTableComponent,
+    AddEditStoreComponent,
+    AsyncPipe
+],
     templateUrl: './store-setup.component.html',
     styleUrl: './store-setup.component.scss'
 })

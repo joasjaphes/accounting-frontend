@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { DataTableComponent, TableConfiguration } from '../../../shared/components/data-table/data-table.component';
 import { PageLayoutComponent } from '../../../shared/components/page-layout/page-layout.component';
@@ -13,12 +13,11 @@ import { AddEditFinancialPeriodComponent } from './add-edit-financial-period/add
 @Component({
     selector: 'app-financial-period',
     imports: [
-        PageLayoutComponent,
-        DataTableComponent,
-        AsyncPipe,
-        NgIf,
-        AddEditFinancialPeriodComponent
-    ],
+    PageLayoutComponent,
+    DataTableComponent,
+    AsyncPipe,
+    AddEditFinancialPeriodComponent
+],
     templateUrl: './financial-period.component.html',
     styleUrl: './financial-period.component.scss'
 })

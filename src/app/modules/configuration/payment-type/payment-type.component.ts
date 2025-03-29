@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AddEditPaymentTypeComponent } from './add-edit-payment-type/add-edit-payment-type.component';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { DataTableComponent, TableConfiguration } from '../../../shared/components/data-table/data-table.component';
 import { PageLayoutComponent } from '../../../shared/components/page-layout/page-layout.component';
 import { AddEditCurrencyComponent } from '../currency-setup/add-edit-currency/add-edit-currency.component';
@@ -15,12 +15,11 @@ import { PaymentType } from '../../../store/payment-type/payment-type.model';
 @Component({
     selector: 'app-payment-type',
     imports: [
-        PageLayoutComponent,
-        DataTableComponent,
-        AsyncPipe,
-        NgIf,
-        AddEditPaymentTypeComponent,
-    ],
+    PageLayoutComponent,
+    DataTableComponent,
+    AsyncPipe,
+    AddEditPaymentTypeComponent
+],
     templateUrl: './payment-type.component.html',
     styleUrl: './payment-type.component.scss'
 })

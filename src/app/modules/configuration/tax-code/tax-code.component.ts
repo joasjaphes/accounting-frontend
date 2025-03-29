@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
   DataTableComponent,
@@ -18,13 +18,12 @@ import { Account } from '../../../store/accounts/account.model';
 @Component({
     selector: 'app-tax-code',
     imports: [
-        PageLayoutComponent,
-        DataTableComponent,
-        AddEditCurrencyComponent,
-        AsyncPipe,
-        NgIf,
-        AddEditTaxCodeComponent,
-    ],
+    PageLayoutComponent,
+    DataTableComponent,
+    AddEditCurrencyComponent,
+    AsyncPipe,
+    AddEditTaxCodeComponent
+],
     templateUrl: './tax-code.component.html',
     styleUrl: './tax-code.component.scss'
 })

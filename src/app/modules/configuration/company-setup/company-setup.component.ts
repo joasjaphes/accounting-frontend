@@ -3,7 +3,7 @@ import { PageLayoutComponent } from '../../../shared/components/page-layout/page
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientService } from '../../../services/http-client.service';
 import { firstValueFrom } from 'rxjs';
@@ -14,17 +14,16 @@ import { SaveButtonComponent } from '../../../shared/components/save-button/save
 @Component({
     selector: 'app-company-setup',
     imports: [
-        CommonModule,
-        PageLayoutComponent,
-        MatFormField,
-        MatInput,
-        ReactiveFormsModule,
-        FormsModule,
-        MatLabel,
-        MatSelectModule,
-        MatCheckboxModule,
-        SaveButtonComponent,
-    ],
+    PageLayoutComponent,
+    MatFormField,
+    MatInput,
+    ReactiveFormsModule,
+    FormsModule,
+    MatLabel,
+    MatSelectModule,
+    MatCheckboxModule,
+    SaveButtonComponent
+],
     templateUrl: './company-setup.component.html',
     styleUrl: './company-setup.component.scss'
 })

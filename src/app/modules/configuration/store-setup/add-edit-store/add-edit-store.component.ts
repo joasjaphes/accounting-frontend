@@ -1,4 +1,4 @@
-import { NgIf, NgFor } from '@angular/common';
+
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
@@ -26,16 +26,14 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 @Component({
     selector: 'app-add-edit-store',
     imports: [
-        MatFormField,
-        MatLabel,
-        MatInput,
-        NgIf,
-        NgFor,
-        FormsModule,
-        ReactiveFormsModule,
-        SaveButtonComponent,
-        MatCheckboxModule,
-    ],
+    MatFormField,
+    MatLabel,
+    MatInput,
+    FormsModule,
+    ReactiveFormsModule,
+    SaveButtonComponent,
+    MatCheckboxModule
+],
     templateUrl: './add-edit-store.component.html',
     styleUrl: './add-edit-store.component.scss',
     standalone:true,

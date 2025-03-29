@@ -1,11 +1,15 @@
 <app-page-layout title="Stores" description="Manage your stores. Add, update or remove store"
-    [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
-    <ng-container ngProjectAs="main">
-        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="stores$ | async"
-            addButtonText="New store" (add)="addStore()" (update)="updateStore($event)"></app-data-table>
-    </ng-container>
-    <ng-container ngProjectAs="form">
-        <app-add-edit-store *ngIf="viewType === 'add'" (close)="closeForm()"></app-add-edit-store>
-        <app-add-edit-store *ngIf="viewType === 'update'" (close)="closeForm()" [storeSetup]="currentStore"></app-add-edit-store>
-    </ng-container>
+  [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
+  <ng-container ngProjectAs="main">
+    <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="stores$ | async"
+    addButtonText="New store" (add)="addStore()" (update)="updateStore($event)"></app-data-table>
+  </ng-container>
+  <ng-container ngProjectAs="form">
+    @if (viewType === 'add') {
+      <app-add-edit-store (close)="closeForm()"></app-add-edit-store>
+    }
+    @if (viewType === 'update') {
+      <app-add-edit-store (close)="closeForm()" [storeSetup]="currentStore"></app-add-edit-store>
+    }
+  </ng-container>
 </app-page-layout>

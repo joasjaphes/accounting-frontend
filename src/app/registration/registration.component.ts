@@ -10,14 +10,15 @@ import {
 import { RegistrationService } from '../services/registration.service';
 import { CommonService } from '../services/common.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { NgIf } from '@angular/common';
+
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-    selector: 'app-registration',
-    imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, NgIf],
-    templateUrl: './registration.component.html',
-    styleUrl: './registration.component.scss'
+  selector: 'app-registration',
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule],
+  templateUrl: './registration.component.html',
+  styleUrl: './registration.component.scss',
+  standalone: true,
 })
 export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup;
@@ -75,13 +76,10 @@ export class RegistrationComponent implements OnInit {
       };
       await this.registrationService.registerCompany(companyPayload);
       await this.registrationService.registerUser(userPayload);
-      // simulate a network request that takes 5 seconds
-      setTimeout(() => {
-        this.savingData = false;
-        this.router.navigate(['login']);
-        console.log(data);
-      }, 5000);
+      this.savingData = false;
+      this.router.navigate(['login']);
     } catch (e) {
+      this.savingData = false;
       console.error(e);
     }
   }

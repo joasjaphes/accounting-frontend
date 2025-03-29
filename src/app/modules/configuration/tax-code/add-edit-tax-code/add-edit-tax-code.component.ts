@@ -1,4 +1,4 @@
-import { NgIf, NgFor } from '@angular/common';
+
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
@@ -23,17 +23,15 @@ import { fadeIn } from '../../../../shared/animations';
 @Component({
     selector: 'app-add-edit-tax-code',
     imports: [
-        MatFormField,
-        MatLabel,
-        MatInput,
-        NgIf,
-        NgFor,
-        FormsModule,
-        ReactiveFormsModule,
-        SaveButtonComponent,
-        MatSelectModule,
-        MatInput,
-    ],
+    MatFormField,
+    MatLabel,
+    MatInput,
+    FormsModule,
+    ReactiveFormsModule,
+    SaveButtonComponent,
+    MatSelectModule,
+    MatInput
+],
     templateUrl: './add-edit-tax-code.component.html',
     standalone: true,
     styleUrl: './add-edit-tax-code.component.scss',

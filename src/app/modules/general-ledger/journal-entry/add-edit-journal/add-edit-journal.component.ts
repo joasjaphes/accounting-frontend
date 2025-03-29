@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AsyncPipe, CommonModule, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import {
   MatFormField,
   MatLabel,
@@ -29,22 +29,20 @@ import { JournalEntryActions } from '../../../../store/journal-entry/journal-ent
 @Component({
     selector: 'app-add-edit-journal',
     imports: [
-        MatFormField,
-        MatInput,
-        MatDatepickerModule,
-        MatIcon,
-        MatSelect,
-        MatOption,
-        FormsModule,
-        ReactiveFormsModule,
-        MatSuffix,
-        MatLabel,
-        MatButton,
-        NgIf,
-        NgFor,
-        AsyncPipe,
-        SaveButtonComponent,
-    ],
+    MatFormField,
+    MatInput,
+    MatDatepickerModule,
+    MatIcon,
+    MatSelect,
+    MatOption,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSuffix,
+    MatLabel,
+    MatButton,
+    AsyncPipe,
+    SaveButtonComponent
+],
     templateUrl: './add-edit-journal.component.html',
     styleUrl: './add-edit-journal.component.scss',
     standalone: true,

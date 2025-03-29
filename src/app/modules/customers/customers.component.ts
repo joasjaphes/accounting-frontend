@@ -9,18 +9,17 @@ import {
   DataTableComponent,
   TableConfiguration,
 } from '../../shared/components/data-table/data-table.component';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { AddEditCustomerComponent } from './add-edit-customer/add-edit-customer.component';
 
 @Component({
     selector: 'app-customers',
     imports: [
-        PageLayoutComponent,
-        DataTableComponent,
-        AddEditCustomerComponent,
-        AsyncPipe,
-        NgIf,
-    ],
+    PageLayoutComponent,
+    DataTableComponent,
+    AddEditCustomerComponent,
+    AsyncPipe
+],
     templateUrl: './customers.component.html',
     standalone: true,
     styleUrl: './customers.component.scss'

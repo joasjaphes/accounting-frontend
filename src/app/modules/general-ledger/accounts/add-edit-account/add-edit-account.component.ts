@@ -10,11 +10,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { SaveButtonComponent } from '../../../../shared/components/save-button/save-button.component';
 import { MatInputModule } from '@angular/material/input';
-import { NgFor, NgIf } from '@angular/common';
+
 
 @Component({
     selector: 'app-add-edit-account',
-    imports: [MatFormFieldModule, MatSelectModule, SaveButtonComponent, ReactiveFormsModule, MatInputModule, NgIf, NgFor],
+    imports: [MatFormFieldModule, MatSelectModule, SaveButtonComponent, ReactiveFormsModule, MatInputModule],
     standalone: true,
     templateUrl: './add-edit-account.component.html',
     styleUrl: './add-edit-account.component.css'

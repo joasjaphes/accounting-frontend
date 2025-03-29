@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { formSize, tableSize } from '../../animations';
-import { CommonModule } from '@angular/common';
+
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 
@@ -9,7 +9,7 @@ import {MatIconModule} from '@angular/material/icon';
     templateUrl: './page-layout.component.html',
     styleUrl: './page-layout.component.css',
     animations: [tableSize, formSize],
-    imports: [CommonModule, MatCardModule, MatIconModule]
+    imports: [MatCardModule, MatIconModule]
 })
 export class PageLayoutComponent implements OnInit {
   @Input() title = '';

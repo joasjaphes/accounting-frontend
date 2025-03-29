@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
@@ -21,15 +21,13 @@ import { CustomerService } from '../../../services/customer.service';
 @Component({
     selector: 'app-add-edit-customer',
     imports: [
-        MatFormField,
-        MatLabel,
-        MatInput,
-        NgIf,
-        NgFor,
-        FormsModule,
-        ReactiveFormsModule,
-        SaveButtonComponent,
-    ],
+    MatFormField,
+    MatLabel,
+    MatInput,
+    FormsModule,
+    ReactiveFormsModule,
+    SaveButtonComponent
+],
     templateUrl: './add-edit-customer.component.html',
     styleUrl: './add-edit-customer.component.scss',
     standalone: true,

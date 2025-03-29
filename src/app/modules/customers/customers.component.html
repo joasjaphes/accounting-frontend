@@ -1,10 +1,12 @@
 <app-page-layout title="Customers" description="Manage your customers. Add, update or remove customers"
-    [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
-    <ng-container ngProjectAs="main">
-        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="customers$ | async"
-            addButtonText="New customer" (add)="addCustomer()"></app-data-table>
-    </ng-container>
-    <ng-container ngProjectAs="form">
-        <app-add-edit-customer *ngIf="viewType === 'add'" (close)="closeForm()"></app-add-edit-customer>
-    </ng-container>
+  [viewDetails]="viewDetails" [formTitle]="formTitle" (closeForm)="closeForm()">
+  <ng-container ngProjectAs="main">
+    <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="customers$ | async"
+    addButtonText="New customer" (add)="addCustomer()"></app-data-table>
+  </ng-container>
+  <ng-container ngProjectAs="form">
+    @if (viewType === 'add') {
+      <app-add-edit-customer (close)="closeForm()"></app-add-edit-customer>
+    }
+  </ng-container>
 </app-page-layout>

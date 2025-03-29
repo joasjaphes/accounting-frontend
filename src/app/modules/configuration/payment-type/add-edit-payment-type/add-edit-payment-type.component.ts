@@ -1,4 +1,4 @@
-import { NgIf, NgFor } from '@angular/common';
+
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
@@ -26,17 +26,16 @@ import { MatCheckbox } from '@angular/material/checkbox';
 @Component({
     selector: 'app-add-edit-payment-type',
     imports: [
-        MatFormField,
-        MatLabel,
-        MatInput,
-        NgIf,
-        FormsModule,
-        ReactiveFormsModule,
-        SaveButtonComponent,
-        MatSelectModule,
-        MatInput,
-        MatCheckbox
-    ],
+    MatFormField,
+    MatLabel,
+    MatInput,
+    FormsModule,
+    ReactiveFormsModule,
+    SaveButtonComponent,
+    MatSelectModule,
+    MatInput,
+    MatCheckbox
+],
     templateUrl: './add-edit-payment-type.component.html',
     styleUrl: './add-edit-payment-type.component.scss',
     animations: [fadeIn]

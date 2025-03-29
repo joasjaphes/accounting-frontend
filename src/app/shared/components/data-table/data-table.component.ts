@@ -1,4 +1,4 @@
-import { DecimalPipe, NgFor, NgIf } from '@angular/common';
+import { DecimalPipe } from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -40,14 +40,12 @@ export type ColumType = 'text' | 'number' | 'date' | 'currency';
     templateUrl: './data-table.component.html',
     styleUrl: './data-table.component.css',
     imports: [
-        NgIf,
-        NgFor,
-        ReactiveFormsModule,
-        MatTableModule,
-        MatIconModule,
-        DecimalPipe,
-        MatPaginator,
-    ],
+    ReactiveFormsModule,
+    MatTableModule,
+    MatIconModule,
+    DecimalPipe,
+    MatPaginator
+],
     standalone: true
 })
 export class DataTableComponent implements OnInit, OnChanges, AfterViewInit {

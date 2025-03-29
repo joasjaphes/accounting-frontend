@@ -5,7 +5,7 @@ import {
   TableConfiguration,
 } from '../../../shared/components/data-table/data-table.component';
 import { AddEditJournalComponent } from './add-edit-journal/add-edit-journal.component';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../../store';
 import { Observable } from 'rxjs';
@@ -15,12 +15,11 @@ import * as journalSelector from '../../../store/journal-entry/journal-entry.sel
 @Component({
     selector: 'app-journal-entry',
     imports: [
-        PageLayoutComponent,
-        DataTableComponent,
-        AddEditJournalComponent,
-        NgIf,
-        AsyncPipe,
-    ],
+    PageLayoutComponent,
+    DataTableComponent,
+    AddEditJournalComponent,
+    AsyncPipe
+],
     templateUrl: './journal-entry.component.html',
     styleUrl: './journal-entry.component.css'
 })

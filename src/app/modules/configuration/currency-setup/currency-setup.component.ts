@@ -1,4 +1,4 @@
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -17,12 +17,11 @@ import { AddEditCurrencyComponent } from './add-edit-currency/add-edit-currency.
 @Component({
     selector: 'app-currency-setup',
     imports: [
-        PageLayoutComponent,
-        DataTableComponent,
-        AddEditCurrencyComponent,
-        AsyncPipe,
-        NgIf,
-    ],
+    PageLayoutComponent,
+    DataTableComponent,
+    AddEditCurrencyComponent,
+    AsyncPipe
+],
     templateUrl: './currency-setup.component.html',
     styleUrl: './currency-setup.component.scss'
 })

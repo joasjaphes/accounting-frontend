@@ -1,4 +1,4 @@
-import { NgIf, NgFor } from '@angular/common';
+
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
@@ -24,15 +24,13 @@ import { fadeIn } from '../../../../shared/animations';
 @Component({
     selector: 'app-add-edit-currency',
     imports: [
-        MatFormField,
-        MatLabel,
-        MatInput,
-        NgIf,
-        NgFor,
-        FormsModule,
-        ReactiveFormsModule,
-        SaveButtonComponent,
-    ],
+    MatFormField,
+    MatLabel,
+    MatInput,
+    FormsModule,
+    ReactiveFormsModule,
+    SaveButtonComponent
+],
     templateUrl: './add-edit-currency.component.html',
     styleUrl: './add-edit-currency.component.scss',
     animations: [fadeIn]

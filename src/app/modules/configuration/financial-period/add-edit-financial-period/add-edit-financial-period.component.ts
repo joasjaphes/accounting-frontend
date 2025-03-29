@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
@@ -23,17 +23,16 @@ import { fadeIn } from '../../../../shared/animations';
 @Component({
     selector: 'app-add-edit-financial-period',
     imports: [
-        MatFormField,
-        MatLabel,
-        MatInput,
-        NgIf,
-        FormsModule,
-        ReactiveFormsModule,
-        SaveButtonComponent,
-        MatSelectModule,
-        MatInput,
-        MatDatepickerModule
-    ],
+    MatFormField,
+    MatLabel,
+    MatInput,
+    FormsModule,
+    ReactiveFormsModule,
+    SaveButtonComponent,
+    MatSelectModule,
+    MatInput,
+    MatDatepickerModule
+],
     templateUrl: './add-edit-financial-period.component.html',
     styleUrl: './add-edit-financial-period.component.scss',
     animations: [fadeIn]
