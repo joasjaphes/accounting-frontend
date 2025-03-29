@@ -6,7 +6,8 @@ import { MatProgressBar } from '@angular/material/progress-bar';
     selector: 'app-loader',
     imports: [MatProgressBar, NgIf],
     templateUrl: './loader.component.html',
-    styleUrl: './loader.component.scss'
+    styleUrl: './loader.component.scss',
+    standalone:true
 })
 export class LoaderComponent {
   @Input() loading = false;

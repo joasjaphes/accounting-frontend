@@ -8,6 +8,7 @@ import { fadeIn, fadeInOut } from '../../animations';
     imports: [MatIconModule, NgIf, LoaderComponent],
     templateUrl: './save-button.component.html',
     styleUrl: './save-button.component.css',
+    standalone: true,
     animations: [fadeIn, fadeInOut]
 })
 export class SaveButtonComponent {

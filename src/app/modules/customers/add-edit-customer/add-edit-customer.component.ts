@@ -32,6 +32,7 @@ import { CustomerService } from '../../../services/customer.service';
     ],
     templateUrl: './add-edit-customer.component.html',
     styleUrl: './add-edit-customer.component.scss',
+    standalone: true,
     animations: [fadeIn]
 })
 export class AddEditCustomerComponent implements OnInit {

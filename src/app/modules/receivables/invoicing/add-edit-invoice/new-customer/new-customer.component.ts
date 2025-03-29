@@ -6,7 +6,8 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
     selector: 'app-new-customer',
     imports: [AddEditCustomerComponent, MatDialogModule],
     templateUrl: './new-customer.component.html',
-    styleUrl: './new-customer.component.scss'
+    styleUrl: './new-customer.component.scss',
+    standalone: true
 })
 export class NewCustomerComponent {
   constructor(private dialogRef: MatDialogRef<NewCustomerComponent>) {}

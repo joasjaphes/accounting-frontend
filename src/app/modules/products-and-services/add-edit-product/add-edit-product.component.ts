@@ -34,7 +34,8 @@ import { of } from 'rxjs';
         AsyncPipe,
     ],
     templateUrl: './add-edit-product.component.html',
-    styleUrl: './add-edit-product.component.scss'
+    styleUrl: './add-edit-product.component.scss',
+    standalone: true
 })
 export class AddEditProductComponent implements OnInit {
   productForm: FormGroup;

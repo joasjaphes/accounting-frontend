@@ -8,7 +8,8 @@ import { LoaderComponent } from '../loader/loader.component';
     selector: 'app-file-upload',
     imports: [MatButton, LoaderComponent],
     templateUrl: './file-upload.component.html',
-    styleUrl: './file-upload.component.scss'
+    styleUrl: './file-upload.component.scss',
+    standalone: true
 })
 export class FileUploadComponent {
   fileName: string;
