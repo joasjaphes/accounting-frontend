@@ -35,7 +35,7 @@ import { PriceCategoryActions } from '../store/price-category/price-category.act
     MatMenuModule
 ],
     templateUrl: './home.component.html',
-    styleUrl: './home.component.css'
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
   constructor(

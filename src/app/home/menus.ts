@@ -13,7 +13,7 @@ export const menus: Menu[] = [
     icon: 'home',
     children: [
       {
-        name: 'Accounts',
+        name: 'Chart of accounts',
         id: 'accounts',
         icon: 'account_balance',
         path: 'general-ledger/accounts',
