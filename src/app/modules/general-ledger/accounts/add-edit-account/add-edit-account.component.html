@@ -1,44 +1,62 @@
 <form [formGroup]="accountForm">
-  <div class="w-full">
-    <mat-form-field appearance="outline">
-      <mat-label>Account Name</mat-label>
-      <input matInput formControlName="name" placeholder="Account Name">
-      @if (accountForm.get('name').hasError('required')) {
+  <div class="w-full grid grid-cols-2 gap-4">
+    <div class="w-full">
+      <mat-form-field appearance="outline">
+        <mat-label>Account Name</mat-label>
+        <input matInput formControlName="name" placeholder="Account Name">
+        @if (accountForm.get('name').hasError('required')) {
         <mat-error>
           Account Name is <strong>required</strong>
         </mat-error>
-      }
-    </mat-form-field>
-  </div>
-  <div class="w-full mt-2">
-    <mat-form-field appearance="outline">
-      <mat-label>Description</mat-label>
-      <input matInput formControlName="description" placeholder="Account Description">
-      @if (accountForm.get('description').hasError('required')) {
+        }
+      </mat-form-field>
+    </div>
+    <div class="w-full">
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" placeholder="Account Description">
+        @if (accountForm.get('description').hasError('required')) {
         <mat-error>
           Account Description is <strong>required</strong>
         </mat-error>
-      }
-    </mat-form-field>
-  </div>
-  <div class="w-full mt-2">
-    <mat-form-field appearance="outline">
-      <mat-label>Account Category</mat-label>
-      <mat-select matInput formControlName="category" placeholder="Account Category">
-        @for (category of categories; track category) {
+        }
+      </mat-form-field>
+    </div>
+    <div class="w-full col-span-2">
+      <mat-form-field appearance="outline">
+        <mat-label>Account Category</mat-label>
+        <mat-select matInput formControlName="category" placeholder="Account Category">
+          @for (category of categories; track category) {
           <mat-option [value]="category.value">
             {{category.name}}
           </mat-option>
-        }
-      </mat-select>
-      @if (accountForm.get('category').hasError('required')) {
+          }
+        </mat-select>
+        @if (accountForm.get('category').hasError('required')) {
         <mat-error>
           Account Category is <strong>required</strong>
         </mat-error>
+        }
+      </mat-form-field>
+    </div>
+    @if (accounts?.length) {
+    <div class="w-full col-span-2">
+      <mat-checkbox formControlName="isSubaccount">Is sub account?</mat-checkbox>
+      @if (accountForm.get('isSubaccount').value) {
+      <mat-form-field>
+        <mat-label>Select parent account</mat-label>
+        <mat-select matInput formControlName="parent">
+          @for (account of accounts; track $index) {
+          <mat-option [value]="account.id">{{account.name}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
       }
-    </mat-form-field>
+    </div>
+    }
   </div>
-  <div class="mt-2 w-full">
-    <app-save-button [saveLabel]="'Submit'" [confirmFirst]="true" (save)="onSave()" (cancel)="onCloseForm()"></app-save-button>
+  <div class="mt-4 w-full">
+    <app-save-button [saveLabel]="'Submit'" [confirmFirst]="true" (save)="onSave()"
+      (cancel)="onCloseForm()"></app-save-button>
   </div>
 </form>

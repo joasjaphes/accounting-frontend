@@ -22,3 +22,17 @@ export const selectAccountEntities = createSelector(
 );
 export const selectAccountById = (id: string) =>
   createSelector(selectAccountEntities, (accounts) => accounts[id]);
+
+export const selectRootAccounts = createSelector(
+  selectAllAccounts,
+  (accounts) => {
+    return accounts
+      .filter((account) => !account.parent)
+      .map((account) => {
+        return {
+          ...account,
+          children: accounts.filter((child) => child.parent === account.id),
+        };
+      });
+  }
+);

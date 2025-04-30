@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../../store';
@@ -10,14 +10,21 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { SaveButtonComponent } from '../../../../shared/components/save-button/save-button.component';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
-    selector: 'app-add-edit-account',
-    imports: [MatFormFieldModule, MatSelectModule, SaveButtonComponent, ReactiveFormsModule, MatInputModule],
-    standalone: true,
-    templateUrl: './add-edit-account.component.html',
-    styleUrl: './add-edit-account.component.css'
+  selector: 'app-add-edit-account',
+  imports: [
+    MatFormFieldModule,
+    MatSelectModule,
+    SaveButtonComponent,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatCheckboxModule,
+  ],
+  standalone: true,
+  templateUrl: './add-edit-account.component.html',
+  styleUrl: './add-edit-account.component.css',
 })
 export class AddEditAccountComponent implements OnInit {
   accountForm: FormGroup;
@@ -43,6 +50,7 @@ export class AddEditAccountComponent implements OnInit {
       value: 'EXPENSE',
     },
   ];
+  @Input() accounts: Account[];
   @Output() closeForm = new EventEmitter();
   constructor(
     private formBuilder: FormBuilder,
@@ -60,6 +68,8 @@ export class AddEditAccountComponent implements OnInit {
       name: '',
       description: '',
       category: '',
+      isSubaccount: [false],
+      parent: [''],
     });
   }
 
@@ -81,5 +91,6 @@ export class AddEditAccountComponent implements OnInit {
 
   onCloseForm() {
     this.closeForm.emit();
+    this.accountForm.reset();
   }
 }

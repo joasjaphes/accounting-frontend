@@ -3,4 +3,6 @@ export interface Account {
     name: string;
     description: string;
     category: string;
+    parent?:string;
+    children?: Account[];
 }

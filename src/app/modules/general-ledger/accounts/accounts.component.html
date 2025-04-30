@@ -2,10 +2,75 @@
     description="Manage your business chart of accounts. Create, modify and deactivate accounts."
     [viewDetails]="viewDetails" [formTitle]="formTitle" [formDescription]="formDescription" (closeForm)="closeForm()">
     <ng-container ngProjectAs="main">
-        <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="accounts$ | async" [showAddButton]="!viewDetails"
-            addButtonText="New account" (add)="addAccount()"></app-data-table>
+        <!-- <app-data-table [tableConfiguration]="tableConfiguration" [tableData]="accounts$ | async"
+            [showAddButton]="!viewDetails" addButtonText="New account" (add)="addAccount()"></app-data-table> -->
+        <div class="w-full">
+
+            <div class="flex justify-end items-center mb-2">
+                @if (!viewDetails) {
+                <button (click)="addAccount()" class="bg-primaryColor font-bold text-white px-4 py-2 rounded">
+                    New account
+                </button>
+                }
+            </div>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Account name
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Account type
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Account description
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (account of rootAccounts$ | async; track $index) {
+                        <tr class="bg-white border-b border-gray-200 hover:bg-gray-400 cursor-pointer">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap font-black">
+                                {{account.name}}
+                            </th>
+                            <td class="px-6 py-4">
+                                {{account.category}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{account.description}}
+                            </td>
+                            <td class="flex items-center px-6 py-4">
+                            </td>
+                        </tr>
+                        @if (account.children?.length) {
+                        @for (child of account.children; track $index) {
+                        <tr class="bg-white border-b border-gray-200 hover:bg-gray-400 cursor-pointer">
+                            <th scope="row" class="pl-12 pr-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                {{child.name}}
+                            </th>
+                            <td class="px-6 py-4">
+                                {{child.category}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{child.description}}
+                            </td>
+                            <td class="flex items-center px-6 py-4">
+                            </td>
+                        </tr>
+                        }
+                        }
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </ng-container>
     <ng-container ngProjectAs="form">
-        <app-add-edit-account (closeForm)="closeForm()"></app-add-edit-account>
+        <app-add-edit-account (closeForm)="closeForm()" [accounts]="accounts$ | async"></app-add-edit-account>
     </ng-container>
 </app-page-layout>

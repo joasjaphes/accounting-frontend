@@ -48,10 +48,12 @@ export class AccountsComponent implements OnInit {
   formTitle = 'Add Account';
   formDescription = 'Add a new account';
   accounts$: Observable<Account[]>;
+  rootAccounts$: Observable<Account[]>;
   constructor(private store: Store<AppState>) {}
   ngOnInit(): void {
     console.log('AccountsComponent initialized');
     this.accounts$ = this.store.select(accountSelectors.selectAllAccounts);
+    this.rootAccounts$ = this.store.select(accountSelectors.selectRootAccounts);
   }
 
   addAccount() {
